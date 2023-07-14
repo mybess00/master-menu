@@ -32,7 +32,7 @@ export default function Menu ({ params }) {
         <section>
           {categories.map((element) => {
             const aa = Object.getOwnPropertyDescriptor(Config, element.id)
-              return  <Category title={element.name} id={element.id}>
+              return  <Category title={element.name} id={element.id} key={element.id}>
                         {Config[element.id].map((element) => {
                           if (element.available){                      
                             if (element.offer) {
