@@ -1,10 +1,18 @@
+'use client'
+
+import { useRouter } from "next/navigation"
+
 export default function Category ({ title, id, children }) {
+
+  const router = useRouter()
+  const link = router.asPath
+
   return (
-    <div className="main-container-category" id={id} key={id}>
+    <a className="main-container-category" id={id} href={`${link}/${id}`}>
       <div className="shape-category">{title}</div>
       <div className="category-container"> 
         {children}
       </div>
-    </div>
+    </a>
   )
 }
