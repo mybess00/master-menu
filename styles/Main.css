@@ -1,0 +1,105 @@
+.main-container-category:not(:first-child) {
+    margin-top: 2.5rem;
+}
+
+.category-container {
+    margin: .5rem .5rem;
+    gap: .5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1.15rem;
+}
+
+.horizontal-divider {
+    width: 100%;
+    border-radius: .5rem;
+    margin: .5rem 0;
+}
+
+.vertical-divider {
+    border-radius: .5rem;
+    margin-right: .35rem;
+}
+
+.shape-not-available {
+    position: absolute;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    color: white;
+    z-index: 10;
+}
+.shape-not-available:after {
+    content: "";
+    position: absolute;
+    left: -20px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-right: 20px solid gray;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+.shape-not-available:before {
+    content: "";
+    position: absolute;
+    right: -20px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid gray;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+
+.shape-offer {
+    position: absolute;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    background-color: red;
+    color: white;
+    z-index: 10;
+    margin-top: .85rem;
+    font-size: .9rem;
+    padding-left: .2rem;
+}
+
+.shape-offer::before {
+    content: "";
+    position: absolute;
+    right: -16px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 16px solid red;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+}
+
+.shape-category {
+    position: relative;
+    height: 50px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    background-color: green;
+    color: white;
+    z-index: 10;
+    padding-left: .85rem;
+    font-size: 1.25rem;
+    box-shadow: 3.5px 5px 10px 0 rgb(0, 0, 0, 0.25);
+}
+
+.shape-category::before {
+    position: absolute;
+    content: "";
+    right: -25px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 25px solid green;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+}

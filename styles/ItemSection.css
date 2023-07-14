@@ -1,0 +1,99 @@
+.container-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: white;
+    border-radius: .75rem;
+    color: black;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 3.5px 5px 10px 0 rgb(0, 0, 0, 0.25);
+}
+
+.image-item {
+    position: relative;
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    overflow: hidden;
+}
+
+.image-not-available {
+    justify-content: center;
+    align-items: center;
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+}
+
+.img-glass::after{
+    content: '';
+    background: rgba(187, 187, 187, 0.61);
+    border-radius: .5rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.body-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.info-item {
+    padding: .25rem .5rem;
+}
+
+.container-title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    margin-top: .5rem;
+}
+
+.description-item {
+    margin-top: .65rem;
+    font-size: .85rem;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: .5rem .5rem .75rem 0;
+
+}
+
+.btn-add-car {
+    padding: .35rem .75rem;
+    background-color: rgb(25, 182, 59);
+    color: black;
+    border-radius: .25rem;
+    border: none;
+    cursor: pointer;
+}
+
+.offer-price {
+    margin-right: .5rem;
+    font-size: .9rem;
+    color: red;
+    text-decoration: line-through;
+}
+
+.not-available {
+    color: white;
+    background-color: gray;
+}
