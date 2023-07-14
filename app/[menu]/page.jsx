@@ -43,7 +43,8 @@ export default function Menu ({ params }) {
                                         image={element.image}
                                         price={element.price}
                                         coin={element.coin}
-                                        offer={element.offer}/>
+                                        offer={element.offer}
+                                        key={element.id}/>
                             }
                             return  <Item
                                       id={element.id}
@@ -51,14 +52,16 @@ export default function Menu ({ params }) {
                                       description={element.description}
                                       image={element.image}
                                       price={element.price}
-                                      coin={element.coin}/>
+                                      coin={element.coin}
+                                      key={element.id}/>
                           }
 
                           return  <ItemSpent
                                     id={element.id}
                                     title={element.title}
                                     description={element.description}
-                                    image={element.image}/>
+                                    image={element.image}
+                                    key={element.id}/>
                         })}
                       </Category>
           })}

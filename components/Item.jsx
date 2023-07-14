@@ -5,7 +5,7 @@ import ButtonAddCar from "./ButtonAddCar"
 export default function Item ({ id, title, description, image, price, coin }) {
 
   return (
-    <div key={id} className="container-item">
+    <div id={id} className="container-item">
       <div className="image-item">
         <img src={image.src} alt={image.alt}/>
       </div>

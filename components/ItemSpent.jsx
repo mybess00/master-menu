@@ -4,7 +4,7 @@ import VerticalDivider from "./VerticalDivider"
 export default function ItemSpent ({ id, title, description, image }) {
 
   return (
-    <div key={id} className="container-item">
+    <div className="container-item" id={id}>
       <div className="image-item image-not-available">
         <div className="shape-not-available">AGOTADO</div>
         <div className="img-glass"></div>
