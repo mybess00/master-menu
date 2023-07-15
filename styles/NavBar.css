@@ -56,7 +56,7 @@
 }
 
 .info-profile-bar h1{
-    font-size: 1.75rem;
+    font-size: 1.35rem;
 }
 
 .badge {
@@ -64,6 +64,7 @@
     padding: .3rem .45rem;
     place-self: center;
     border-radius: .2rem;
+    font-size: 0.75rem;
 }
 
 .open {
@@ -80,7 +81,7 @@
 }
 
 .categories-container h3 {
-    font-size: 1.35rem;
+    font-size: 1rem;
 }
 
 .categories-list-container {
@@ -94,7 +95,7 @@
 .categories-list-container li label {
     width: 100%;
     display: block;
-    font-size: 1.15rem;
+    font-size: 0.85rem;
     padding: .5rem .85rem;
     border-radius: .35rem;
     background-color: rgb(211, 204, 204);
