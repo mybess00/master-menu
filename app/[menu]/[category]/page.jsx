@@ -31,7 +31,6 @@ export default function PageCategory ({ params }) {
                     coin={element.coin}
                     key={element.id}/>
         }
-
         return  <ItemSpent
                   id={element.id}
                   title={element.title}

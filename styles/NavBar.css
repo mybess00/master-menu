@@ -8,4 +8,70 @@
     width: 100vw;
     height: 55px;
     background-color: green;
+    z-index: 20;
+}
+
+.input-toggle-side-bar{
+    display: none;
+}
+
+.input-toggle-side-bar:checked ~ .side-bar{
+    transform: translate(0%);
+}
+
+.input-toggle-side-bar:checked ~ .background-side-bar{
+    visibility: visible;
+    opacity: 1;
+}
+
+.side-bar {
+    background-color: white;
+    width: 80%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    z-index: 15;
+    transition: all 400ms;
+    transform: translateX(102%);
+    padding: 1.25rem .85rem;
+}
+
+.background-side-bar{
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background-color: rgba(48, 48, 48, 0.582);
+    width: 100vw;
+    height: 100vh;
+    z-index: 14;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 250ms;
+}
+
+.info-profile-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.info-profile-bar h1{
+    font-size: 2rem;
+}
+
+.badge {
+    margin-left: .5rem;
+    padding: .3rem .65rem;
+    place-self: center;
+    border-radius: .2rem;
+}
+
+.open {
+    color: white;
+    background-color: green;
+}
+
+.close {
+    color: white;
+    background-color: gray;
 }

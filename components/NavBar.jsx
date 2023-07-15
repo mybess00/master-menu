@@ -1,5 +1,6 @@
 import "../styles/NavBar.css"
 import Config from "../data-menu.json"
+import SideBar from "./SideBar"
 
 export default function NavBar ({ id }) {
   const categories = Config.category
@@ -14,7 +15,8 @@ export default function NavBar ({ id }) {
     <nav className="nav-container">
       <div>X</div>
       <h2>{name}</h2>
-      <div>=</div>
+      <label className="btn-side-bar" for="toggle-side-bar">=</label>
+      <SideBar />
     </nav>
   )
 }

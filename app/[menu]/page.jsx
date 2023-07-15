@@ -15,11 +15,8 @@ export default function Menu ({ params }) {
   const { menu } = params
 
   const categories = Config.category
-
-  const name = 'Fast Bites'
-  const category = 'Restaurante y Comida Rápida'
-  const description = 'Deliciosos sabores en tu puerta. FastBites: comida rápida a domicilio con los mejores ingredientes y atención excepcional'
-    
+  const { name, category, description } = Config.info
+  
   return (
     <div>
       <ProfileImage image={logo.src} alt={`Logo de ${name}`} />
