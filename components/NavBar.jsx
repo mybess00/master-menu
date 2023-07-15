@@ -1,22 +1,13 @@
 import "../styles/NavBar.css"
-import Config from "../data-menu.json"
-import SideBar from "./SideBar"
+import ButtonClose from "./ButtonClose"
 
-export default function NavBar ({ id }) {
-  const categories = Config.category
-
-  const name = categories.map((element) => {
-    if (element.id == id) {
-      return element.name
-    }
-  })
+export default function NavBar ({ title }) {
 
   return (
     <nav className="nav-container">
-      <div>X</div>
-      <h2>{name}</h2>
+      <ButtonClose />
+      <h2>{title}</h2>
       <label className="btn-side-bar" for="toggle-side-bar">=</label>
-      <SideBar />
     </nav>
   )
 }

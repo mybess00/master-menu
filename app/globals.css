@@ -95,6 +95,7 @@ body {
     rgb(var(--background-start-rgb));*/
     background-color: #eeeded;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 a {

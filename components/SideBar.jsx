@@ -9,7 +9,7 @@ import Config from "../data-menu.json"
 export default function SideBar () {
 
   // Bloquear desplazamiento scroll Y al mostrar el SideBar
-  const [ scroll, setScroll ] = useState(true)
+  const [ scroll, setScroll ] = useState(false)
   const toggleSideBar = (e) => {
     setScroll(e.target.checked)
   }
@@ -31,7 +31,7 @@ export default function SideBar () {
       <ProfileBar/>
       <CategoryList categories={Config.category} />
     </nav>
-    <label className="background-side-bar" for="toggle-side-bar"></label>
+    <label className="background-side-bar" htmlFor="toggle-side-bar"></label>
     </>
   )
 }

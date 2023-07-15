@@ -56,12 +56,12 @@
 }
 
 .info-profile-bar h1{
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 
 .badge {
     margin-left: .5rem;
-    padding: .3rem .65rem;
+    padding: .3rem .45rem;
     place-self: center;
     border-radius: .2rem;
 }
@@ -74,4 +74,38 @@
 .close {
     color: white;
     background-color: gray;
+}
+.categories-container {
+    margin-top: 1.5rem;
+}
+
+.categories-container h3 {
+    font-size: 1.35rem;
+}
+
+.categories-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: .85rem;
+    margin-top: 1rem;
+    list-style: none;
+}
+
+.categories-list-container li label {
+    width: 100%;
+    display: block;
+    font-size: 1.15rem;
+    padding: .5rem .85rem;
+    border-radius: .35rem;
+    background-color: rgb(211, 204, 204);
+    transition: all 200ms;
+}
+
+input[name="toggle-categories"] {
+    display: none;
+}
+
+input[name="toggle-categories"]:checked ~ label {
+    background-color: green;
+    color: white;
 }
