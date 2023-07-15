@@ -10,10 +10,10 @@ export default function CategoryList ({ categories }) {
 
   const toLink = (link) => {
     if (!params.category) {
-      router.push(`/${params.menu}/${link}`)
+      router.push(`/${params.menu}/${link}`, { scroll: true })
       return false
     }
-    router.replace(link)
+    router.replace(link, { scroll: true })
     const body = document.querySelector('body')
     body.style.position = ""
     body.style.overflow = ""
