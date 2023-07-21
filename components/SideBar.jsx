@@ -4,10 +4,11 @@ import "../styles/NavBar.css"
 import { useState, useEffect } from "react"
 import ProfileBar from "./sidebar/ProfileBar"
 import CategoryList from "./sidebar/CategoryList"
-import Config from "../data-menu.json"
+import fileJSON from "../data-menu.json"
 
-export default function SideBar () {
+export default function SideBar ({ menu }) {
 
+  const Config = fileJSON[menu]
   // Bloquear desplazamiento scroll Y al mostrar el SideBar
   const [ scroll, setScroll ] = useState(false)
   const toggleSideBar = (e) => {
@@ -28,7 +29,7 @@ export default function SideBar () {
     <>
     <input type="checkbox" name="toggle-side-bar" id="toggle-side-bar" className="input-toggle-side-bar" onChange={toggleSideBar}/>
     <nav className="side-bar">
-      <ProfileBar/>
+      <ProfileBar menu={menu}/>
       <CategoryList categories={Config.category} />
     </nav>
     <label className="background-side-bar" htmlFor="toggle-side-bar"></label>

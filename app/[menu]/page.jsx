@@ -7,13 +7,13 @@ import Category from '../../components/Category'
 import Item from '../../components/Item'
 import ItemSpent from '../../components/ItemSpent'
 import ItemOffer from '../../components/ItemOffer'
-import Config from '../../data-menu.json'
+import fileJSON from '../../data-menu.json'
 
 import logo from "../../public/images/logo.jpg"
 
 export default function Menu ({ params }) {
   const { menu } = params
-
+  const Config = fileJSON[menu]
   const categories = Config.category
   const { name, category, description } = Config.info
   

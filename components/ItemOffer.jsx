@@ -8,7 +8,7 @@ export default function ItemOffer ({ id, title, description, image, price, coin,
     <div id={id} className="container-item">
       <div className="image-item">
         <div className="shape-offer">OFERTA</div>
-        <img src={image.src} alt={image.alt}/>
+        <img src={image.src} alt={image.alt} loading="lazy"/>
       </div>
       <div className="body-item">
         <div className="info-item">

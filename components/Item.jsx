@@ -7,7 +7,7 @@ export default function Item ({ id, title, description, image, price, coin }) {
   return (
     <div id={id} className="container-item">
       <div className="image-item">
-        <img src={image.src} alt={image.alt}/>
+        <img src={image.src} alt={image.alt} loading="lazy"/>
       </div>
       <div className="body-item">
         <div className="info-item">

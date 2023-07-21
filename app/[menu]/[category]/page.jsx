@@ -1,11 +1,12 @@
-import Config from "../../../data-menu.json"
+import fileJSON from "../../../data-menu.json"
 import Item from "../../../components/Item"
 import ItemOffer from "../../../components/ItemOffer"
 import ItemSpent from "../../../components/ItemSpent"
 
 export default function PageCategory ({ params }) {
 
-  const { category } = params 
+  const { menu, category } = params 
+  const Config = fileJSON[menu]
 
   return (
     <section className="category-container">

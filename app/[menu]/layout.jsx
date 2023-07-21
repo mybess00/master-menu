@@ -1,8 +1,15 @@
 import SideBar from '../../components/SideBar'
-export default function LayoutMenu ({ children }) {
+import fileJSON from '../../data-menu.json'
+export default function LayoutMenu ({ children, params }) {
+  const { menu } = params
+  if (!fileJSON[menu]){
+    return  <div>
+              <h1>NO EXISTE EL MENU BUSCADO</h1>
+            </div>
+  }
   return (
     <section>
-      <SideBar />
+      <SideBar menu={menu}/>
       {children}
     </section>
   )

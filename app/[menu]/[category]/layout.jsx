@@ -1,9 +1,10 @@
 import NavBar from "../../../components/NavBar"
-import Config from "../../../data-menu.json"
+import fileJSON from "../../../data-menu.json"
 
 export default function LayoutCategoty ({ children, params }) {
 
-  const { category } = params
+  const { menu, category } = params
+  const Config = fileJSON[menu]
 
   const name = Config["category"].map((element) => {
     if (element.id == category) {

@@ -1,9 +1,10 @@
 import "../../styles/NavBar.css"
 import VerticalDivider from "../VerticalDivider"
-import Config from "../../data-menu.json"
+import fileJSON from "../../data-menu.json"
 
-export default function ProfileBar () {
+export default function ProfileBar ({ menu }) {
 
+  const Config = fileJSON[menu]
   const { info, category } = Config
 
   return (
