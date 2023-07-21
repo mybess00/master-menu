@@ -17,6 +17,7 @@
 
 .input-toggle-side-bar:checked ~ .side-bar{
     transform: translate(0%);
+    display: block;
 }
 
 .input-toggle-side-bar:checked ~ .background-side-bar{
@@ -35,6 +36,7 @@
     transition: all 400ms;
     transform: translateX(102%);
     padding: 1.25rem .85rem;
+    display: none;
 }
 
 .background-side-bar{
