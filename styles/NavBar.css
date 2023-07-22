@@ -112,3 +112,8 @@ input[name="toggle-categories"]:checked ~ label {
     background-color: green;
     color: white;
 }
+
+.active-label {
+    background-color: green;
+    color: white;
+}
