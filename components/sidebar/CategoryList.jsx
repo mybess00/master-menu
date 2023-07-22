@@ -2,7 +2,7 @@
 
 import "../../styles/NavBar.css"
 import { useRouter, useParams } from "next/navigation"
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 
 export default function CategoryList ({ categories }) {
 
@@ -19,8 +19,10 @@ export default function CategoryList ({ categories }) {
   const toLink = (link) => {
     router.replace(link, { scroll: true })
     const body = document.querySelector('body')
+    const sideBarInput = document.querySelector('#toggle-side-bar')
     body.style.position = ""
     body.style.overflow = ""
+    sideBarInput.checked = false
   }
 
   return (
