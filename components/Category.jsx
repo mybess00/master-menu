@@ -3,9 +3,6 @@ import Link from "next/link"
 export default function Category ({ title, id, children, menu }) {
   return (
     <div className="main-container-category" id={id}>
-      {/*<label htmlFor={`toggle-categories-${id}`}  className="shape-category" >
-          {title}
-      </label>*/}
       <Link href={`/${menu}/${id}`} className="shape-category" >
         {title}
       </Link>

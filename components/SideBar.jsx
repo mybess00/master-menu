@@ -10,8 +10,10 @@ export default function SideBar ({ menu }) {
 
   const Config = fileJSON[menu]
   const sideBarRef = useRef(null)
+  const inputSideBarRef = useRef(null)
   // Bloquear desplazamiento scroll Y al mostrar el SideBar
   const [ scroll, setScroll ] = useState(false)
+
   const toggleSideBar = (e) => {
     if (sideBarRef.current) {
       sideBarRef.current.style.display = 'block'
@@ -24,17 +26,22 @@ export default function SideBar ({ menu }) {
       body.style.position = "fixed"
       body.style.overflow = "hidden"
     } else {
-      body.style.position = ""
-      body.style.overflow = ""
+      setTimeout(() => {
+        inputSideBarRef.current.checked = false
+        sideBarRef.current.style = "none"
+        body.style.position = ""
+        body.style.overflow = ""
+        
+      },500)
     }
   }, [scroll])
 
   return (
     <>
-    <input type="checkbox" name="toggle-side-bar" id="toggle-side-bar" className="input-toggle-side-bar" onChange={toggleSideBar}/>
+    <input type="checkbox" name="toggle-side-bar" ref={inputSideBarRef} id="toggle-side-bar" value={scroll} className="input-toggle-side-bar" onChange={toggleSideBar}/>
     <nav className="side-bar" ref={sideBarRef}>
       <ProfileBar menu={menu}/>
-      <CategoryList categories={Config.category} />
+      <CategoryList categories={Config.category} updateInputValue={setScroll}/>
     </nav>
     <label className="background-side-bar" htmlFor="toggle-side-bar"></label>
     </>

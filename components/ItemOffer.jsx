@@ -1,4 +1,5 @@
 import "../styles/ItemSection.css"
+import Image from "next/image"
 import VerticalDivider from "./VerticalDivider"
 import ButtonAddCar from "./ButtonAddCar"
 
@@ -8,7 +9,7 @@ export default function ItemOffer ({ id, title, description, image, price, coin,
     <div id={id} className="container-item">
       <div className="image-item">
         <div className="shape-offer">OFERTA</div>
-        <img src={image.src} alt={image.alt} loading="lazy"/>
+        <Image src={image.src} alt={image.alt} loading="lazy" fill={true}/>
       </div>
       <div className="body-item">
         <div className="info-item">
