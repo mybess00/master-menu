@@ -8,7 +8,7 @@ export default function ItemSpent ({ id, title, description, image }) {
       <div className="image-item image-not-available">
         <div className="shape-not-available">AGOTADO</div>
         <div className="img-glass"></div>
-        <img src={image.src} alt={image.alt} loading="lazy"/>
+        <img src={image.src} alt={image.alt} loading="lazy" placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAEElEQVR42mNkyGaAA0ZKOQBudgKJD8nILAAAAABJRU5ErkJggg=="/>
       </div>
       <div className="body-item">
         <div className="info-item">
