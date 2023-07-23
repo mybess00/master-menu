@@ -17,9 +17,9 @@ export default function PageCategory ({ params }) {
   return (
     <>
     { item && (
-      Config[category].map((element) => {
+      Config[category].map((element, index) => {
         if (element.id == item) {
-          return  <Modal item={element} />
+          return  <Modal item={element} key={index}/>
         }
       })
     )}
