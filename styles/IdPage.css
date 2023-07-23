@@ -1,53 +1,29 @@
-.modal {
-    position: fixed;
-    bottom: 60px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 4px;
-    outline: none;
-    height: fit-content;
-    width: 95%;
-    border: none;
-    box-shadow: 0 0 15px 8px rgba(0, 0, 0, 0.1);
-    background-color: white;
-}
-
-.overlay-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 15;
-}
-
-.main-container-modal  {
+.main-container-id  {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    gap: .25rem;
+    gap: .65rem;
+    margin: 1rem;
 }
 
-.image-container-modal  {
+.image-container-id  {
     position: relative;
     width: 100%;
     height: 12rem;
     display: flex;
+    border-radius: .75rem;
     overflow: hidden;
 }
 
-.item-body-modal  {
+.item-body-id  {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     margin: .5rem .75rem;
-    gap: .35rem;
+    gap: .55rem;
 }
 
-.item-name-modal  {
+.item-name-id  {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -55,23 +31,28 @@
     justify-content: flex-start;
 }
 
-.item-name-modal h1 {
+.item-name-id h1 {
     font-size: 1.25rem;
 }
 
-.item-description-modal p {
+.category-link-id {
+    color: green;
+    font-weight: bold;
+}
+
+.item-description-id p {
     padding: .15rem .45rem;
     font-size: .90rem;
 }
 
-.item-options-modal  {
+.item-options-id  {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     gap: .55rem;
 }
 
-.amount-options-modal  {
+.amount-options-id  {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -80,7 +61,7 @@
     gap: .5rem;
 }
 
-.amount-buttons-modal  {
+.amount-buttons-id  {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -88,7 +69,7 @@
     gap: .55rem;
 }
 
-.button-amount-modal  {
+.button-amount-id  {
     background-color: gray;
     color: white;
     padding: .35rem .75rem;
@@ -97,11 +78,11 @@
     border: none;
 }
 
-.total-price-modal  {
+.total-price-id  {
     margin-top: .05rem;
 }
 
-.buy-options-modal  {
+.buy-options-id  {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -110,7 +91,7 @@
     gap: .5rem;
 }
 
-.btn-buy-modal  {
+.btn-buy-id  {
     padding: .55rem .75rem;
     background-color: rgb(25, 182, 59);
     color: black;
@@ -119,12 +100,12 @@
     cursor: pointer;
 }
 
-.discount-modal  {
+.discount-id  {
     color: red;
     font-size: .9rem;
 }
 
-.badge-offer-modal  {
+.badge-offer-id  {
     margin-left: .5rem;
     padding: .3rem .45rem;
     

@@ -108,7 +108,16 @@ input[name="toggle-categories"] {
     display: none;
 }
 
+input[name="toggle-item-list"] {
+    display: none;
+}
+
 input[name="toggle-categories"]:checked ~ label {
+    background-color: green;
+    color: white;
+}
+
+input[name="toggle-item-list"]:checked ~ label {
     background-color: green;
     color: white;
 }

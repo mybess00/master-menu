@@ -1,4 +1,4 @@
-export default function LayoutItem ({ children }) {
+export default function LayoutId ({ children }) {
   return (
     <div>
       {children}

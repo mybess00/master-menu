@@ -4,18 +4,14 @@ import Modal from "../../../components/Modal"
 
 export default function LayoutCategoty ({ children, params }) {
 
-  const { menu, category } = params
+  const { menu, category, id } = params
   const Config = fileJSON[menu]
 
-  const name = Config["category"].map((element) => {
-    if (element.id == category) {
-      return element.name
-    }
-  })
-
+  const categoryOptions = Config["category"].find(({ id }) => id == category)
+  
   return (
     <>
-    <NavBar title={name}/>
+    <NavBar title={categoryOptions.name}/>
     <div>
       {children}
     </div>

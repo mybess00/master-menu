@@ -1,6 +1,7 @@
 'use client'
 
 import "../../styles/NavBar.css"
+import fileJSON from "../../data-menu.json"
 import { useRouter, useParams } from "next/navigation"
 import { useEffect } from "react"
 
@@ -8,11 +9,15 @@ export default function CategoryList ({ categories, updateInputValue }) {
 
   const router = useRouter()
   const params = useParams()
+  const ItemList = fileJSON[params.menu][params.category]
 
   useEffect(() => {
-    if (params.category) {
-      let a = document.querySelector(`#toggle-categories-${params.category}`)
-      a.checked = true
+    if (params.id) {
+      let inputItem = document.querySelector(`#toggle-item-list-${params.id}`)
+      inputItem.checked = true
+    } else if (params.category) {
+      let inputCategory = document.querySelector(`#toggle-categories-${params.category}`)
+      inputCategory.checked = true
     }
   }, [params])
 
@@ -25,19 +30,29 @@ export default function CategoryList ({ categories, updateInputValue }) {
     updateInputValue(false)
   }
 
+  const categoryList = categories.map((element, index) => {
+    return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${element.id}`}>
+              <input type="radio" name="toggle-categories" id={`toggle-categories-${element.id}`} />
+              <label htmlFor={`toggle-categories-${element.id}`}>
+                {element.name}
+              </label>
+            </li>
+  })
+
   return (
     <div className="categories-container">
-      <h3>Categorías</h3>
+      <h3>{params.id ? 'Productos' : 'Categorías'}</h3>
       <ul className="categories-list-container">
-        {categories.map((element, index) => {
-          return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${element.id}`}>
-                    <input type="radio" name="toggle-categories" id={`toggle-categories-${element.id}`} />
-                    <label htmlFor={`toggle-categories-${element.id}`}>
-                      {element.name}
-                    </label>
-                  </li>
-        })
-        }
+        {!params.id ? categoryList.map(element => element) : (() => {
+          return ItemList.map((element, index) => {
+            return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${element.id}`}>
+                      <input type="radio" name="toggle-item-list" id={`toggle-item-list-${element.id}`} />
+                      <label htmlFor={`toggle-item-list-${element.id}`}>
+                        {element.title}
+                      </label>
+                    </li>
+          })
+        })()}
       </ul>
     </div>
   )
