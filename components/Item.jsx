@@ -4,12 +4,11 @@ import VerticalDivider from "./VerticalDivider"
 import ButtonAddCar from "./ButtonAddCar"
 
 export default function Item ({ id, title, description, image, price, coin }) {
-// npm i plaiceholder @plaiceholder/next sharp
+
   return (
     <div id={id} className="container-item">
       <div className="image-item">
-        
-        <Image src={image.src} alt={image.alt} loading="lazy" fill={true} />
+        <Image src={image.src} alt={image.alt} loading="lazy" fill={true} placeholder="blur" blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkeAoAAOsA57RxdOQAAAAASUVORK5CYII="/>
       </div>
       <div className="body-item">
         <div className="info-item">
