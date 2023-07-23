@@ -58,6 +58,9 @@ export default function PageId ({ params }) {
         Categoría: 
         <Link href={`/${menu}/${category}`} replace={true} className="category-link-id"> {categoryName.name} </Link>
       </div>
+      <div>
+        Precio: {item.price.toFixed(2)} {item.coin}
+      </div>
       <div className="item-description-id">
         <HorizontalDivider color={"gray"} height={2}/>
         <p>{item.description}</p>

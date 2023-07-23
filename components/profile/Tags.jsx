@@ -1,16 +1,21 @@
 import "../../styles/ProfileSection.css"
+import { BsCalendar2DateFill, BsClockFill } from "react-icons/bs"
+import { FaLocationDot } from "react-icons/fa6"
 
 export default function Tags ({ date, hour, address}) {
   return (
-    <div>
+    <div className="tag-container">
       <div>
-        {date}
+        <BsCalendar2DateFill/>
+        <p>{date}</p>
       </div>
       <div>
-        {hour}
+        <BsClockFill/>
+        <p>{hour}</p>
       </div>
       <div>
-        {address}
+        <FaLocationDot/>
+        <p>{address}</p>
       </div>
     </div>
   )

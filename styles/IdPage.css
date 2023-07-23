@@ -4,6 +4,8 @@
     flex-direction: column;
     gap: .65rem;
     margin: 1rem;
+    border-radius: .75rem;
+    background-color: white;
 }
 
 .image-container-id  {
@@ -92,7 +94,7 @@
 }
 
 .btn-buy-id  {
-    padding: .55rem .75rem;
+    padding: .55rem 1.25rem;
     background-color: rgb(25, 182, 59);
     color: black;
     border-radius: .25rem;

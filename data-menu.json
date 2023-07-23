@@ -3,7 +3,13 @@
     "info": {
       "name": "Fast Bites",
       "category": "Restaurante y Comida Rápida",
-      "description": "Deliciosos sabores en tu puerta. FastBites: comida rápida a domicilio con los mejores ingredientes y atención excepcional"
+      "description": "Deliciosos sabores en tu puerta. FastBites: comida rápida a domicilio con los mejores ingredientes y atención excepcional",
+      "social": {
+        "telegram": "https://t.me/link",
+        "whatsapp": "https://wa.me/55555555",
+        "instagram": "https://instagram.com",
+        "facebook": "https://facebook.com"
+      }
     },
   
     "category": [

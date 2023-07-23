@@ -36,3 +36,51 @@
 .container-description {
     padding: .5rem 0;
 }
+
+.tag-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: .5rem;
+    margin-top: .45rem;
+}
+
+.tag-container div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: .35rem;
+}
+
+.tag-container div > :first-child {
+    font-size: 1.2rem;
+    color: green;
+}
+
+.social-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+}
+
+.social-container a {
+    font-size: 1.95rem;
+}
+
+.facebook {
+    color: rgb(31, 31, 179);
+}
+
+.whatsapp {
+    color: rgb(5, 121, 5);
+}
+
+.telegram {
+    color: rgb(10, 102, 207);
+}
+
+.instagram {
+    color: rgb(136, 27, 12);
+}
