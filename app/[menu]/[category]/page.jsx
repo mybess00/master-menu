@@ -1,14 +1,28 @@
+'use client'
+
+import { useSearchParams } from "next/navigation"
 import fileJSON from "../../../data-menu.json"
 import Item from "../../../components/Item"
 import ItemOffer from "../../../components/ItemOffer"
 import ItemSpent from "../../../components/ItemSpent"
+import Modal from "../../../components/Modal"
 
 export default function PageCategory ({ params }) {
 
   const { menu, category } = params 
   const Config = fileJSON[menu]
-
+  const searchParams = useSearchParams()
+  const item = searchParams.get('item')
+  console.log(item)
   return (
+    <>
+    { item && (
+      Config[category].map((element) => {
+        if (element.id == item) {
+          return  <Modal item={element} />
+        }
+      })
+    )}
     <section className="category-container">
       {Config[category].map((element) => {
         if (element.available){                      
@@ -21,6 +35,8 @@ export default function PageCategory ({ params }) {
                       price={element.price}
                       coin={element.coin}
                       offer={element.offer}
+                      baseLink={`/${menu}/${category}/?item=`}
+                      asBaseLink={`/${menu}/${category}/`}
                       key={element.id}/>
           }
           return  <Item
@@ -30,6 +46,8 @@ export default function PageCategory ({ params }) {
                     image={element.image}
                     price={element.price}
                     coin={element.coin}
+                    baseLink={`/${menu}/${category}/?item=`}
+                    asBaseLink={`/${menu}/${category}/`}
                     key={element.id}/>
         }
         return  <ItemSpent
@@ -40,5 +58,6 @@ export default function PageCategory ({ params }) {
                   key={element.id}/>
       })}
     </section>
+    </>
   )
 }

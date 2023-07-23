@@ -1,0 +1,135 @@
+.modal {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 4px;
+    outline: none;
+    height: fit-content;
+    width: 95%;
+    border: none;
+    box-shadow: 0 0 15px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.overlay-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 15;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 12rem;
+    display: flex;
+    overflow: hidden;
+}
+
+.item-body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: .5rem .75rem;
+    gap: .35rem;
+}
+
+.item-name {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.item-name h1 {
+    font-size: 1.25rem;
+}
+
+.item-description p {
+    padding: .15rem .45rem;
+    font-size: .90rem;
+}
+
+.item-options {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: .55rem;
+}
+
+.amount-options {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .5rem;
+}
+
+.amount-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    gap: .55rem;
+}
+
+.button-amount {
+    background-color: gray;
+    color: white;
+    padding: .35rem .75rem;
+    border-radius: .25rem;
+    text-align: center;
+    border: none;
+}
+
+.total-price {
+    margin-top: .05rem;
+}
+
+.buy-options {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .5rem;
+}
+
+.btn-buy {
+    padding: .55rem .75rem;
+    background-color: rgb(25, 182, 59);
+    color: black;
+    border-radius: .25rem;
+    border: none;
+    cursor: pointer;
+}
+
+.discount {
+    color: red;
+    font-size: .9rem;
+}
+
+.badge-offer {
+    margin-left: .5rem;
+    padding: .3rem .45rem;
+    
+    border-radius: .2rem;
+    font-size: .8rem;
+    background-color: red;
+    color: white;
+}

@@ -28,37 +28,40 @@ export default function Menu ({ params }) {
         </div>
         <section>
           {categories.map((element) => {
-            const aa = Object.getOwnPropertyDescriptor(Config, element.id)
               return  <Category title={element.name} id={element.id} key={element.id} menu={menu}>
-                        {Config[element.id].map((element) => {
-                          if (element.available){                      
-                            if (element.offer) {
+                        {Config[element.id].map((item) => {
+                          if (item.available){                      
+                            if (item.offer) {
                               return  <ItemOffer
-                                        id={element.id}
-                                        title={element.title}
-                                        description={element.description}
-                                        image={element.image}
-                                        price={element.price}
-                                        coin={element.coin}
-                                        offer={element.offer}
-                                        key={element.id}/>
+                                        id={item.id}
+                                        title={item.title}
+                                        description={item.description}
+                                        image={item.image}
+                                        price={item.price}
+                                        coin={item.coin}
+                                        offer={item.offer}
+                                        baseLink={`/${menu}/${element.id}/`}
+                                        asBaseLink={`/${menu}/${element.id}/`}
+                                        key={item.id}/>
                             }
                             return  <Item
-                                      id={element.id}
-                                      title={element.title}
-                                      description={element.description}
-                                      image={element.image}
-                                      price={element.price}
-                                      coin={element.coin}
-                                      key={element.id}/>
+                                      id={item.id}
+                                      title={item.title}
+                                      description={item.description}
+                                      image={item.image}
+                                      price={item.price}
+                                      coin={item.coin}
+                                      baseLink={`/${menu}/${element.id}/`}
+                                      asBaseLink={`/${menu}/${element.id}/`}
+                                      key={item.id}/>
                           }
 
                           return  <ItemSpent
-                                    id={element.id}
-                                    title={element.title}
-                                    description={element.description}
-                                    image={element.image}
-                                    key={element.id}/>
+                                    id={item.id}
+                                    title={item.title}
+                                    description={item.description}
+                                    image={item.image}
+                                    key={item.id}/>
                         })}
                       </Category>
           })}
