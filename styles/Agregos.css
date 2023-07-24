@@ -1,0 +1,18 @@
+.main-container-agregos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: .35rem;
+    background-color: white;
+    margin: 1rem;
+    border-radius: .75rem;
+    padding: .85rem .6rem;
+}
+
+.title-agregos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0 .5rem;
+}

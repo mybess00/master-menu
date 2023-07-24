@@ -41,7 +41,13 @@
             "alt": "foto de item"
         },
         "price": 550.00,
-        "coin": "CUP"
+        "coin": "CUP",
+        "agregos": [
+          { "name": "Extra Queso", "price": 50.00 },
+          { "name": "Extra Jamón", "price": 80.00 },
+          { "name": "Extra Ensalada", "price": 30.00 },
+          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+        ]
       },
       {
         "available": true,
@@ -53,7 +59,13 @@
             "alt": "foto de item"
         },
         "price": 800.00,
-        "coin": "CUP"
+        "coin": "CUP",
+        "agregos": [
+          { "name": "Extra Queso", "price": 50.00 },
+          { "name": "Extra Jamón", "price": 80.00 },
+          { "name": "Extra Ensalada", "price": 30.00 },
+          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+        ]
       }
     ],
     "burger": [
@@ -68,7 +80,13 @@
         },
         "price": 850.00,
         "coin": "CUP",
-        "offer": 650.00
+        "offer": 650.00,
+        "agregos": [
+          { "name": "Extra Queso", "price": 50.00 },
+          { "name": "Extra Jamón", "price": 80.00 },
+          { "name": "Extra Ensalada", "price": 30.00 },
+          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+        ]
       },
       {
         "available": true,
@@ -80,7 +98,13 @@
             "alt": "foto de item"
         },
         "price": 170.00,
-        "coin": "CUP"
+        "coin": "CUP",
+        "agregos": [
+          { "name": "Extra Queso", "price": 50.00 },
+          { "name": "Extra Jamón", "price": 80.00 },
+          { "name": "Extra Ensalada", "price": 30.00 },
+          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+        ]
       },
       {
         "available": true,
@@ -92,7 +116,13 @@
             "alt": "foto de item"
         },
         "price": 1000.00,
-        "coin": "CUP"
+        "coin": "CUP",
+        "agregos": [
+          { "name": "Extra Queso", "price": 50.00 },
+          { "name": "Extra Jamón", "price": 80.00 },
+          { "name": "Extra Ensalada", "price": 30.00 },
+          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+        ]
       },
       {
         "available": true,
@@ -104,7 +134,13 @@
             "alt": "foto de item"
         },
         "price": 2550.00,
-        "coin": "CUP"
+        "coin": "CUP",
+        "agregos": [
+          { "name": "Extra Queso", "price": 50.00 },
+          { "name": "Extra Jamón", "price": 80.00 },
+          { "name": "Extra Ensalada", "price": 30.00 },
+          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+        ]
       },
       {
         "available": false,
@@ -117,7 +153,13 @@
         },
         "price": 300.00,
         "coin": "CUP",
-        "offer": 250.00
+        "offer": 250.00,
+        "agregos": [
+          { "name": "Extra Queso", "price": 50.00 },
+          { "name": "Extra Jamón", "price": 80.00 },
+          { "name": "Extra Ensalada", "price": 30.00 },
+          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+        ]
       }    
     ],
     "dulces": [

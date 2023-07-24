@@ -1,3 +1,9 @@
+.main-id {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
 .main-container-id  {
     display: flex;
     flex-wrap: nowrap;
@@ -6,6 +12,7 @@
     margin: 1rem;
     border-radius: .75rem;
     background-color: white;
+    overflow: hidden;
 }
 
 .image-container-id  {
@@ -13,8 +20,6 @@
     width: 100%;
     height: 12rem;
     display: flex;
-    border-radius: .75rem;
-    overflow: hidden;
 }
 
 .item-body-id  {
@@ -35,6 +40,7 @@
 
 .item-name-id h1 {
     font-size: 1.25rem;
+    margin-right: .5rem;
 }
 
 .category-link-id {
@@ -108,9 +114,7 @@
 }
 
 .badge-offer-id  {
-    margin-left: .5rem;
     padding: .3rem .45rem;
-    
     border-radius: .2rem;
     font-size: .8rem;
     background-color: red;

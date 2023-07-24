@@ -1,100 +1,18 @@
-'use client'
-
 import "../../../../styles/IdPage.css"
-import { useState, useEffect } from "react"
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
-import HorizontalDivider from '../../../../components/HorizontalDivider'
 import filseJSON from '../../../../data-menu.json'
-import Link from "next/link"
-
+import ItemFull from "../../../../components/ItemIFull"
+import Agregos from "../../../../components/Agregos"
 
 export default function PageId ({ params }) {
+  
   const { menu, category, id } = params
   const Config = filseJSON[menu]
-
-  const categoryName = Config["category"].find(({ id }) => id == category)
   const item = Config[category].find((element) => element.id == id)
 
-  const [amount, setAmount] = useState(1)
-  const [totalPrice, setTotalPrice] = useState(item.price)
-  const [totalDiscount, setTotalDiscount] = useState(item.price - item.offer)
-  const discount = item.price - item.offer
-  const router = useRouter()
-
-  const addItem = () => {
-    setAmount(amount+1)
-  }
-
-  const removeItem = () => {
-    if (amount != 1 ) {
-      setAmount(amount-1)
-    }
-  }
-
-  const onClose = () => {
-    router.back()
-  }
-
-  useEffect(() => {
-    setTotalPrice(parseInt(item.price)*amount)
-    if (item.offer) {
-      setTotalDiscount(discount*amount)
-    }
-  }, [amount])
   return (
-    <div className="main-container-id">
-    <div className="image-container-id">
-    <Image src={item.image.src} alt={item.image.alt} loading="lazy" fill={true} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAEElEQVR42mNkyGaAA0ZKOQBudgKJD8nILAAAAABJRU5ErkJggg=="/>
-    </div>
-    <div className="item-body-id">
-      <div className="item-name-id">
-        <h1>{item.title}</h1>
-        {item.offer && (
-          <div className="badge-offer-id">OFERTA</div>
-        )}
-      </div>
-      <div>
-        Categoría: 
-        <Link href={`/${menu}/${category}`} replace={true} className="category-link-id"> {categoryName.name} </Link>
-      </div>
-      <div>
-        Precio: {item.price.toFixed(2)} {item.coin}
-      </div>
-      <div className="item-description-id">
-        <HorizontalDivider color={"gray"} height={2}/>
-        <p>{item.description}</p>
-        <HorizontalDivider color={"gray"} height={2}/>
-      </div>
-      <div className="item-options-id">
-        <div className="amount-options-id">
-          <div className="total-price-id">
-           {(totalPrice).toFixed(2)} {item.coin}
-          </div>
-          <div className="amount-buttons-id">
-            <button className="button-amount-id" onClick={removeItem}>
-              {'<'}
-            </button>
-            <div>
-              {amount}
-            </div>
-            <button className="button-amount-id" onClick={addItem}>
-              {'>'}
-            </button>
-          </div>
-        </div>
-        <div className="buy-options-id">
-          {item.offer && (
-            <p className='discount-id'>
-              {`Ahorras ${totalDiscount} ${item.coin}`}
-            </p>
-          )}
-          <button className="btn-buy-id">
-            AÑADIR
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <section className="main-id">
+      <ItemFull data={Config} menu={menu} category={category} id={id} />
+      {item.agregos && <Agregos agregos={item.agregos}/>}
+    </section>
   )
 }
