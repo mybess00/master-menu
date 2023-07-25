@@ -9,5 +9,17 @@ export function useArrState (initialValue) {
         setArr(newArr)
     }
 
-    return [arr, updateValue]
+    const deleteValue = (index) => {
+        const newArr = [...arr]
+        newArr.splice(index, 1)
+        setArr(newArr)
+    }
+
+    const pushvalue = (value) => {
+        const newArr = [...arr]
+        newArr.push(value)
+        setArr(newArr)
+    }
+
+    return [arr, updateValue, deleteValue, pushvalue]
 }

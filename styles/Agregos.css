@@ -16,3 +16,53 @@
     flex-wrap: nowrap;
     padding: 0 .5rem;
 }
+
+.agrego-list {
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr;
+    row-gap: .75rem;
+    margin-top: .65rem;
+    margin-bottom: .75rem;
+}
+
+.agrego-item-options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: .25rem;
+}
+
+.button-amount {
+    border: none;
+    padding: .15rem .25rem;
+    background-color: gray;
+    color: white;
+    border-radius: .25rem;
+}
+
+.button-delete {
+    border: none;
+    padding: .15rem .25rem;
+    background-color: red;
+    color: white;
+    border-radius: .25rem;
+    margin-left: .35rem;
+}
+
+.add-agrego {
+    width: 100%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    padding: .45rem;
+    text-align: center;
+    border: none;
+    border-radius: .25rem;
+    background-color: rgb(209, 209, 209);
+    text-align-last: center;
+}
+
+.add-agrego:focus {
+    outline: none;
+}

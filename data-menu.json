@@ -43,10 +43,10 @@
         "price": 550.00,
         "coin": "CUP",
         "agregos": [
-          { "name": "Extra Queso", "price": 50.00 },
-          { "name": "Extra Jamón", "price": 80.00 },
-          { "name": "Extra Ensalada", "price": 30.00 },
-          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+          { "id": 0, "name": "Extra Queso", "price": 50.00 },
+          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
         ]
       },
       {
@@ -61,10 +61,10 @@
         "price": 800.00,
         "coin": "CUP",
         "agregos": [
-          { "name": "Extra Queso", "price": 50.00 },
-          { "name": "Extra Jamón", "price": 80.00 },
-          { "name": "Extra Ensalada", "price": 30.00 },
-          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+          { "id": 0, "name": "Extra Queso", "price": 50.00 },
+          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
         ]
       }
     ],
@@ -82,10 +82,10 @@
         "coin": "CUP",
         "offer": 650.00,
         "agregos": [
-          { "name": "Extra Queso", "price": 50.00 },
-          { "name": "Extra Jamón", "price": 80.00 },
-          { "name": "Extra Ensalada", "price": 30.00 },
-          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+          { "id": 0, "name": "Extra Queso", "price": 50.00 },
+          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
         ]
       },
       {
@@ -100,10 +100,10 @@
         "price": 170.00,
         "coin": "CUP",
         "agregos": [
-          { "name": "Extra Queso", "price": 50.00 },
-          { "name": "Extra Jamón", "price": 80.00 },
-          { "name": "Extra Ensalada", "price": 30.00 },
-          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+          { "id": 0, "name": "Extra Queso", "price": 50.00 },
+          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
         ]
       },
       {
@@ -118,10 +118,10 @@
         "price": 1000.00,
         "coin": "CUP",
         "agregos": [
-          { "name": "Extra Queso", "price": 50.00 },
-          { "name": "Extra Jamón", "price": 80.00 },
-          { "name": "Extra Ensalada", "price": 30.00 },
-          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+          { "id": 0, "name": "Extra Queso", "price": 50.00 },
+          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
         ]
       },
       {
@@ -136,10 +136,10 @@
         "price": 2550.00,
         "coin": "CUP",
         "agregos": [
-          { "name": "Extra Queso", "price": 50.00 },
-          { "name": "Extra Jamón", "price": 80.00 },
-          { "name": "Extra Ensalada", "price": 30.00 },
-          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+          { "id": 0, "name": "Extra Queso", "price": 50.00 },
+          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
         ]
       },
       {
@@ -155,10 +155,10 @@
         "coin": "CUP",
         "offer": 250.00,
         "agregos": [
-          { "name": "Extra Queso", "price": 50.00 },
-          { "name": "Extra Jamón", "price": 80.00 },
-          { "name": "Extra Ensalada", "price": 30.00 },
-          { "name": "Extra Carne de Cerdo", "price": 120.00 }
+          { "id": 0, "name": "Extra Queso", "price": 50.00 },
+          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
         ]
       }    
     ],
