@@ -18,11 +18,25 @@
 }
 
 .agrego-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-bottom: .75rem;
+}
+
+.agrego-list-grid {
     display: grid;
-    grid-template-columns: 3fr 1fr 2fr;
+    grid-template-columns: 4fr 1fr 2fr;
     row-gap: .75rem;
     margin-top: .65rem;
-    margin-bottom: .75rem;
+    background-color: rgb(209, 209, 209);
+    border-radius: .25rem;
+    padding: .45rem;
+}
+
+.text-price {
+    display: flex;
+    align-items: center;
 }
 
 .agrego-item-options {
@@ -31,6 +45,7 @@
     flex-wrap: nowrap;
     justify-content: flex-end;
     gap: .25rem;
+    align-items: center;
 }
 
 .button-amount {

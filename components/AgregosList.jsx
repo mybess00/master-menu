@@ -2,90 +2,69 @@
 
 import { useEffect, useState, useRef } from "react"
 import { useArrState } from "../hooks/useArrState"
-import { FaDeleteLeft } from "react-icons/fa6"
+import { MdDelete } from "react-icons/md"
 
 export default function AgregosList ({ agregos }) {
   
   const [totalPrice, setTotalPrice] = useState(0)
-  const [price, setPrice, deletePrice] = useArrState([])
   const [amount, setAmount, deleteAmount] = useArrState([])
   const [agregosActive, setAgregosActive, deleteAgregosActive, pushAgregosActive] = useArrState([])
   const agregoMainRef = useRef(null)
   const placeholderOption = useRef(null)
-
-  const setAggPrice = (index) => {
-    const priceAgg = agregos[index].price
-    const amountAgg = amount[index]
-    setPrice(index, priceAgg*amountAgg)
-  }
 
   const newAgrego = (e) => {
     const index = e.target.value
     document.querySelector(`#agrego-${index}`).disabled = true
     pushAgregosActive(agregos[index])
     e.target.value = 'placeholder'
-    setAmount(agregosActive.lenght, 1)
-    const priceAgg = agregos[index].price
-    setPrice(agregosActive.lenght, priceAgg)
+    setAmount(agregosActive.length, 1)
   }
 
   const deleteAgrego = (index, id) => {
     deleteAgregosActive(index)
     document.querySelector(`#agrego-${id}`).disabled = false
     deleteAmount(index, 0)
-    deletePrice(index, 0)
   }
 
   const addAmount = (index) => {
     setAmount(index, amount[index]+1)
-  //  setAggPrice(index)
   }
 
   const removeAmount = (index) => {
     if (amount[index] !== 0) {
       setAmount(index, amount[index]-1)
-    //  setAggPrice(index)
     }
   }
 
   useEffect(() => {
-    agregosActive.map((element, index) => {
-      const newPrice = element.price*amount[index]
-      setPrice(index, newPrice)
-    })
-    console.log(amount)
-  },[amount, agregosActive])
-
-  useEffect(() => {
     let total = 0
-    price.forEach((element) => {
-      total += element
-    })
+    if (agregosActive.length !==0 && amount.length !==0) {
+      amount.forEach((element, index) => {
+        let item = agregosActive[index]
+        let priceElement = item.price * element
+        total += priceElement
+      })
+    }
     setTotalPrice(total)
-    console.log(price)
-  }, [price])
-
-  useEffect(() => {
-    console.log('totalPrice ' + totalPrice)
-  }, [totalPrice])
+  }, [amount])
 
   return (
     <div className="agrego-main">
       <div className="agrego-list" ref={agregoMainRef}>
-        {agregosActive.lenght != 0 && (
+        {agregosActive.length !== 0 && (
           agregosActive.map((element, index) => {
-            return  <>
+            return  <div className="agrego-list-grid">
                       <div key={index}>{element.name}</div>
-                      <div>{element.price}</div>
+                      <div className="text-price" >{element.price}</div>
                       <div className="agrego-item-options">
                         <button className="button-amount" onClick={() => removeAmount(index)}>-</button>
                         <div>{amount[index]}</div>
                         <button className="button-amount" onClick={() => addAmount(index)}>+</button>
                         <button className="button-delete" onClick={() => deleteAgrego(index, element.id)}>
-                          <FaDeleteLeft/>
+                          <MdDelete/>
                         </button>
                       </div>
-                    </>
+                    </div>
             
           })
         )}
@@ -96,6 +75,7 @@ export default function AgregosList ({ agregos }) {
           return  <option key={index} value={index} id={`agrego-${element.id}`}> {element.name} ${element.price}</option>
         })}
       </select>
+      {totalPrice}
     </div>
   )
 }

@@ -4,7 +4,7 @@ export function useArrState (initialValue) {
     const [arr, setArr] = useState(initialValue)
 
     const updateValue = (index, value) => {
-        const newArr = [...arr]
+        const newArr = arr.map(value => value)
         newArr[index] = value
         setArr(newArr)
     }
