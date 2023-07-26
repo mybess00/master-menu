@@ -24,9 +24,9 @@ export default function AgregosList ({ agregos }) {
     document.querySelector(`#agrego-${index}`).disabled = true
     pushAgregosActive(agregos[index])
     e.target.value = 'placeholder'
-    setAmount(agregosActive.length, 1)
+    setAmount(agregosActive.lenght, 1)
     const priceAgg = agregos[index].price
-    setPrice(agregosActive.length, priceAgg)
+    setPrice(agregosActive.lenght, priceAgg)
   }
 
   const deleteAgrego = (index, id) => {
@@ -50,11 +50,24 @@ export default function AgregosList ({ agregos }) {
 
   useEffect(() => {
     agregosActive.map((element, index) => {
-      setPrice(index, element.price*amount[index])
+      const newPrice = element.price*amount[index]
+      setPrice(index, newPrice)
     })
     console.log(amount)
+  },[amount, agregosActive])
+
+  useEffect(() => {
+    let total = 0
+    price.forEach((element) => {
+      total += element
+    })
+    setTotalPrice(total)
     console.log(price)
-  },[amount])
+  }, [price])
+
+  useEffect(() => {
+    console.log('totalPrice ' + totalPrice)
+  }, [totalPrice])
 
   return (
     <div className="agrego-main">
