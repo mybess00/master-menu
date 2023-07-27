@@ -56,7 +56,7 @@ export default function AgregosList ({ agregos }) {
       <div className="agrego-list" ref={agregoMainRef}>
         {agregosActive.getLength!== 0 && (
           agregosActiveArr.map((element, index) => {
-            return  <div className="agrego-list-grid">
+            return  <div className="agrego-list-grid" key={index}>
                       <div key={index}>{element.name}</div>
                       <div className="text-price" >{element.price}</div>
                       <div className="agrego-item-options">
