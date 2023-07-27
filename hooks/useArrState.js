@@ -1,25 +1,33 @@
 import { useState } from "react";
 
-export function useArrState (initialValue) {
-    const [arr, setArr] = useState(initialValue)
+export function useArrState (initialValue = []) {
+    const [getArr, setArr] = useState(initialValue)
 
     const updateValue = (index, value) => {
-        const newArr = arr.map(value => value)
+        const newArr = getArr.map(value => value)
         newArr[index] = value
         setArr(newArr)
     }
 
     const deleteValue = (index) => {
-        const newArr = [...arr]
+        const newArr = [...getArr]
         newArr.splice(index, 1)
         setArr(newArr)
     }
 
-    const pushvalue = (value) => {
-        const newArr = [...arr]
+    const pushValue = (value) => {
+        const newArr = [...getArr]
         newArr.push(value)
         setArr(newArr)
     }
 
-    return [arr, updateValue, deleteValue, pushvalue]
+    const getLength = () => arr.length
+
+    return {
+        getArr, 
+        updateValue, 
+        deleteValue, 
+        pushValue,
+        getLength
+    }
 }
