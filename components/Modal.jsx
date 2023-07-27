@@ -1,11 +1,13 @@
 'use client'
 
 import '../styles/Modal.css'
-import ReactModal from "react-modal"
 import { useState, useEffect } from "react"
-import { useRouter } from 'next/navigation'
+import { useRouter, useParams } from 'next/navigation'
 import Image from "next/image"
+import Link from 'next/link'
+import ReactModal from "react-modal"
 import HorizontalDivider from "./HorizontalDivider"
+import { BiExpandAlt } from "react-icons/bi"
 
 export default function Modal ({ item }) {
 
@@ -14,6 +16,7 @@ export default function Modal ({ item }) {
   const [totalDiscount, setTotalDiscount] = useState(item.price - item.offer)
   const discount = item.price - item.offer
   const router = useRouter()
+  const { menu, category } = useParams()
 
   const addItem = () => {
     setAmount(amount+1)
@@ -48,6 +51,9 @@ export default function Modal ({ item }) {
             {item.offer && (
               <div className="badge-offer-modal">OFERTA</div>
             )}
+            <Link className='icon-expand-info' href={`/${menu}/${category}/${item.id}`}>
+              <BiExpandAlt/>
+            </Link>
           </div>
           <div className="item-description-modal">
           <HorizontalDivider color={"gray"} height={2}/>

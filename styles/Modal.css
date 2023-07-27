@@ -57,6 +57,7 @@
 
 .item-name-modal h1 {
     font-size: 1.25rem;
+    margin-right: .5rem;
 }
 
 .item-description-modal p {
@@ -125,11 +126,16 @@
 }
 
 .badge-offer-modal  {
-    margin-left: .5rem;
+    margin-right: .5rem;
     padding: .3rem .45rem;
-    
     border-radius: .2rem;
     font-size: .8rem;
     background-color: red;
     color: white;
+}
+
+.icon-expand-info {
+    display: flex;
+    font-size: 1.5rem;
+    color: rgb(25, 182, 59);
 }
