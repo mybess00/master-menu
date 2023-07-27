@@ -7,9 +7,9 @@ export default function Agregos ({ agregos }) {
     <div className="main-container-agregos">
       <div className="title-agregos">
         <VerticalDivider color={"green"} width={2}/>
-        Agregos  
+        Agregos ➕
       </div>
-      <AgregosList agregos={agregos}/>
+      {<AgregosList agregos={agregos}/>}
     </div>
   )
 }

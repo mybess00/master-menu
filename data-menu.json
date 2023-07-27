@@ -174,7 +174,11 @@
         },
         "price": 500.00,
         "coin": "CUP",
-        "offer": 350.00
+        "offer": 350.00,
+        "agregos":[
+          { "id": 0, "name": "Papel de Regalo", "price": 50.00 },
+          { "id": 1, "name": "Tarjeta de Felicitación", "price": 20.00 }
+        ]
       },
       {
         "available": true,
@@ -186,7 +190,11 @@
             "alt": "foto de item"
         },
         "price": 300.00,
-        "coin": "CUP"
+        "coin": "CUP",
+        "agregos":[
+          { "id": 0, "name": "Papel de Regalo", "price": 50.00 },
+          { "id": 1, "name": "Tarjeta de Felicitación", "price": 20.00 }
+        ]
       },
       {
         "available": false,

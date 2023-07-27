@@ -13,7 +13,6 @@ export default function PageCategory ({ params }) {
   const Config = fileJSON[menu]
   const searchParams = useSearchParams()
   const item = searchParams.get('item')
-  console.log(item)
   return (
     <>
     { item && (
