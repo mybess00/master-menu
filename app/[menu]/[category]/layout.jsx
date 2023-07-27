@@ -4,7 +4,7 @@ import Modal from "../../../components/Modal"
 
 export default function LayoutCategoty ({ children, params }) {
 
-  const { menu, category, id } = params
+  const { menu, category } = params
   const Config = fileJSON[menu]
 
   const categoryOptions = Config["category"].find(({ id }) => id == category)
