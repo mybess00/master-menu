@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from "react"
-import { useArrState } from "../hooks/useArrState"
+import { useArrState } from "../../hooks/useArrState"
 import { MdDelete } from "react-icons/md"
 
 export default function AgregosList ({ agregos }) {
@@ -64,9 +64,9 @@ export default function AgregosList ({ agregos }) {
                       <div className="text-info-agrego">{element.name}</div>
                       <div className="text-info-agrego" >{element.price}</div>
                       <div className="agrego-item-options">
-                        <button className="button-amount" onClick={() => removeAmount(index)}>-</button>
+                        <button className="button-amount" onClick={() => removeAmount(index)}>{"<"}</button>
                         <div>{amount.arr[index]}</div>
-                        <button className="button-amount" onClick={() => addAmount(index)}>+</button>
+                        <button className="button-amount" onClick={() => addAmount(index)}>{">"}</button>
                         <button className="button-delete" onClick={() => deleteAgrego(index, element.id)}>
                           <MdDelete/>
                         </button>

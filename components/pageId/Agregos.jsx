@@ -1,5 +1,5 @@
-import "../styles/Agregos.css"
-import VerticalDivider from "./VerticalDivider"
+import "../../styles/Agregos.css"
+import VerticalDivider from "../VerticalDivider"
 import AgregosList from "./AgregosList"
 
 export default function Agregos ({ agregos }) {

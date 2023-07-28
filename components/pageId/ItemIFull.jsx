@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import HorizontalDivider from "./HorizontalDivider"
+import HorizontalDivider from "../HorizontalDivider"
 import Link from "next/link"
 
 export default function ItemFull ({ data, menu, category, id }) {
@@ -75,6 +75,9 @@ export default function ItemFull ({ data, menu, category, id }) {
             </div>
           </div>
           <div className="buy-options-id">
+            <button className="btn-buy-id">
+              AÑADIR
+            </button>
             {item.offer && (
               <p className='discount-id'>
                 {`Ahorras ${totalDiscount} ${item.coin}`}
