@@ -3,6 +3,7 @@ import filseJSON from '../../../../data-menu.json'
 import ItemFull from "../../../../components/pageId/ItemIFull"
 import Agregos from "../../../../components/pageId/Agregos"
 import Suggestion from "../../../../components/pageId/Suggestion"
+import BottomBar from "../../../../components/pageId/BottomBar"
 
 export default function PageId ({ params }) {
   
@@ -14,7 +15,8 @@ export default function PageId ({ params }) {
     <section className="main-id">
       <ItemFull data={Config} menu={menu} category={category} id={id} />
       {item.agregos && <Agregos agregos={item.agregos}/>}
-      <Suggestion/>
+      <Suggestion />
+      <BottomBar />
     </section>
   )
 }

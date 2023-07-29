@@ -7,7 +7,10 @@ export default function NavBar ({ title }) {
     <nav className="nav-container">
       <ButtonClose />
       <h2>{title}</h2>
-      <label className="btn-side-bar" for="toggle-side-bar">=</label>
+      <label className="btn-side-bar" for="toggle-side-bar">
+        <div className="child-btn-side-bar up-icon"></div>
+        <div className="child-btn-side-bar down-icon"></div>
+      </label>
     </nav>
   )
 }

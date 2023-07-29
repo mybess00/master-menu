@@ -7,8 +7,18 @@
     padding: 0 .85rem;
     width: 100vw;
     height: 55px;
-    background-color: green;
+    background-color: rgb(25, 182, 59);
     z-index: 20;
+}
+
+.nav-container h2 {
+    color: white;
+}
+
+.close-button {
+    font-size: 1.5rem;
+    color: white;
+    display: flex;
 }
 
 .input-toggle-side-bar{
@@ -125,4 +135,36 @@ input[name="toggle-item-list"]:checked ~ label {
 .active-label {
     background-color: green;
     color: white;
+}
+
+.btn-side-bar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: .3rem;
+}
+
+.child-btn-side-bar {
+    background-color: white;
+    width: 1.8rem;
+    height: .35rem;
+    border-radius: .2rem;
+    transition: transform 200ms ease;
+}
+
+.up-icon {
+    transform-origin: top left;
+}
+
+.down-icon {
+    transform-origin: bottom left;
+}
+
+.input-toggle-side-bar:checked ~ .nav-container > label > .up-icon {
+    transform: rotate(45deg) translateY(-6px);
+}
+
+.input-toggle-side-bar:checked ~ .nav-container > label > .down-icon {
+    transform: rotate(-45deg) translateY(6px);
+    transform-origin: bottom left;
 }

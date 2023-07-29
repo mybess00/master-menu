@@ -45,7 +45,7 @@ export default function Suggestion () {
   return (
     <div className='main-container-suggestion'>
       <div className='title-suggestion'>
-        <VerticalDivider color={"green"} width={2}/>
+        <VerticalDivider color={"green"} width={4}/>
         Productos Relacionados
       </div>
       <div className='container-items-suggestion'>
