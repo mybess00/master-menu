@@ -1,12 +1,14 @@
 'use client'
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useRef, useContext } from "react"
 import { useArrState } from "../../hooks/useArrState"
+import { PageIdContext } from "../../context/PageIdContext"
 import { MdDelete } from "react-icons/md"
 
 export default function AgregosList ({ agregos }) {
+
+  const { setAgregoPrice } = useContext(PageIdContext)
   
-  const [totalPrice, setTotalPrice] = useState(0)
   const amount = useArrState()
   const agregosActive = useArrState()
   const agregoMainRef = useRef(null)
@@ -46,7 +48,7 @@ export default function AgregosList ({ agregos }) {
         total += priceElement
       })
     }
-    setTotalPrice(total)
+    setAgregoPrice(total)
   }, [amount.arr])
 
   useEffect(() => {
@@ -76,13 +78,12 @@ export default function AgregosList ({ agregos }) {
           })
         )}
       </div>
-      <select className="add-agrego"disabled onChange={newAgrego} ref={selectAgregosRef} name="agrego-select" id="agrego-select">
-        <option value='placeholder' disabled selected ref={placeholderOption}>Toca para añadir un agrego</option>
+      <select className="add-agrego" defaultValue='placeholder' disabled onChange={newAgrego} ref={selectAgregosRef} name="agrego-select" id="agrego-select">
+        <option value='placeholder' disabled ref={placeholderOption}>Toca para añadir un agrego</option>
         {agregos.map((element, index) => {
           return  <option key={index} value={index} id={`agrego-${element.id}`}> {element.name} ${element.price}</option>
         })}
       </select>
-      {totalPrice}
     </div>
   )
 }

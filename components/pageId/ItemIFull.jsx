@@ -1,37 +1,44 @@
 'use client'
-import { useState, useEffect } from "react"
-import { useRouter } from 'next/navigation'
+import { useState, useEffect, useContext } from "react"
+import { PageIdContext } from "../../context/PageIdContext"
 import Image from 'next/image'
 import HorizontalDivider from "../HorizontalDivider"
 import Link from "next/link"
 
 export default function ItemFull ({ data, menu, category, id }) {
+
+  const { amountItem, setAmountItem, itemPrice, setItemPrice, agregoPrice, totalPrice } = useContext(PageIdContext)
   
   const categoryName = data["category"].find(({ id }) => id == category)
   const item = data[category].find((element) => element.id == id)
 
-  const [amount, setAmount] = useState(1)
-  const [totalPrice, setTotalPrice] = useState(item.price)
   const [totalDiscount, setTotalDiscount] = useState(item.price - item.offer)
   const discount = item.price - item.offer
-  const router = useRouter()
 
   const addItem = () => {
-    setAmount(amount+1)
+    setAmountItem(prevState => prevState+1)
   }
 
   const removeItem = () => {
-    if (amount != 1 ) {
-      setAmount(amount-1)
+    if (amountItem != 1 ) {
+      setAmountItem(prevState => prevState-1)
     }
   }
 
   useEffect(() => {
-    setTotalPrice(parseInt(item.price)*amount)
+  //  setItemPrice(parseInt(item.price)*amountItem)
     if (item.offer) {
-      setTotalDiscount(discount*amount)
+      setTotalDiscount(discount*amountItem)
     }
-  }, [amount])
+  }, [amountItem])
+
+  useEffect(() => {
+    if (item.offer) {
+      setItemPrice(item.offer)
+      return
+    }
+    setItemPrice(item.price)
+  },[])
 
   return (
     <div className="main-container-id">
@@ -50,24 +57,37 @@ export default function ItemFull ({ data, menu, category, id }) {
           <Link href={`/${menu}/${category}`} replace={true} className="category-link-id"> {categoryName.name} </Link>
         </div>
         <div>
-          Precio: {item.price.toFixed(2)} {item.coin}
+          Precio: {itemPrice.toFixed(2)} {item.coin}
         </div>
         <div className="item-description-id">
           <HorizontalDivider color={"gray"} height={2}/>
           <p>{item.description}</p>
           <HorizontalDivider color={"gray"} height={2}/>
         </div>
+        <div className="item-description-id">
+          <h4>Detalles del Pedido:</h4>
+          <p>
+            Precio del producto: <span>{itemPrice.toFixed(2)}</span>
+          </p>
+          <p>
+            Cantidad del producto: <span>{amountItem}</span>
+          </p>
+          {agregoPrice !== 0 && <p>
+            Precio de los agregos por cada producto: <span>{agregoPrice.toFixed(2)}</span>
+          </p>}
+          <HorizontalDivider color={"gray"} height={2}/>
+        </div>
         <div className="item-options-id">
           <div className="amount-options-id">
             <div className="total-price-id">
-            {(totalPrice).toFixed(2)} {item.coin}
+            Total: {(totalPrice).toFixed(2)} {item.coin}
             </div>
             <div className="amount-buttons-id">
               <button className="button-amount-id" onClick={removeItem}>
                 {'<'}
               </button>
               <div>
-                {amount}
+                {amountItem}
               </div>
               <button className="button-amount-id" onClick={addItem}>
                 {'>'}

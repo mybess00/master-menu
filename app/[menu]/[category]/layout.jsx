@@ -1,6 +1,5 @@
 import NavBar from "../../../components/NavBar"
 import fileJSON from "../../../data-menu.json"
-import Modal from "../../../components/Modal"
 
 export default function LayoutCategoty ({ children, params }) {
 

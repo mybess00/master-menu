@@ -7,7 +7,7 @@ import ItemShort from './ItemShort'
 
 export default function Suggestion () {
 
-  const { menu, category, id } = useParams()
+  const { menu, id } = useParams()
   const Config = filseJSON[menu]
   const randomNumber = (max) => Math.floor(Math.random() * max)
   const categoryMax = Config["category"].length
@@ -24,7 +24,7 @@ export default function Suggestion () {
   }
 
   const isSameId = (item, arrItem) => {
-    if (item.id == id || arrItem.filter((element) => element.id == item.id).length !== 0) {
+    if (item.id == id || arrItem.some(element => element.id == item.id)) {
       return true
     }
     return false

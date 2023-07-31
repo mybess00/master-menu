@@ -1,27 +1,29 @@
 'use client'
-import { useState, useEffect } from "react"
 
-export default function ButtonAddCar ({ id, price }) {
+import fileJSON from "../data-menu.json"
+import { useParams } from "next/navigation"
+import { useContext } from "react"
+import { CartContext } from "../context/CartContext"
 
-  const [isAdd, setIsAdd] = useState(false)
-  const [textBtn, setTextBtn] = useState(price)
+export default function ButtonAddCar ({ id, price, category }) {
+
+  const { deleteItem, addItem, isOnCart, } = useContext(CartContext)
   
+  const { menu } = useParams()
+  const ItemsList = fileJSON[menu][category]
+  const item = ItemsList.find(element => element.id === id)
+
   const handleClick = () => {
-    setIsAdd(!isAdd)
-  }
-
-  useEffect(() => {
-    if (isAdd) {
-      setTextBtn('Añadido')
-      return 
+    if (item && !isOnCart(item)) {
+      addItem(item)
+    } else if (item && isOnCart(item)) {
+      deleteItem(item)
     }
-    setTextBtn(price)
-  }, [isAdd])
-
+  }
 
   return (
     <button className="btn-add-car" onClick={handleClick}>
-      {textBtn}
+      {isOnCart(item) ? 'Añadido' : price}
     </button>
   )
 }

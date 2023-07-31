@@ -51,7 +51,7 @@ export default function Modal ({ item }) {
             {item.offer && (
               <div className="badge-offer-modal">OFERTA</div>
             )}
-            <Link className='icon-expand-info' href={`/${menu}/${category}/${item.id}`}>
+            <Link className='icon-expand-info' href={`/${menu}/${category}/${item.id}`} replace={true}>
               <BiExpandAlt/>
             </Link>
           </div>

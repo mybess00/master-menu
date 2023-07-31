@@ -6,6 +6,7 @@ import Item from "../../../components/Item"
 import ItemOffer from "../../../components/ItemOffer"
 import ItemSpent from "../../../components/ItemSpent"
 import Modal from "../../../components/Modal"
+import { CartProvider } from "../../../context/CartContext"
 
 export default function PageCategory ({ params }) {
 
@@ -14,7 +15,7 @@ export default function PageCategory ({ params }) {
   const searchParams = useSearchParams()
   const item = searchParams.get('item')
   return (
-    <>
+    <CartProvider>
     { item && (
       Config[category].map((element, index) => {
         if (element.id == item) {
@@ -23,40 +24,26 @@ export default function PageCategory ({ params }) {
       })
     )}
     <section className="category-container">
-      {Config[category].map((element) => {
-        if (element.available){                      
-          if (element.offer) {
+      {Config[category].map((item) => {
+        if (item.available){                      
+          if (item.offer) {
             return  <ItemOffer
-                      id={element.id}
-                      title={element.title}
-                      description={element.description}
-                      image={element.image}
-                      price={element.price}
-                      coin={element.coin}
-                      offer={element.offer}
+                      item={item}
                       baseLink={`/${menu}/${category}/?item=`}
-                      asBaseLink={`/${menu}/${category}/`}
-                      key={element.id}/>
+                      category={category}
+                      key={item.id}/>
           }
           return  <Item
-                    id={element.id}
-                    title={element.title}
-                    description={element.description}
-                    image={element.image}
-                    price={element.price}
-                    coin={element.coin}
+                    item={item}
                     baseLink={`/${menu}/${category}/?item=`}
-                    asBaseLink={`/${menu}/${category}/`}
-                    key={element.id}/>
+                    category={category}
+                    key={item.id}/>
         }
         return  <ItemSpent
-                  id={element.id}
-                  title={element.title}
-                  description={element.description}
-                  image={element.image}
-                  key={element.id}/>
+                  item={item}
+                  key={item.id}/>
       })}
     </section>
-    </>
+    </CartProvider>
   )
 }
