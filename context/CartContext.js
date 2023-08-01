@@ -5,7 +5,7 @@ export const CartContext = createContext()
 
 export function CartProvider ({children}) {
 
-  const { cart, addItem, deleteItem, isOnCart } = useCart()
+  const { cart, addItem, deleteItem, isOnCart, isSameOrder } = useCart()
 
 
   return (
@@ -14,6 +14,7 @@ export function CartProvider ({children}) {
       deleteItem,
       addItem,
       isOnCart,
+      isSameOrder,
     }}>
       {children}
     </CartContext.Provider>

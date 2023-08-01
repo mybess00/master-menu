@@ -4,10 +4,14 @@ import { PageIdContext } from "../../context/PageIdContext"
 import Image from 'next/image'
 import HorizontalDivider from "../HorizontalDivider"
 import Link from "next/link"
+import { ACTION_TYPES } from "../../reducers/orderReducer"
+import { useCart } from "../../hooks/useCart"
 
 export default function ItemFull ({ data, menu, category, id }) {
 
-  const { amountItem, setAmountItem, itemPrice, setItemPrice, agregoPrice, totalPrice } = useContext(PageIdContext)
+  const { state, dispatch } = useContext(PageIdContext)
+
+  const { isOnCart, isSameOrder, addItem } = useCart()
   
   const categoryName = data["category"].find(({ id }) => id == category)
   const item = data[category].find((element) => element.id == id)
@@ -15,29 +19,41 @@ export default function ItemFull ({ data, menu, category, id }) {
   const [totalDiscount, setTotalDiscount] = useState(item.price - item.offer)
   const discount = item.price - item.offer
 
-  const addItem = () => {
-    setAmountItem(prevState => prevState+1)
+  const incrementAmount = () => {
+    dispatch({ type: ACTION_TYPES.SET_AMOUNT, payload: state.amountItem+1})
   }
 
-  const removeItem = () => {
-    if (amountItem != 1 ) {
-      setAmountItem(prevState => prevState-1)
+  const decrementAmount = () => {
+    if (state.amountItem != 1) {
+      dispatch({ type: ACTION_TYPES.SET_AMOUNT, payload: state.amountItem-1})
     }
   }
 
-  useEffect(() => {
-  //  setItemPrice(parseInt(item.price)*amountItem)
-    if (item.offer) {
-      setTotalDiscount(discount*amountItem)
+  const addToCart = () => {
+    const info = {
+      'quantity': state.amountItem,
+      'agregos': state.agregoList,
+      'total': state.totalPrice,
     }
-  }, [amountItem])
-
-  useEffect(() => {
-    if (item.offer) {
-      setItemPrice(item.offer)
+    if (!isSameOrder({ item, info })) {
+      addItem({ item, info })
       return
     }
-    setItemPrice(item.price)
+    console.log('Esta orden ya esta en el carrito')
+  }
+
+  useEffect(() => {
+    if (item.offer) {
+      setTotalDiscount(discount*state.amountItem)
+    }
+  }, [state.amountItem])
+
+  useEffect(() => {
+    if (item.offer) {
+      dispatch({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.offer})
+      return
+    }
+    dispatch({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.price})
   },[])
 
   return (
@@ -57,7 +73,7 @@ export default function ItemFull ({ data, menu, category, id }) {
           <Link href={`/${menu}/${category}`} replace={true} className="category-link-id"> {categoryName.name} </Link>
         </div>
         <div>
-          Precio: {itemPrice.toFixed(2)} {item.coin}
+          Precio: {state.itemPrice.toFixed(2)} {item.coin}
         </div>
         <div className="item-description-id">
           <HorizontalDivider color={"gray"} height={2}/>
@@ -67,35 +83,35 @@ export default function ItemFull ({ data, menu, category, id }) {
         <div className="item-description-id">
           <h4>Detalles del Pedido:</h4>
           <p>
-            Precio del producto: <span>{itemPrice.toFixed(2)}</span>
+            Precio del producto: <span>{state.itemPrice.toFixed(2)}</span>
           </p>
           <p>
-            Cantidad del producto: <span>{amountItem}</span>
+            Cantidad del producto: <span>{state.amountItem}</span>
           </p>
-          {agregoPrice !== 0 && <p>
-            Precio de los agregos por cada producto: <span>{agregoPrice.toFixed(2)}</span>
+          {state.agregoPrice !== 0 && <p>
+            Precio de los agregos por cada producto: <span>{state.agregoPrice.toFixed(2)}</span>
           </p>}
           <HorizontalDivider color={"gray"} height={2}/>
         </div>
         <div className="item-options-id">
           <div className="amount-options-id">
             <div className="total-price-id">
-            Total: {(totalPrice).toFixed(2)} {item.coin}
+            Total: {state.totalPrice.toFixed(2)} {item.coin}
             </div>
             <div className="amount-buttons-id">
-              <button className="button-amount-id" onClick={removeItem}>
+              <button className="button-amount-id" onClick={decrementAmount}>
                 {'<'}
               </button>
               <div>
-                {amountItem}
+                {state.amountItem}
               </div>
-              <button className="button-amount-id" onClick={addItem}>
+              <button className="button-amount-id" onClick={incrementAmount}>
                 {'>'}
               </button>
             </div>
           </div>
           <div className="buy-options-id">
-            <button className="btn-buy-id">
+            <button className="btn-buy-id" onClick={addToCart}>
               AÑADIR
             </button>
             {item.offer && (

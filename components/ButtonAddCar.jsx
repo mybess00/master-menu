@@ -7,16 +7,21 @@ import { CartContext } from "../context/CartContext"
 
 export default function ButtonAddCar ({ id, price, category }) {
 
-  const { deleteItem, addItem, isOnCart, } = useContext(CartContext)
+  const { deleteItem, addItem, isOnCart, isSameOrder } = useContext(CartContext)
   
   const { menu } = useParams()
   const ItemsList = fileJSON[menu][category]
   const item = ItemsList.find(element => element.id === id)
+  const info = {
+    'quantity': 1,
+    'agregos': [],
+    'total': item.offer ? item.offer : item.price
+  }
 
   const handleClick = () => {
     if (item && !isOnCart(item)) {
-      addItem(item)
-    } else if (item && isOnCart(item)) {
+      addItem({item, info})
+    } else if (item && isSameOrder({item, info})) {
       deleteItem(item)
     }
   }

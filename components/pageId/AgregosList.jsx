@@ -3,11 +3,12 @@
 import { useEffect, useRef, useContext } from "react"
 import { useArrState } from "../../hooks/useArrState"
 import { PageIdContext } from "../../context/PageIdContext"
+import { ACTION_TYPES } from "../../reducers/orderReducer"
 import { MdDelete } from "react-icons/md"
 
 export default function AgregosList ({ agregos }) {
 
-  const { setAgregoPrice } = useContext(PageIdContext)
+  const { dispatch } = useContext(PageIdContext)
   
   const amount = useArrState()
   const agregosActive = useArrState()
@@ -40,23 +41,25 @@ export default function AgregosList ({ agregos }) {
   }
 
   useEffect(() => {
-    let total = 0
     if (agregosActive.getLength !==0 && amount.getLength !==0) {
       amount.arr.forEach((element, index) => {
         let item = agregosActive.arr[index]
-        let priceElement = item.price * element
-        total += priceElement
+        item.quantity = element
+        agregosActive.updateValue(index, item)
       })
     }
-    setAgregoPrice(total)
   }, [amount.arr])
+
+  useEffect(() => {
+    dispatch({ type: ACTION_TYPES.SET_AGREGO_LIST, payload: agregosActive.arr})
+  }, [agregosActive.arr])
 
   useEffect(() => {
     if (selectAgregosRef.current) {
       selectAgregosRef.current.disabled = false
     }
   },[])
-  
+
   return (
     <div className="agrego-main">
       <div className="agrego-list" ref={agregoMainRef}>
