@@ -1,18 +1,18 @@
 'use client'
 import { useState, useEffect, useContext } from "react"
 import { PageIdContext } from "../../context/PageIdContext"
+import { CartContext } from "../../context/CartContext"
 import Image from 'next/image'
 import HorizontalDivider from "../HorizontalDivider"
 import Link from "next/link"
 import { ACTION_TYPES } from "../../reducers/orderReducer"
-import { useCart } from "../../hooks/useCart"
+import { ACTION_CART } from "../../reducers/cartReducer"
 
 export default function ItemFull ({ data, menu, category, id }) {
 
-  const { state, dispatch } = useContext(PageIdContext)
+  const { stateId, dispatchId } = useContext(PageIdContext)
+  const { state, dispatch } = useContext(CartContext)
 
-  const { isOnCart, isSameOrder, addItem } = useCart()
-  
   const categoryName = data["category"].find(({ id }) => id == category)
   const item = data[category].find((element) => element.id == id)
 
@@ -20,40 +20,50 @@ export default function ItemFull ({ data, menu, category, id }) {
   const discount = item.price - item.offer
 
   const incrementAmount = () => {
-    dispatch({ type: ACTION_TYPES.SET_AMOUNT, payload: state.amountItem+1})
+    dispatchId({ type: ACTION_TYPES.SET_AMOUNT, payload: stateId.amountItem+1})
   }
 
   const decrementAmount = () => {
-    if (state.amountItem != 1) {
-      dispatch({ type: ACTION_TYPES.SET_AMOUNT, payload: state.amountItem-1})
+    if (stateId.amountItem != 1) {
+      dispatchId({ type: ACTION_TYPES.SET_AMOUNT, payload: stateId.amountItem-1})
     }
+  }
+
+  const isSameOrder = (order) => {
+    let filteredOrder = state.filter(element => element.item.id === order.item.id && JSON.stringify(element.info.agregos) === JSON.stringify(order.info.agregos))
+    if (filteredOrder.length > 0) {
+      return filteredOrder
+    }
+    return false
   }
 
   const addToCart = () => {
     const info = {
-      'quantity': state.amountItem,
-      'agregos': state.agregoList,
-      'total': state.totalPrice,
+      'quantity': stateId.amountItem,
+      'agregos': stateId.agregoList,
+      'total': stateId.totalPrice,
     }
-    if (!isSameOrder({ item, info })) {
-      addItem({ item, info })
-      return
+    if (isSameOrder({item, info})) {
+      console.log('Misma orden')
+      console.log(isSameOrder({item, info}))
+    } else {
+      console.log('se puede agregar')
+      dispatch({ type: ACTION_CART.ADD_ITEM, payload: {item, info}})
     }
-    console.log('Esta orden ya esta en el carrito')
   }
 
   useEffect(() => {
     if (item.offer) {
-      setTotalDiscount(discount*state.amountItem)
+      setTotalDiscount(discount*stateId.amountItem)
     }
-  }, [state.amountItem])
+  }, [stateId.amountItem])
 
   useEffect(() => {
     if (item.offer) {
-      dispatch({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.offer})
+      dispatchId({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.offer})
       return
     }
-    dispatch({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.price})
+    dispatchId({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.price})
   },[])
 
   return (
@@ -73,7 +83,7 @@ export default function ItemFull ({ data, menu, category, id }) {
           <Link href={`/${menu}/${category}`} replace={true} className="category-link-id"> {categoryName.name} </Link>
         </div>
         <div>
-          Precio: {state.itemPrice.toFixed(2)} {item.coin}
+          Precio: {stateId.itemPrice.toFixed(2)} {item.coin}
         </div>
         <div className="item-description-id">
           <HorizontalDivider color={"gray"} height={2}/>
@@ -83,27 +93,27 @@ export default function ItemFull ({ data, menu, category, id }) {
         <div className="item-description-id">
           <h4>Detalles del Pedido:</h4>
           <p>
-            Precio del producto: <span>{state.itemPrice.toFixed(2)}</span>
+            Precio del producto: <span>{stateId.itemPrice.toFixed(2)}</span>
           </p>
           <p>
-            Cantidad del producto: <span>{state.amountItem}</span>
+            Cantidad del producto: <span>{stateId.amountItem}</span>
           </p>
-          {state.agregoPrice !== 0 && <p>
-            Precio de los agregos por cada producto: <span>{state.agregoPrice.toFixed(2)}</span>
+          {stateId.agregoPrice !== 0 && <p>
+            Precio de los agregos por cada producto: <span>{stateId.agregoPrice.toFixed(2)}</span>
           </p>}
           <HorizontalDivider color={"gray"} height={2}/>
         </div>
         <div className="item-options-id">
           <div className="amount-options-id">
             <div className="total-price-id">
-            Total: {state.totalPrice.toFixed(2)} {item.coin}
+            Total: {stateId.totalPrice.toFixed(2)} {item.coin}
             </div>
             <div className="amount-buttons-id">
               <button className="button-amount-id" onClick={decrementAmount}>
                 {'<'}
               </button>
               <div>
-                {state.amountItem}
+                {stateId.amountItem}
               </div>
               <button className="button-amount-id" onClick={incrementAmount}>
                 {'>'}

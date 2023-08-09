@@ -6,7 +6,6 @@ import Item from "../../../components/Item"
 import ItemOffer from "../../../components/ItemOffer"
 import ItemSpent from "../../../components/ItemSpent"
 import Modal from "../../../components/Modal"
-import { CartProvider } from "../../../context/CartContext"
 
 export default function PageCategory ({ params }) {
 
@@ -15,14 +14,14 @@ export default function PageCategory ({ params }) {
   const searchParams = useSearchParams()
   const item = searchParams.get('item')
   return (
-    <CartProvider>
+    <>
     { item && (
       Config[category].map((element, index) => {
         if (element.id == item) {
           return  <Modal item={element} key={index}/>
         }
       })
-    )}
+    ) }
     <section className="category-container">
       {Config[category].map((item) => {
         if (item.available){                      
@@ -44,6 +43,6 @@ export default function PageCategory ({ params }) {
                   key={item.id}/>
       })}
     </section>
-    </CartProvider>
+    </>
   )
 }

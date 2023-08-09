@@ -19,6 +19,7 @@
     font-size: 1.5rem;
     color: white;
     display: flex;
+    z-index: 10;
 }
 
 .input-toggle-side-bar{

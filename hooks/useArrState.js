@@ -4,19 +4,19 @@ export function useArrState (initialValue = []) {
     const [arr, setArr] = useState(initialValue)
 
     const updateValue = (index, value) => {
-        const newArr = structuredClone(arr)
+        const newArr = [...arr]
         newArr[index] = value
         setArr(newArr)
     }
 
     const deleteValue = (index) => {
-        const newArr = structuredClone(arr)
+        const newArr = [...arr]
         newArr.splice(index, 1)
         setArr(newArr)
     }
 
     const pushValue = (value) => {
-        const newArr = structuredClone(arr)
+        const newArr = [...arr]
         newArr.push(value)
         setArr(newArr)
     }

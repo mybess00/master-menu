@@ -8,7 +8,7 @@ import { MdDelete } from "react-icons/md"
 
 export default function AgregosList ({ agregos }) {
 
-  const { dispatch } = useContext(PageIdContext)
+  const { dispatchId } = useContext(PageIdContext)
   
   const amount = useArrState()
   const agregosActive = useArrState()
@@ -51,7 +51,7 @@ export default function AgregosList ({ agregos }) {
   }, [amount.arr])
 
   useEffect(() => {
-    dispatch({ type: ACTION_TYPES.SET_AGREGO_LIST, payload: agregosActive.arr})
+    dispatchId({ type: ACTION_TYPES.SET_AGREGO_LIST, payload: agregosActive.arr})
   }, [agregosActive.arr])
 
   useEffect(() => {

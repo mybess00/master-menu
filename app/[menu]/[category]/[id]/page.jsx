@@ -5,9 +5,7 @@ import filseJSON from '../../../../data-menu.json'
 import ItemFull from "../../../../components/pageId/ItemIFull"
 import Agregos from "../../../../components/pageId/Agregos"
 import Suggestion from "../../../../components/pageId/Suggestion"
-import BottomBar from "../../../../components/pageId/BottomBar"
 import { PageIdProvider } from "../../../../context/PageIdContext"
-import { CartProvider } from "../../../../context/CartContext"
 
 export default function PageId ({ params }) {
   
@@ -17,13 +15,10 @@ export default function PageId ({ params }) {
 
   return (
     <section className="main-id">
-      <CartProvider>
-        <PageIdProvider>
-          <ItemFull data={Config} menu={menu} category={category} id={id} />
-          {item.agregos && <Agregos agregos={item.agregos}/>}
-          <BottomBar />
-        </PageIdProvider>
-      </CartProvider>
+      <PageIdProvider>
+        <ItemFull data={Config} menu={menu} category={category} id={id} />
+        {item.agregos && <Agregos agregos={item.agregos}/>}
+      </PageIdProvider>
       <Suggestion />
     </section>
   )

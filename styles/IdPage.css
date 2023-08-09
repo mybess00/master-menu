@@ -187,6 +187,8 @@
     background-color: white;
     box-shadow: 3.5px -5px 10px 0 rgb(0, 0, 0, 0.1);
     z-index: 20;
+    transition: all 150ms;
+    transform: translateY(105%);
 }
 
 .container-bottom-bar {
@@ -205,6 +207,18 @@
     font-size: 1.15rem;
 }
 
+.item-amount-bottom-bar {
+    background-color: rgb(25, 182, 59);
+    padding: .2rem .6rem;
+    margin-right: .5rem;
+    border-radius: 999px;
+}
+
+.price-bottom-bar {
+    display: flex;
+    align-items: center;
+}
+
 .button-buy-bottom-bar {
     height: 100%;
     padding: 0 1.3rem;
@@ -212,4 +226,12 @@
     color: black;
     border: none;
     font-size: 1rem;
+}
+
+.input-bottom-bar {
+    display: none;   
+}
+
+.input-bottom-bar:checked ~ .main-container-bottom-bar {
+    transform: translateY(0);
 }

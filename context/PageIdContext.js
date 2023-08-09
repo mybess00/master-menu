@@ -17,7 +17,10 @@ export function PageIdProvider ({ children }) {
   }, [state.agregoList, state.amountItem, state.itemPrice])
 
   return (
-    <PageIdContext.Provider value={{ state, dispatch }}>
+    <PageIdContext.Provider value={{ 
+      stateId: state, 
+      dispatchId: dispatch 
+    }}>
       {children}
     </PageIdContext.Provider>)
 }

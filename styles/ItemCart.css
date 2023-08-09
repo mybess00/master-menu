@@ -1,0 +1,23 @@
+.item-cart-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: .5rem;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: .3rem;
+}
+
+.image-container {
+    position: relative;
+    width: 45vw;
+    min-width: 45vw;
+    height: 8rem;
+    display: flex;
+    overflow: hidden;
+    border-radius: .75rem;
+}
