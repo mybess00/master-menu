@@ -1,25 +1,34 @@
-import { createContext, useEffect, useReducer } from "react";
-import { INITIAL_STATE, orderReducer, ACTION_TYPES } from "../reducers/orderReducer";
+import { createContext } from "react";
+import { useOrder } from "../hooks/useOrder";
 
 export const PageIdContext = createContext()
+export const EditItemContext = createContext()
+
+export function EditItemProvider ({ children }) {
+
+  const { order, setAgregoList, setAmount, setItemPrice } = useOrder()
+
+  return (
+    <OrderContext.Provider value={{ 
+      order, 
+      setAgregoList,
+      setAmount,
+      setItemPrice
+    }}>
+      {children}
+    </OrderContext.Provider>)
+}
 
 export function PageIdProvider ({ children }) {
 
-  const [state, dispatch] = useReducer(orderReducer, INITIAL_STATE)
-
-  useEffect(() => {
-   dispatch( {type: ACTION_TYPES.SET_AGREGO_PRICE })
-  }, [state.agregoList, state.amountItem])
-
-
-  useEffect(() => {
-    dispatch( { type: ACTION_TYPES.SET_TOTAL_PRICE })
-  }, [state.agregoList, state.amountItem, state.itemPrice])
+  const { order, setAgregoList, setAmount, setItemPrice } = useOrder()
 
   return (
     <PageIdContext.Provider value={{ 
-      stateId: state, 
-      dispatchId: dispatch 
+      order, 
+      setAgregoList,
+      setAmount,
+      setItemPrice
     }}>
       {children}
     </PageIdContext.Provider>)

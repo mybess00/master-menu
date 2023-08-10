@@ -3,12 +3,11 @@
 import { useEffect, useRef, useContext } from "react"
 import { useArrState } from "../../hooks/useArrState"
 import { PageIdContext } from "../../context/PageIdContext"
-import { ACTION_TYPES } from "../../reducers/orderReducer"
 import { MdDelete } from "react-icons/md"
 
 export default function AgregosList ({ agregos }) {
 
-  const { dispatchId } = useContext(PageIdContext)
+  const { setAgregoList } = useContext(PageIdContext)
   
   const amount = useArrState()
   const agregosActive = useArrState()
@@ -51,7 +50,8 @@ export default function AgregosList ({ agregos }) {
   }, [amount.arr])
 
   useEffect(() => {
-    dispatchId({ type: ACTION_TYPES.SET_AGREGO_LIST, payload: agregosActive.arr})
+    //dispatchId({ type: ACTION_TYPES.SET_AGREGO_LIST, payload: agregosActive.arr})
+    setAgregoList(agregosActive.arr)
   }, [agregosActive.arr])
 
   useEffect(() => {

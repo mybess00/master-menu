@@ -10,7 +10,7 @@ import { ACTION_CART } from "../../reducers/cartReducer"
 
 export default function ItemFull ({ data, menu, category, id }) {
 
-  const { stateId, dispatchId } = useContext(PageIdContext)
+  const { order, setAmount, setItemPrice } = useContext(PageIdContext)
   const { state, dispatch } = useContext(CartContext)
 
   const categoryName = data["category"].find(({ id }) => id == category)
@@ -20,12 +20,14 @@ export default function ItemFull ({ data, menu, category, id }) {
   const discount = item.price - item.offer
 
   const incrementAmount = () => {
-    dispatchId({ type: ACTION_TYPES.SET_AMOUNT, payload: stateId.amountItem+1})
+    //dispatchId({ type: ACTION_TYPES.SET_AMOUNT, payload: stateId.amountItem+1})
+    setAmount(order.amountItem+1)
   }
 
   const decrementAmount = () => {
-    if (stateId.amountItem != 1) {
-      dispatchId({ type: ACTION_TYPES.SET_AMOUNT, payload: stateId.amountItem-1})
+    if (order.amountItem != 1) {
+      //dispatchId({ type: ACTION_TYPES.SET_AMOUNT, payload: stateId.amountItem-1})
+      setAmount(order.amountItem-1)
     }
   }
 
@@ -39,9 +41,9 @@ export default function ItemFull ({ data, menu, category, id }) {
 
   const addToCart = () => {
     const info = {
-      'quantity': stateId.amountItem,
-      'agregos': stateId.agregoList,
-      'total': stateId.totalPrice,
+      'quantity': order.amountItem,
+      'agregos': order.agregoList,
+      'total': order.totalPrice,
     }
     if (isSameOrder({item, info})) {
       console.log('Misma orden')
@@ -54,16 +56,18 @@ export default function ItemFull ({ data, menu, category, id }) {
 
   useEffect(() => {
     if (item.offer) {
-      setTotalDiscount(discount*stateId.amountItem)
+      setTotalDiscount(discount*order.amountItem)
     }
-  }, [stateId.amountItem])
+  }, [order.amountItem])
 
   useEffect(() => {
     if (item.offer) {
-      dispatchId({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.offer})
+      //dispatchId({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.offer})
+      setItemPrice(item.offer)
       return
     }
-    dispatchId({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.price})
+    //dispatchId({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.price})
+    setItemPrice(item.price)
   },[])
 
   return (
@@ -83,7 +87,7 @@ export default function ItemFull ({ data, menu, category, id }) {
           <Link href={`/${menu}/${category}`} replace={true} className="category-link-id"> {categoryName.name} </Link>
         </div>
         <div>
-          Precio: {stateId.itemPrice.toFixed(2)} {item.coin}
+          Precio: {order.itemPrice.toFixed(2)} {item.coin}
         </div>
         <div className="item-description-id">
           <HorizontalDivider color={"gray"} height={2}/>
@@ -93,27 +97,27 @@ export default function ItemFull ({ data, menu, category, id }) {
         <div className="item-description-id">
           <h4>Detalles del Pedido:</h4>
           <p>
-            Precio del producto: <span>{stateId.itemPrice.toFixed(2)}</span>
+            Precio del producto: <span>{order.itemPrice.toFixed(2)}</span>
           </p>
           <p>
-            Cantidad del producto: <span>{stateId.amountItem}</span>
+            Cantidad del producto: <span>{order.amountItem}</span>
           </p>
-          {stateId.agregoPrice !== 0 && <p>
-            Precio de los agregos por cada producto: <span>{stateId.agregoPrice.toFixed(2)}</span>
+          {order.agregoPrice !== 0 && <p>
+            Precio de los agregos por cada producto: <span>{order.agregoPrice.toFixed(2)}</span>
           </p>}
           <HorizontalDivider color={"gray"} height={2}/>
         </div>
         <div className="item-options-id">
           <div className="amount-options-id">
             <div className="total-price-id">
-            Total: {stateId.totalPrice.toFixed(2)} {item.coin}
+            Total: {order.totalPrice.toFixed(2)} {item.coin}
             </div>
             <div className="amount-buttons-id">
               <button className="button-amount-id" onClick={decrementAmount}>
                 {'<'}
               </button>
               <div>
-                {stateId.amountItem}
+                {order.amountItem}
               </div>
               <button className="button-amount-id" onClick={incrementAmount}>
                 {'>'}
