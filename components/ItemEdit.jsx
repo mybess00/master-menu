@@ -1,21 +1,58 @@
 'use client'
 
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
 import { CartContext } from "../context/CartContext"
-import { orderReducer, ACTION_TYPES } from "../reducers/orderReducer"
+import { EditItemContext } from "../context/EditItemContext"
+import { ACTION_CART } from "../reducers/cartReducer"
+import Image from "next/image"
+import HorizontalDivider from "./HorizontalDivider"
 
-export default function ItemEdit ({ item, info, index }) {
+export default function ItemEdit ({ index }) {
 
   const { state, dispatch } = useContext(CartContext)
+  console.log(state[index])
+  const { item, info } = state[index]
+  const { order, setAmount, setItemPrice, setAgregoList } = useContext(EditItemContext)
+  const [totalDiscount, setTotalDiscount] = useState(item.price - item.offer)
+  const discount = item.price - item.offer
 
-  const INITIAL_STATE = {
-    itemPrice: item.offer ? item.offer : item.price,
-    amountItem: 1,
-    agregoList: info.agregos,
-    agregoPrice: 0,
-    totalPrice: 0,
+  const incrementAmount = () => {
+    setAmount(order.amountItem+1)
   }
-  
+
+  const decrementAmount = () => {
+    if (order.amountItem != 1) {
+      setAmount(order.amountItem-1)
+    }
+  }
+
+  const updateItem = () => {
+    dispatch({ 
+      type: ACTION_CART.UPDATE_ITEM, 
+      payload: { 
+        index, 
+        order: { 
+          item, 
+          info: {
+            'quantity': order.amountItem,
+            'agregos': order.agregoList,
+            'price': order.itemPrice,
+            'total': order.totalPrice,
+          }}}})
+  }
+
+  useEffect(() => {
+    if (item.offer) {
+      setTotalDiscount(discount*order.amountItem)
+    }
+  }, [order.amountItem])
+
+  useEffect(() => {
+    setAmount(info.quantity)
+    setAgregoList(info.agregos)
+    setItemPrice(item.offer ? item.offer : item.price)
+  },[])
+ 
   return (
     <div className="main-container-id">
       <div className="image-container-id">
@@ -29,7 +66,7 @@ export default function ItemEdit ({ item, info, index }) {
           )}
         </div>
         <div>
-          Precio: {stateEdit.itemPrice.toFixed(2)} {item.coin}
+          Precio: {order.itemPrice.toFixed(2)} {item.coin}
         </div>
         <div className="item-description-id">
           <HorizontalDivider color={"gray"} height={2}/>
@@ -42,24 +79,24 @@ export default function ItemEdit ({ item, info, index }) {
             Precio del producto: <span>{item.offer ? item.offer.toFixed(2) : item.price.toFixed(2)}</span>
           </p>
           <p>
-            Cantidad del producto: <span>{info.quantity}</span>
+            Cantidad del producto: <span>{order.amountItem}</span>
           </p>
-          {stateEdit.agregoPrice !== 0 && <p>
-            Precio de los agregos por cada producto: <span>{stateEdit.agregoPrice.toFixed(2)}</span>
+          {order.agregoPrice !== 0 && <p>
+            Precio de los agregos por cada producto: <span>{order.agregoPrice.toFixed(2)}</span>
           </p>}
           <HorizontalDivider color={"gray"} height={2}/>
         </div>
         <div className="item-options-id">
           <div className="amount-options-id">
             <div className="total-price-id">
-            Total: {stateEdit.totalPrice.toFixed(2)} {item.coin}
+            Total: {order.totalPrice.toFixed(2)} {item.coin}
             </div>
             <div className="amount-buttons-id">
               <button className="button-amount-id" onClick={decrementAmount}>
                 {'<'}
               </button>
               <div>
-                {stateEdit.amountItem}
+                {order.amountItem}
               </div>
               <button className="button-amount-id" onClick={incrementAmount}>
                 {'>'}
@@ -67,8 +104,8 @@ export default function ItemEdit ({ item, info, index }) {
             </div>
           </div>
           <div className="buy-options-id">
-            <button className="btn-buy-id" onClick={addToCart}>
-              AÑADIR
+            <button className="btn-buy-id" onClick={updateItem}>
+              ACTUALIZAR
             </button>
             {item.offer && (
               <p className='discount-id'>

@@ -2,15 +2,18 @@
 
 import "../styles/ItemCart.css"
 import { useContext, useEffect } from "react"
+import { useParams } from "next/navigation"
 import { CartContext } from "../context/CartContext"
 import { ACTION_CART } from "../reducers/cartReducer"
 import Image from "next/image"
+import Link from "next/link"
 import { MdDelete, MdModeEditOutline } from "react-icons/md"
 import { TbEdit } from "react-icons/tb"
 
 export default function ItemCart ({ item, info, index }) {
 
   const { state, dispatch } = useContext(CartContext)
+  const { menu } = useParams()
 
   const infoItem = () => {
     if (info.agregos.length !== 0) {
@@ -61,9 +64,11 @@ export default function ItemCart ({ item, info, index }) {
           <button className="button-delete" onClick={deleteItem}>
             <MdDelete/>
           </button>
-          <button className="button-edit">
-            <TbEdit/>
-          </button>
+          <Link href={`/${menu}/cart/${index}`}>
+            <button className="button-edit">
+              <TbEdit/>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

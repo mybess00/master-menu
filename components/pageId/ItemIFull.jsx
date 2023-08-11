@@ -20,13 +20,11 @@ export default function ItemFull ({ data, menu, category, id }) {
   const discount = item.price - item.offer
 
   const incrementAmount = () => {
-    //dispatchId({ type: ACTION_TYPES.SET_AMOUNT, payload: stateId.amountItem+1})
     setAmount(order.amountItem+1)
   }
 
   const decrementAmount = () => {
     if (order.amountItem != 1) {
-      //dispatchId({ type: ACTION_TYPES.SET_AMOUNT, payload: stateId.amountItem-1})
       setAmount(order.amountItem-1)
     }
   }
@@ -62,11 +60,9 @@ export default function ItemFull ({ data, menu, category, id }) {
 
   useEffect(() => {
     if (item.offer) {
-      //dispatchId({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.offer})
       setItemPrice(item.offer)
       return
     }
-    //dispatchId({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: item.price})
     setItemPrice(item.price)
   },[])
 

@@ -8,6 +8,8 @@ export function useOrder () {
   const setItemPrice = ( price ) => {
     try {
       dispatch({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: price }) 
+      setAgregoPrice()
+      setTotalPrice()
       return true
     } catch (error) {
       return false
@@ -17,6 +19,8 @@ export function useOrder () {
   const setAmount = (amount) => {
     try {
       dispatch({ type: ACTION_TYPES.SET_AMOUNT, payload: amount}) 
+      setAgregoPrice()
+      setTotalPrice()
       return true
     } catch (error) {
       return false
@@ -26,6 +30,8 @@ export function useOrder () {
   const setAgregoList = (agregos) => {
     try {
       dispatch({ type: ACTION_TYPES.SET_AGREGO_LIST, payload: agregos})
+      setAgregoPrice()
+      setTotalPrice()
       return true 
     } catch (error) {
       return false
@@ -49,11 +55,6 @@ export function useOrder () {
       return false
     }
   }
-
-  useState(() => {
-    setAgregoPrice()
-    setTotalPrice()
-  }, [state.agregoList, state.amountItem, state.itemPrice])
 
   return {
     order: state,
