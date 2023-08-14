@@ -1,16 +1,19 @@
 'use client'
 
-import { useEffect, useRef, useContext } from "react"
+import "../../styles/Agregos.css"
+import { useContext, useRef, useEffect } from "react"
 import { useArrState } from "../../hooks/useArrState"
-import { PageIdContext } from "../../context/PageIdContext"
+import { EditItemContext } from "../../context/EditItemContext"
+import { CartContext } from "../../context/CartContext"
 import { MdDelete } from "react-icons/md"
 
-export default function AgregosList ({ agregos }) {
+export default function AgregosList ({ index }) {
 
-  const { setAgregoList } = useContext(PageIdContext)
-  
-  const amount = useArrState()
-  const agregosActive = useArrState()
+  const { setAgregoList } = useContext(EditItemContext)
+  const { state } = useContext(CartContext)
+  const agregos = state[index].item.agregos
+  const amount = useArrState() 
+  const agregosActive = useArrState(state[index].info.agregos)
   const agregoMainRef = useRef(null)
   const placeholderOption = useRef(null)
   const selectAgregosRef = useRef(null)
@@ -50,13 +53,17 @@ export default function AgregosList ({ agregos }) {
   }, [amount.arr])
 
   useEffect(() => {
-    //dispatchId({ type: ACTION_TYPES.SET_AGREGO_LIST, payload: agregosActive.arr})
     setAgregoList(agregosActive.arr)
   }, [agregosActive.arr])
 
   useEffect(() => {
     if (selectAgregosRef.current) {
       selectAgregosRef.current.disabled = false
+    }
+    if (state[index].info.agregos.length !== 0) {
+      state[index].info.agregos.forEach((element, index) => {
+        amount.updateValue(index, element.quantity)
+      })
     }
   },[])
 

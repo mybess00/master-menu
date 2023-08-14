@@ -2,9 +2,9 @@
 
 import "../../../../styles/IdPage.css"
 import filseJSON from '../../../../data-menu.json'
-import ItemFull from "../../../../components/pageId/ItemIFull"
-import Agregos from "../../../../components/pageId/Agregos"
-import Suggestion from "../../../../components/pageId/Suggestion"
+import ItemFull from "../../../../components/page-id/ItemIFull"
+import Agregos from "../../../../components/page-id/Agregos"
+import Suggestion from "../../../../components/page-id/Suggestion"
 import { PageIdProvider } from "../../../../context/PageIdContext"
 
 export default function PageId ({ params }) {

@@ -1,11 +1,11 @@
 'use client'
 
 import { useContext, useState, useEffect } from "react"
-import { CartContext } from "../context/CartContext"
-import { EditItemContext } from "../context/EditItemContext"
-import { ACTION_CART } from "../reducers/cartReducer"
+import { CartContext } from "../../context/CartContext"
+import { EditItemContext } from "../../context/EditItemContext"
+import { ACTION_CART } from "../../reducers/cartReducer"
 import Image from "next/image"
-import HorizontalDivider from "./HorizontalDivider"
+import HorizontalDivider from "../HorizontalDivider"
 
 export default function ItemEdit ({ index }) {
 
