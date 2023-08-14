@@ -12,7 +12,11 @@ export default function AgregosList ({ index }) {
   const { setAgregoList } = useContext(EditItemContext)
   const { state } = useContext(CartContext)
   const agregos = state[index].item.agregos
-  const amount = useArrState() 
+  let newAmount = []
+  if (state[index].info.agregos.getLength !== 0) {
+    state[index].info.agregos.forEach(element => newAmount.push(element.quantity))
+  }
+  const amount = useArrState(newAmount) 
   const agregosActive = useArrState(state[index].info.agregos)
   const agregoMainRef = useRef(null)
   const placeholderOption = useRef(null)
@@ -61,8 +65,8 @@ export default function AgregosList ({ index }) {
       selectAgregosRef.current.disabled = false
     }
     if (state[index].info.agregos.length !== 0) {
-      state[index].info.agregos.forEach((element, index) => {
-        amount.updateValue(index, element.quantity)
+      state[index].info.agregos.forEach(element => {
+        document.querySelector(`#agrego-${element.id}`).disabled = true
       })
     }
   },[])

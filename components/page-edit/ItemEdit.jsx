@@ -10,7 +10,6 @@ import HorizontalDivider from "../HorizontalDivider"
 export default function ItemEdit ({ index }) {
 
   const { state, dispatch } = useContext(CartContext)
-  console.log(state[index])
   const { item, info } = state[index]
   const { order, setAmount, setItemPrice, setAgregoList } = useContext(EditItemContext)
   const [totalDiscount, setTotalDiscount] = useState(item.price - item.offer)
