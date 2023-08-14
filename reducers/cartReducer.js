@@ -8,7 +8,7 @@ export const ACTION_CART = {
   SET_PRICE_ORDER: 'SET_PRICE_ORDER',
 }
 
-export const INITIAL_STATE = window.localStorage.getItem('cart') || []
+export const INITIAL_STATE = []
 
 export const cartReducer = (state, action) => {
   if (action.type === ACTION_CART.ADD_ITEM) {
