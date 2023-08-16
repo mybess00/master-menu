@@ -11,7 +11,7 @@ export default function SideBar ({ menu }) {
   const Config = fileJSON[menu]
   const sideBarRef = useRef(null)
   const inputSideBarRef = useRef(null)
-  // Bloquear desplazamiento scroll Y al mostrar el SideBar
+
   const [ scroll, setScroll ] = useState(false)
 
   const toggleSideBar = (e) => {

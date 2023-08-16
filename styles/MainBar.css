@@ -1,0 +1,57 @@
+.main-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    padding: 0 .85rem;
+    width: 100vw;
+    height: 55px;
+    transform: translateY(-105%);
+    transition: all 150ms;
+    background-color: rgb(25, 182, 59);
+    z-index: 20;
+}
+
+.title-main-bar {
+    color: white;
+}
+
+.btn-main-bar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: .3rem;
+}
+
+.child-btn-main-bar {
+    background-color: white;
+    width: 1.8rem;
+    height: .35rem;
+    border-radius: .2rem;
+    transition: transform 200ms ease;
+}
+
+.up-icon {
+    transform-origin: top left;
+}
+
+.down-icon {
+    transform-origin: bottom left;
+}
+
+.shoping-cart-icon {
+    display: flex;
+    color: white;
+    font-size: 1.75rem;
+}
+
+.input-toggle-side-bar:checked ~ .main-bar > label > .up-icon {
+    transform: rotate(45deg) translateY(-6px);
+}
+
+.input-toggle-side-bar:checked ~ .main-bar > label > .down-icon {
+    transform: rotate(-45deg) translateY(6px);
+    transform-origin: bottom left;
+}

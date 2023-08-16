@@ -6,7 +6,7 @@ import logo from "../public/images/logo.jpg"
 
 export default function ProfileComponent ({ name, description, category, social }) {
   return (
-    <section>
+    <section className="profile-section">
       <ProfileImage image={logo.src} alt={`Logo de ${name}`} />
       <div className="container-info glass">
         <h1>{name}</h1>

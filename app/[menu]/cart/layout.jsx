@@ -10,9 +10,7 @@ export default function LayoutCart ({ children }) {
           Carrito
         </h2>
       </nav>
-      <section>
-        {children}
-      </section>
+      {children}
     </>
   )
 }
