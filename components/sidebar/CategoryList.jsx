@@ -19,6 +19,9 @@ export default function CategoryList ({ categories, updateInputValue }) {
     } else if (category) {
       let inputCategory = document.querySelector(`#toggle-categories-${category}`)
       inputCategory.checked = true
+    } else {
+      let inputs = document.querySelectorAll('input[name="toggle-categories"]')
+      inputs.forEach(element => element.checked = false)
     }
   }, [category, id])
 
@@ -44,20 +47,22 @@ export default function CategoryList ({ categories, updateInputValue }) {
             </li>
   })
 
+  const items = () => {
+    return ItemList.map((element, index) => {
+      return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${element.id}`}>
+                <input type="radio" name="toggle-item-list" id={`toggle-item-list-${element.id}`} />
+                <label htmlFor={`toggle-item-list-${element.id}`}>
+                  {element.title}
+                </label>
+              </li>
+    })  
+  }
+
   return (
     <div className="categories-container">
       <h3>{id ? 'Productos' : 'Categorías'}</h3>
       <ul className="categories-list-container">
-        {!id ? categoryList.map(element => element) : (() => {
-          return ItemList.map((element, index) => {
-            return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${element.id}`}>
-                      <input type="radio" name="toggle-item-list" id={`toggle-item-list-${element.id}`} />
-                      <label htmlFor={`toggle-item-list-${element.id}`}>
-                        {element.title}
-                      </label>
-                    </li>
-          })
-        })()}
+        {!id ? categoryList.map(element => element) : items().map(element => element)}
       </ul>
     </div>
   )
