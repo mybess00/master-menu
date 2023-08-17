@@ -1,28 +1,33 @@
 'use client'
 
 import "../../styles/NavBar.css"
-import fileJSON from "../../data-menu.json"
 import { useRouter, useParams } from "next/navigation"
-import { useEffect } from "react"
+import { useEffect, useContext } from "react"
+import { MenuContext } from "../../context/MenuContext"
 
 export default function CategoryList ({ categories, updateInputValue }) {
 
+  const { ConfigData } = useContext(MenuContext)
   const router = useRouter()
-  const params = useParams()
-  const ItemList = fileJSON[params.menu][params.category]
+  const { category, id} = useParams()
+  const ItemList = ConfigData[category]
 
   useEffect(() => {
-    if (params.id) {
-      let inputItem = document.querySelector(`#toggle-item-list-${params.id}`)
+    if (id) {
+      let inputItem = document.querySelector(`#toggle-item-list-${id}`)
       inputItem.checked = true
-    } else if (params.category) {
-      let inputCategory = document.querySelector(`#toggle-categories-${params.category}`)
+    } else if (category) {
+      let inputCategory = document.querySelector(`#toggle-categories-${category}`)
       inputCategory.checked = true
     }
-  }, [params])
+  }, [category, id])
 
   const toLink = (link) => {
-    router.replace(link, { scroll: true })
+    if (category) {
+      router.replace(link, { scroll: true })
+    } else {
+      router.push(`/${ConfigData.id}/${link}`, { scroll: true })
+    }
     const sideBarInput = document.querySelector('#toggle-side-bar')
     setTimeout(() => {
       sideBarInput.checked = false
@@ -41,9 +46,9 @@ export default function CategoryList ({ categories, updateInputValue }) {
 
   return (
     <div className="categories-container">
-      <h3>{params.id ? 'Productos' : 'Categorías'}</h3>
+      <h3>{id ? 'Productos' : 'Categorías'}</h3>
       <ul className="categories-list-container">
-        {!params.id ? categoryList.map(element => element) : (() => {
+        {!id ? categoryList.map(element => element) : (() => {
           return ItemList.map((element, index) => {
             return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${element.id}`}>
                       <input type="radio" name="toggle-item-list" id={`toggle-item-list-${element.id}`} />

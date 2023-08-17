@@ -1,240 +1,243 @@
 {
-  "fastbites": {
-    "info": {
-      "name": "Fast Bites",
-      "category": "Restaurante y Comida Rápida",
-      "description": "Deliciosos sabores en tu puerta. FastBites: comida rápida a domicilio con los mejores ingredientes y atención excepcional",
-      "social": {
-        "telegram": "https://t.me/link",
-        "whatsapp": "https://wa.me/55555555",
-        "instagram": "https://instagram.com",
-        "facebook": "https://facebook.com"
+    "fastbites": {
+      "menu": {
+        "id": "fastbites",
+        "info": {
+          "name": "Fast Bites",
+          "category": "Restaurante y Comida Rápida",
+          "description": "Deliciosos sabores en tu puerta. FastBites: comida rápida a domicilio con los mejores ingredientes y atención excepcional",
+          "social": {
+            "telegram": "https://t.me/link",
+            "whatsapp": "https://wa.me/55555555",
+            "instagram": "https://instagram.com",
+            "facebook": "https://facebook.com"
+          }
+        },
+      
+        "category": [
+          {
+            "name": "Pizzas 🍕",
+              "id": "pizza"
+          },
+          {
+            "name": "Hamburguesas 🍔",
+              "id": "burger"
+          },
+          {
+            "name": "Dulces 🍮",
+              "id": "dulces"
+          },
+          {
+            "name": "Bebidas 🥤",
+              "id": "bebidas"
+          }
+        ],
+        "pizza": [
+          {
+            "available": true,
+            "id": "p001",
+            "title": "Pizza Doble Queso",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/pizza-1.jpg",
+                "alt": "foto de item"
+            },
+            "price": 550.00,
+            "coin": "CUP",
+            "agregos": [
+              { "id": 0, "name": "Extra Queso", "price": 50.00 },
+              { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+              { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+              { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
+            ]
+          },
+          {
+            "available": true,
+            "id": "p002",
+            "title": "Pizza Mixta",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/pizza-2.jpg",
+                "alt": "foto de item"
+            },
+            "price": 800.00,
+            "coin": "CUP",
+            "agregos": [
+              { "id": 0, "name": "Extra Queso", "price": 50.00 },
+              { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+              { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+              { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
+            ]
+          }
+        ],
+        "burger": [
+          {
+            "available": true,
+            "id": "h000",
+            "title": "Hamburguesa Queen",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/burger-1.jpg",
+                "alt": "foto de item"
+            },
+            "price": 850.00,
+            "coin": "CUP",
+            "offer": 650.00,
+            "agregos": [
+              { "id": 0, "name": "Extra Queso", "price": 50.00 },
+              { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+              { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+              { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
+            ]
+          },
+          {
+            "available": true,
+            "id": "h001",
+            "title": "Hamburguesa Simple",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/burger-2.jpg",
+                "alt": "foto de item"
+            },
+            "price": 170.00,
+            "coin": "CUP",
+            "agregos": [
+              { "id": 0, "name": "Extra Queso", "price": 50.00 },
+              { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+              { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+              { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
+            ]
+          },
+          {
+            "available": true,
+            "id": "h002",
+            "title": "Hamburguesa Extra Carne",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/burger-3.jpg",
+                "alt": "foto de item"
+            },
+            "price": 1000.00,
+            "coin": "CUP",
+            "agregos": [
+              { "id": 0, "name": "Extra Queso", "price": 50.00 },
+              { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+              { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+              { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
+            ]
+          },
+          {
+            "available": true,
+            "id": "h003",
+            "title": "Hamburguesas Pack Sol",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/burger-4.jpg",
+                "alt": "foto de item"
+            },
+            "price": 2550.00,
+            "coin": "CUP",
+            "agregos": [
+              { "id": 0, "name": "Extra Queso", "price": 50.00 },
+              { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+              { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+              { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
+            ]
+          },
+          {
+            "available": false,
+            "id": "h004",
+            "title": "Hamburguesa Extra Queso",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/burger-5.jpg",
+                "alt": "foto de item"
+            },
+            "price": 300.00,
+            "coin": "CUP",
+            "offer": 250.00,
+            "agregos": [
+              { "id": 0, "name": "Extra Queso", "price": 50.00 },
+              { "id": 1, "name": "Extra Jamón", "price": 80.00 },
+              { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
+              { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
+            ]
+          }    
+        ],
+        "dulces": [
+          {
+            "available": true,
+            "id": "d001",
+            "title": "Bombones Chocolate",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/dulce-1.jpg",
+                "alt": "foto de item"
+            },
+            "price": 500.00,
+            "coin": "CUP",
+            "offer": 350.00,
+            "agregos":[
+              { "id": 0, "name": "Papel de Regalo", "price": 50.00 },
+              { "id": 1, "name": "Tarjeta de Felicitación", "price": 20.00 }
+            ]
+          },
+          {
+            "available": true,
+            "id": "d002",
+            "title": "Cupcackes Adornados",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/dulce-2.jpg",
+                "alt": "foto de item"
+            },
+            "price": 300.00,
+            "coin": "CUP",
+            "agregos":[
+              { "id": 0, "name": "Papel de Regalo", "price": 50.00 },
+              { "id": 1, "name": "Tarjeta de Felicitación", "price": 20.00 }
+            ]
+          },
+          {
+            "available": false,
+            "id": "d003",
+            "title": "Flan de leche con canela",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/dulce-3.jpg",
+                "alt": "foto de item"
+            },
+            "price": 150.00,
+            "coin": "CUP",
+            "offer": 125.00
+          } 
+        ],
+        "bebidas": [
+          {
+            "available": true,
+            "id": "drink001",
+            "title": "Refrescos Enlatados",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/bebida.jpg",
+                "alt": "foto de item"
+            },
+            "price": 200,
+            "coin": "CUP"
+          },
+          {
+            "available": true,
+            "id": "drink002",
+            "title": "Agua Mineral Embotellada",
+            "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
+            "image": {
+                "src": "/images/water.jpg",
+                "alt": "foto de item"
+            },
+            "price": 50,
+            "coin": "CUP"
+          }
+        ]
       }
-    },
-  
-    "category": [
-      {
-        "name": "Pizzas 🍕",
-          "id": "pizza"
-      },
-      {
-        "name": "Hamburguesas 🍔",
-          "id": "burger"
-      },
-      {
-        "name": "Dulces 🍮",
-          "id": "dulces"
-      },
-      {
-        "name": "Bebidas 🥤",
-          "id": "bebidas"
-      }
-    ],
-    "pizza": [
-      {
-        "available": true,
-        "id": "p001",
-        "title": "Pizza Doble Queso",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/pizza-1.jpg",
-            "alt": "foto de item"
-        },
-        "price": 550.00,
-        "coin": "CUP",
-        "agregos": [
-          { "id": 0, "name": "Extra Queso", "price": 50.00 },
-          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
-          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
-          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
-        ]
-      },
-      {
-        "available": true,
-        "id": "p002",
-        "title": "Pizza Mixta",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/pizza-2.jpg",
-            "alt": "foto de item"
-        },
-        "price": 800.00,
-        "coin": "CUP",
-        "agregos": [
-          { "id": 0, "name": "Extra Queso", "price": 50.00 },
-          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
-          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
-          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
-        ]
-      }
-    ],
-    "burger": [
-      {
-        "available": true,
-        "id": "h000",
-        "title": "Hamburguesa Queen",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/burger-1.jpg",
-            "alt": "foto de item"
-        },
-        "price": 850.00,
-        "coin": "CUP",
-        "offer": 650.00,
-        "agregos": [
-          { "id": 0, "name": "Extra Queso", "price": 50.00 },
-          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
-          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
-          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
-        ]
-      },
-      {
-        "available": true,
-        "id": "h001",
-        "title": "Hamburguesa Simple",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/burger-2.jpg",
-            "alt": "foto de item"
-        },
-        "price": 170.00,
-        "coin": "CUP",
-        "agregos": [
-          { "id": 0, "name": "Extra Queso", "price": 50.00 },
-          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
-          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
-          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
-        ]
-      },
-      {
-        "available": true,
-        "id": "h002",
-        "title": "Hamburguesa Extra Carne",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/burger-3.jpg",
-            "alt": "foto de item"
-        },
-        "price": 1000.00,
-        "coin": "CUP",
-        "agregos": [
-          { "id": 0, "name": "Extra Queso", "price": 50.00 },
-          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
-          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
-          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
-        ]
-      },
-      {
-        "available": true,
-        "id": "h003",
-        "title": "Hamburguesas Pack Sol",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/burger-4.jpg",
-            "alt": "foto de item"
-        },
-        "price": 2550.00,
-        "coin": "CUP",
-        "agregos": [
-          { "id": 0, "name": "Extra Queso", "price": 50.00 },
-          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
-          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
-          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
-        ]
-      },
-      {
-        "available": false,
-        "id": "h004",
-        "title": "Hamburguesa Extra Queso",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/burger-5.jpg",
-            "alt": "foto de item"
-        },
-        "price": 300.00,
-        "coin": "CUP",
-        "offer": 250.00,
-        "agregos": [
-          { "id": 0, "name": "Extra Queso", "price": 50.00 },
-          { "id": 1, "name": "Extra Jamón", "price": 80.00 },
-          { "id": 2, "name": "Extra Ensalada", "price": 30.00 },
-          { "id": 3, "name": "Extra Carne de Cerdo", "price": 120.00 }
-        ]
-      }    
-    ],
-    "dulces": [
-      {
-        "available": true,
-        "id": "d001",
-        "title": "Bombones Chocolate",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/dulce-1.jpg",
-            "alt": "foto de item"
-        },
-        "price": 500.00,
-        "coin": "CUP",
-        "offer": 350.00,
-        "agregos":[
-          { "id": 0, "name": "Papel de Regalo", "price": 50.00 },
-          { "id": 1, "name": "Tarjeta de Felicitación", "price": 20.00 }
-        ]
-      },
-      {
-        "available": true,
-        "id": "d002",
-        "title": "Cupcackes Adornados",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/dulce-2.jpg",
-            "alt": "foto de item"
-        },
-        "price": 300.00,
-        "coin": "CUP",
-        "agregos":[
-          { "id": 0, "name": "Papel de Regalo", "price": 50.00 },
-          { "id": 1, "name": "Tarjeta de Felicitación", "price": 20.00 }
-        ]
-      },
-      {
-        "available": false,
-        "id": "d003",
-        "title": "Flan de leche con canela",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/dulce-3.jpg",
-            "alt": "foto de item"
-        },
-        "price": 150.00,
-        "coin": "CUP",
-        "offer": 125.00
-      } 
-    ],
-    "bebidas": [
-      {
-        "available": true,
-        "id": "drink001",
-        "title": "Refrescos Enlatados",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/bebida.jpg",
-            "alt": "foto de item"
-        },
-        "price": 200,
-        "coin": "CUP"
-      },
-      {
-        "available": true,
-        "id": "drink002",
-        "title": "Agua Mineral Embotellada",
-        "description": "Clasico sabor italiano con doble queso, salsa mixta sabor vitanova y queso",
-        "image": {
-            "src": "/images/water.jpg",
-            "alt": "foto de item"
-        },
-        "price": 50,
-        "coin": "CUP"
-      }
-    ]
   }
 }

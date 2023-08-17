@@ -4,9 +4,11 @@ import { usePathname } from 'next/navigation'
 import SideBar from '../../components/SideBar'
 import BottomBar from '../../components/BottomBar'
 import MainBar from '../../components/MainBar'
+import { MenuProvider } from '../../context/MenuContext'
 import fileJSON from '../../data-menu.json'
 
 export default function LayoutMenu ({ children, params }) {
+
   const { menu, category } = params
   const pathname = usePathname()
 
@@ -24,11 +26,11 @@ export default function LayoutMenu ({ children, params }) {
   }
   
   return (
-    <section>
-      <SideBar menu={menu}/>
-      {isMainPage() && <MainBar menu={menu}/>}
+    <MenuProvider>
+      <SideBar />
+      {isMainPage() && <MainBar />}
       <BottomBar />
       {children}
-    </section>
+    </MenuProvider>
   )
 }

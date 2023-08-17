@@ -1,17 +1,16 @@
 'use client'
 
-import fileJSON from "../data-menu.json"
-import { useParams } from "next/navigation"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useRef } from "react"
+import { MenuContext } from "../context/MenuContext"
 import { CartContext } from "../context/CartContext"
 import { ACTION_CART } from "../reducers/cartReducer"
 
 export default function ButtonAddCar ({ id, price, category }) {
 
   const { state, dispatch } = useContext(CartContext)
-
-  const { menu } = useParams()
-  const ItemsList = fileJSON[menu][category]
+  const btnRef = useRef()
+  const { ConfigData } = useContext(MenuContext)
+  const ItemsList = ConfigData[category]
   const item = ItemsList.find(element => element.id === id)
   const info = {
     'quantity': 1,
@@ -36,10 +35,16 @@ export default function ButtonAddCar ({ id, price, category }) {
 
   useEffect(() => {
     isOnCart = checkItem(item)
+    if (isOnCart) {
+      btnRef.current.style.backgroundColor = '#0b4e09'
+      btnRef.current.style.color = 'white'
+    } else {
+      btnRef.current.style = 'none'
+    }
   }, [state])
 
   return (
-    <button className="btn-add-car" onClick={handleClick}>
+    <button className="btn-add-car" onClick={handleClick} ref={btnRef}>
       {isOnCart ? 'Añadido' : price}
     </button>
   )

@@ -1,11 +1,11 @@
 'use client'
 import { useState, useEffect, useContext } from "react"
+import { useRouter } from "next/navigation"
 import { PageIdContext } from "../../context/PageIdContext"
 import { CartContext } from "../../context/CartContext"
 import Image from 'next/image'
 import HorizontalDivider from "../HorizontalDivider"
 import Link from "next/link"
-import { ACTION_TYPES } from "../../reducers/orderReducer"
 import { ACTION_CART } from "../../reducers/cartReducer"
 
 export default function ItemFull ({ data, menu, category, id }) {
@@ -18,6 +18,7 @@ export default function ItemFull ({ data, menu, category, id }) {
 
   const [totalDiscount, setTotalDiscount] = useState(item.price - item.offer)
   const discount = item.price - item.offer
+  const router = useRouter()
 
   const incrementAmount = () => {
     setAmount(order.amountItem+1)
@@ -43,12 +44,11 @@ export default function ItemFull ({ data, menu, category, id }) {
       'agregos': order.agregoList,
       'total': order.totalPrice,
     }
-    if (isSameOrder({item, info})) {
-      console.log('Misma orden')
-      console.log(isSameOrder({item, info}))
-    } else {
-      console.log('se puede agregar')
+    if (!isSameOrder({item, info})) {
       dispatch({ type: ACTION_CART.ADD_ITEM, payload: {item, info}})
+      router.back()
+    } else {
+      alert('Esta orden ya está en el carrito')      
     }
   }
 

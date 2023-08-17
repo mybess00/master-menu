@@ -4,6 +4,8 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
     padding: 0 .85rem;
     width: 100vw;
     height: 55px;
@@ -40,7 +42,7 @@
     background-color: white;
     width: 80%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 55px;
     z-index: 15;
@@ -51,7 +53,7 @@
 }
 
 .background-side-bar{
-    position: absolute;
+    position: fixed;
     top: 55px;
     right: 0;
     background-color: rgba(48, 48, 48, 0.582);

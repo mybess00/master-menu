@@ -1,17 +1,16 @@
 'use client'
 
 import "../styles/NavBar.css"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useContext } from "react"
+import { MenuContext } from "../context/MenuContext"
 import ProfileBar from "./sidebar/ProfileBar"
 import CategoryList from "./sidebar/CategoryList"
-import fileJSON from "../data-menu.json"
 
-export default function SideBar ({ menu }) {
+export default function SideBar () {
 
-  const Config = fileJSON[menu]
+  const { ConfigData } = useContext(MenuContext)
   const sideBarRef = useRef(null)
   const inputSideBarRef = useRef(null)
-
   const [ scroll, setScroll ] = useState(false)
 
   const toggleSideBar = (e) => {
@@ -21,16 +20,14 @@ export default function SideBar ({ menu }) {
     setScroll(e.target.checked)
   }
   useEffect(() => {
-    const body = document.querySelector('body')
+    const documentElement = document.documentElement
     if (scroll) {
-      body.style.position = "fixed"
-      body.style.overflow = "hidden"
+      documentElement.style.overflow = "hidden"
     } else {
       setTimeout(() => {
         inputSideBarRef.current.checked = false
         sideBarRef.current.style = "none"
-        body.style.position = ""
-        body.style.overflow = ""
+        documentElement.style.overflow = ""
         
       },500)
     }
@@ -40,8 +37,8 @@ export default function SideBar ({ menu }) {
     <>
     <input type="checkbox" name="toggle-side-bar" ref={inputSideBarRef} id="toggle-side-bar" value={scroll} className="input-toggle-side-bar" onChange={toggleSideBar}/>
     <nav className="side-bar" ref={sideBarRef}>
-      <ProfileBar menu={menu}/>
-      <CategoryList categories={Config.category} updateInputValue={setScroll}/>
+      <ProfileBar info={ConfigData.info}/>
+      <CategoryList categories={ConfigData.category} updateInputValue={setScroll}/>
     </nav>
     <label className="background-side-bar" htmlFor="toggle-side-bar"></label>
     </>

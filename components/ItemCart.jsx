@@ -15,6 +15,8 @@ export default function ItemCart ({ item, info, index }) {
   const { state, dispatch } = useContext(CartContext)
   const { menu } = useParams()
 
+  console.log(info)
+
   const infoItem = () => {
     if (info.agregos.length !== 0) {
       const description = info.agregos.map(element => {
@@ -48,7 +50,7 @@ export default function ItemCart ({ item, info, index }) {
       <div className="info-container">
         <h2>{item.title}</h2>
         <div>{infoItem()}</div>
-        <div>{item.price.toFixed(2)} {item.coin}</div>
+        <div>{info.total.toFixed(2)} {item.coin}</div>
         <div className="option-container">
           <div className="amount-cart-container">
               <button className="button-amount-cart" onClick={decrementAmount}>

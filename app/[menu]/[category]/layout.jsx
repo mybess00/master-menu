@@ -1,19 +1,21 @@
+'use client'
+
+import { useContext } from "react"
 import NavBar from "../../../components/NavBar"
-import fileJSON from "../../../data-menu.json"
+import { MenuContext } from "../../../context/MenuContext"
+
 
 export default function LayoutCategoty ({ children, params }) {
 
-  const { menu, category } = params
-  const Config = fileJSON[menu]
+  const { ConfigData } = useContext(MenuContext)
+  const { category } = params
 
-  const categoryOptions = Config["category"].find(({ id }) => id == category)
+  const categoryOptions = ConfigData.category.find(({ id }) => id == category)
   
   return (
     <>
-    <NavBar title={categoryOptions.name}/>
-    <div>
+      <NavBar title={categoryOptions.name}/>
       {children}
-    </div>
     </>
   )
 }

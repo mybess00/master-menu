@@ -12,6 +12,10 @@
     gap: .3rem;
 }
 
+.info-container h2 {
+    font-size: 1.3rem;
+}
+
 .image-container {
     position: relative;
     width: 45vw;

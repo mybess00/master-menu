@@ -1,6 +1,6 @@
 .modal {
     position: fixed;
-    bottom: 60px;
+    bottom: 80px;
     left: 50%;
     transform: translate(-50%, 0);
     overflow: hidden;
@@ -118,6 +118,12 @@
     border-radius: .25rem;
     border: none;
     cursor: pointer;
+    transition: all 150ms;
+}
+
+.btn-active {
+    background-color: #0b4e09;
+    color: white;
 }
 
 .discount-modal  {

@@ -8,14 +8,13 @@ import Category from '../../components/Category'
 import Item from '../../components/Item'
 import ItemSpent from '../../components/ItemSpent'
 import ItemOffer from '../../components/ItemOffer'
-import fileJSON from '../../data-menu.json'
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
+import { MenuContext } from '../../context/MenuContext'
 
-export default function Menu ({ params }) {
-  const { menu } = params
-  const Config = fileJSON[menu]
-  const categories = Config.category
-  const { name, category, description, social } = Config.info
+export default function Menu () {
+  const { ConfigData } = useContext(MenuContext)
+  const categories = ConfigData.category
+  const { name, category, description, social } = ConfigData.info
 
   const isVisibleProfile = useScrollListener('.profile-section')
 
@@ -33,19 +32,19 @@ export default function Menu ({ params }) {
       <ProfileComponent name={name} description={description} category={category} social={social} />
           <section>
             {categories.map((element) => {
-                return  <Category title={element.name} id={element.id} key={element.id} menu={menu}>
-                          {Config[element.id].map((item) => {
+                return  <Category title={element.name} id={element.id} key={element.id} menu={ConfigData.id}>
+                          {ConfigData[element.id].map((item) => {
                             if (item.available){                      
                               if (item.offer) {
                                 return  <ItemOffer
                                           item={item}
-                                          baseLink={`/${menu}/${element.id}/`}
+                                          baseLink={`/${ConfigData.id}/${element.id}/`}
                                           category={element.id}
                                           key={item.id}/>
                               }
                               return  <Item
                                         item={item}
-                                        baseLink={`/${menu}/${element.id}/`}
+                                        baseLink={`/${ConfigData.id}/${element.id}/`}
                                         category={element.id}
                                         key={item.id}/>
                             }

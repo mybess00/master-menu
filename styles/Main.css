@@ -3,11 +3,10 @@
 }
 
 .category-container {
-    margin: .5rem .5rem;
+    margin: 1.15rem .5rem;
     gap: .5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 1.15rem;
 }
 
 .horizontal-divider {
@@ -80,26 +79,27 @@
 
 .shape-category {
     position: relative;
-    height: 50px;
+    height: 40px;
     width: 50%;
+    max-width: 80%;
     display: flex;
     align-items: center;
     background-color: green;
     color: white;
     z-index: 10;
     padding-left: .85rem;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     box-shadow: 3.5px 5px 10px 0 rgb(0, 0, 0, 0.25);
 }
 
 .shape-category::before {
     position: absolute;
     content: "";
-    right: -25px;
+    right: -20px;
     bottom: 0;
     width: 0;
     height: 0;
-    border-left: 25px solid green;
-    border-top: 25px solid transparent;
-    border-bottom: 25px solid transparent;
+    border-left: 20px solid green;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
 }

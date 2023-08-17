@@ -1,7 +1,7 @@
 'use client'
 
 import '../styles/Modal.css'
-import { useState, useEffect, useContext, useReducer } from "react"
+import { useState, useEffect, useContext, useReducer, useRef } from "react"
 import { useRouter, useParams } from 'next/navigation'
 import Image from "next/image"
 import Link from 'next/link'
@@ -17,11 +17,11 @@ export default function Modal ({ item }) {
 
   const { state, dispatch } = useContext(CartContext)
   const [stateModal, dispatchModal] = useReducer(modalReducer, INITIAL_MODAL_STATE)
-
   const [totalDiscount, setTotalDiscount] = useState(item.price - item.offer)
   const discount = item.price - item.offer
   const router = useRouter()
   const { menu, category } = useParams()
+  const btnRef = useRef()
 
   const addItem = () => {
     dispatchModal({ type: ACTION_MODAL.SET_AMOUNT, payload: stateModal.quantity+1})
@@ -46,6 +46,7 @@ export default function Modal ({ item }) {
   const addToCart = () => {
     if (!isOnCart) {
       dispatch({ type: ACTION_CART.ADD_ITEM, payload: {item, info: stateModal} })
+      router.back()
     }
   }
 
@@ -101,7 +102,7 @@ export default function Modal ({ item }) {
                   {`Ahorras ${totalDiscount} ${item.coin}`}
                 </p>
               )}
-              <button className="btn-buy-modal" onClick={addToCart}>
+              <button className={`btn-buy-modal ${isOnCart ? 'btn-active' : ''}`} onClick={addToCart} ref={btnRef}>
                 {isOnCart ? 'EN EL CARRITO' : 'AÑADIR'}
               </button>
             </div>

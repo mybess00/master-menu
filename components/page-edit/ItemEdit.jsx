@@ -1,6 +1,7 @@
 'use client'
 
 import { useContext, useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { CartContext } from "../../context/CartContext"
 import { EditItemContext } from "../../context/EditItemContext"
 import { ACTION_CART } from "../../reducers/cartReducer"
@@ -10,6 +11,7 @@ import HorizontalDivider from "../HorizontalDivider"
 export default function ItemEdit ({ index }) {
 
   const { state, dispatch } = useContext(CartContext)
+  const router = useRouter()
   const { item, info } = state[index]
   const { order, setAmount, setItemPrice, setAgregoList } = useContext(EditItemContext)
   const [totalDiscount, setTotalDiscount] = useState(item.price - item.offer)
@@ -38,6 +40,7 @@ export default function ItemEdit ({ index }) {
             'price': order.itemPrice,
             'total': order.totalPrice,
           }}}})
+    router.back()
   }
 
   useEffect(() => {

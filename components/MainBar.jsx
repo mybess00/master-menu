@@ -1,22 +1,23 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { MenuContext } from "../context/MenuContext"
 import "../styles/MainBar.css"
 import Link from "next/link"
 import { FaCartShopping } from "react-icons/fa6"
-import fileJSON from '../data-menu.json'
 
-export default function MainBar ({ menu }) {
+export default function MainBar () {
 
-  const [title, setTitle] =  useState(fileJSON[menu].info.name)
-  const categories = fileJSON[menu].category.map(element => element)
-  
+  const { ConfigData } = useContext(MenuContext)
+  const [title, setTitle] =  useState(ConfigData.info.name)
+  const categories = ConfigData.category.map(element => element)
+    
   const handleScroll = () => {
     for (let index = categories.length-1; index >= 0; index--) {
       const element = categories[index]
       let categoryElement = document.getElementById(`shape-${element.id}`)
       const rect = categoryElement.getBoundingClientRect()
-      if (rect.bottom <= 0) {
+      if (rect.bottom < rect.height) {
         setTitle(element.name)
         return
       }
@@ -31,7 +32,7 @@ export default function MainBar ({ menu }) {
 
   return (
     <nav className="main-bar">
-      <Link className="shoping-cart-icon" href={`/${menu}/cart`}>
+      <Link className="shoping-cart-icon" href={`/${ConfigData.id}/cart`}>
         <FaCartShopping/>
       </Link>
       <h2 className="title-main-bar">{title}</h2>

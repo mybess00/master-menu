@@ -1,21 +1,23 @@
 'use client'
 
+import { useContext } from 'react'
 import { useParams } from 'next/navigation'
-import filseJSON from '../../data-menu.json'
+import { MenuContext } from '../../context/MenuContext'
 import VerticalDivider from "../VerticalDivider"
 import ItemShort from './ItemShort'
 
 export default function Suggestion () {
 
+  const { ConfigData } = useContext(MenuContext)
   const { menu, id } = useParams()
-  const Config = filseJSON[menu]
+  
   const randomNumber = (max) => Math.floor(Math.random() * max)
-  const categoryMax = Config["category"].length
+  const categoryMax = ConfigData.category.length
   
   const getItem = () => {
-    const randomCategory = Config["category"][randomNumber(categoryMax)]
-    const randomCategoryMax = Config[randomCategory.id].length
-    const randomItem = Config[randomCategory.id][randomNumber(randomCategoryMax)]
+    const randomCategory = ConfigData.category[randomNumber(categoryMax)]
+    const randomCategoryMax = ConfigData[randomCategory.id].length
+    const randomItem = ConfigData[randomCategory.id][randomNumber(randomCategoryMax)]
 
     return {
       code: <ItemShort key={randomItem.id} title={randomItem.title} price={randomItem.price} coin={randomItem.coin} image={randomItem.image} link={`/${menu}/${randomCategory.id}/${randomItem.id}`}/>,
