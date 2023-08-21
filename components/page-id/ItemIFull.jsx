@@ -1,4 +1,6 @@
 'use client'
+
+import "../../styles/ItemFull.css"
 import { useState, useEffect, useContext } from "react"
 import { useRouter } from "next/navigation"
 import { PageIdContext } from "../../context/PageIdContext"
@@ -78,11 +80,11 @@ export default function ItemFull ({ data, menu, category, id }) {
             <div className="badge-offer-id">OFERTA</div>
           )}
         </div>
-        <div>
+        <div className="info-text">
           Categoría: 
           <Link href={`/${menu}/${category}`} replace={true} className="category-link-id"> {categoryName.name} </Link>
         </div>
-        <div>
+        <div className="info-text">
           Precio: {order.itemPrice.toFixed(2)} {item.coin}
         </div>
         <div className="item-description-id">

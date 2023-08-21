@@ -1,4 +1,4 @@
-import "../styles/Main.css"
+import "../styles/Dividers.css"
 
 export default function HorizontalDivider ({ color, height}) {
   return (

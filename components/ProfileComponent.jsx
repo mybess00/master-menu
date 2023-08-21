@@ -1,3 +1,4 @@
+import "../styles/ProfileSection.css"
 import ProfileImage from "./profile/ProfileImage"
 import Tags from "./profile/Tags"
 import Description from "./profile/Description"

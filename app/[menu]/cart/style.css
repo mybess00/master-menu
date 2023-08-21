@@ -77,3 +77,9 @@
     font-size: 1.1rem;
     padding: .6rem 0;
 }
+
+@media (min-width: 769px) {
+    .main-container {
+        padding: 0 9%;
+    }
+}

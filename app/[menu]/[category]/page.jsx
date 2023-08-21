@@ -15,6 +15,15 @@ export default function PageCategory ({ params }) {
   const { category } = params 
   const searchParams = useSearchParams()
   const item = searchParams.get('item')
+
+  const getItems = (arr) => {
+    const items = arr.filter(element => element.available && !element.offer)
+    const offerItems = arr.filter(element => element.available && element.offer)
+    const noAvailableItems = arr.filter(element => !element.available)
+    const newArr = [...offerItems, ...items, ...noAvailableItems]
+    return newArr
+  }
+
   return (
     <>
     { item && (
@@ -25,7 +34,7 @@ export default function PageCategory ({ params }) {
       })
     ) }
     <section className="section-container">
-      {ConfigData[category].map((item) => {
+      {getItems(ConfigData[category]).map((item) => {
         if (item.available){                      
           if (item.offer) {
             return  <ItemOffer

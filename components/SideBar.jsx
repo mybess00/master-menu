@@ -38,7 +38,7 @@ export default function SideBar () {
     <input type="checkbox" name="toggle-side-bar" ref={inputSideBarRef} id="toggle-side-bar" value={scroll} className="input-toggle-side-bar" onChange={toggleSideBar}/>
     <nav className="side-bar" ref={sideBarRef}>
       <ProfileBar info={ConfigData.info}/>
-      <CategoryList categories={ConfigData.category} updateInputValue={setScroll}/>
+      <CategoryList updateInputValue={setScroll}/>
     </nav>
     <label className="background-side-bar" htmlFor="toggle-side-bar"></label>
     </>

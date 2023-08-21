@@ -1,16 +1,17 @@
 'use client'
 
-import "../styles/IdPage.css"
+import "../styles/BottomBar.css"
 import VerticalDivider from "./VerticalDivider"
 import { useContext, useRef } from "react"
 import { CartContext } from "../context/CartContext"
-import { useParams, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
+import { MenuContext } from "../context/MenuContext"
 
 export default function BottomBar () {
 
   const { state, totalPrice } = useContext(CartContext)
+  const { ConfigData } = useContext(MenuContext)
   const inputRef = useRef()
-  const { menu } = useParams()
   const router = useRouter()
   
   if (totalPrice > 0 && inputRef.current) {
@@ -20,12 +21,12 @@ export default function BottomBar () {
   }
 
   const goToCart = () => {
-    router.push(`/${menu}/cart`)
+    router.push(`/${ConfigData.id}/cart`)
   }
 
   return (
     <>
-      <input type="checkbox" value={totalPrice} ref={inputRef} className="input-bottom-bar"/>
+      <input type="checkbox" ref={inputRef} className="input-bottom-bar"/>
       <div className="main-container-bottom-bar" onClick={goToCart}>
         <div className="container-bottom-bar">
           <div className="info-bottom-bar">

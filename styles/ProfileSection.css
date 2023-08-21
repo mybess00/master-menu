@@ -86,3 +86,49 @@
 .instagram {
     color: rgb(136, 27, 12);
 }
+
+@media (min-width: 769px) {
+    .profile-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .container-img {
+        width: 30%;
+    }
+
+    .profile-img {
+        border-radius: 1rem;
+    }
+
+    .container-info {
+        top: 0;
+        left: -4rem;
+        margin: 0;
+        max-width: 55%;
+    }
+
+    .container-info h1 {
+        font-size: 2.5rem;
+    }
+
+    .container-info h4 {
+        font-size: 1.5rem;
+    }
+
+    .tag-container div p {
+        font-size: 1.2rem;
+    }
+
+    .container-description {
+        font-size: 1.2rem;
+    }
+
+    .social-container a {
+        font-size: 2.1rem;
+    }
+}

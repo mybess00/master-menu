@@ -1,5 +1,6 @@
 'use client'
 
+import "../../styles/Suggestion.css"
 import { useContext } from 'react'
 import { useParams } from 'next/navigation'
 import { MenuContext } from '../../context/MenuContext'

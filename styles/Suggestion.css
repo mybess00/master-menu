@@ -1,0 +1,41 @@
+.main-container-suggestion {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 1rem;
+    padding: .85rem .6rem;
+    gap: 1rem;
+    border-radius: .75rem;
+    background-color: white;
+}
+
+.title-suggestion{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 1.15rem;
+    padding: 0 .5rem;
+    font-weight: bold;
+}
+
+.container-items-suggestion {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: .8rem;
+}
+
+@media (min-width: 769px) {
+    .container-items-suggestion {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .main-container-suggestion {
+        padding: 1rem 1.5rem;
+    }
+    .title-suggestion {
+        font-size: 1.3rem;
+    }
+}

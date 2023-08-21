@@ -1,0 +1,32 @@
+.top-bar-container {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .top-bar-container {
+        width: 80%;
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        transform: translateX(10vw);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        border-radius: .5rem;
+        box-shadow: 3.5px 5px 10px 0 rgb(0, 0, 0, 0.1);
+        padding: .8rem 1.8rem;
+    }
+    .info-top-bar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .info-top-bar h1 {
+        font-size: 1.8rem;
+    }
+}

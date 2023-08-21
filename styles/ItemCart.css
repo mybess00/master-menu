@@ -18,10 +18,23 @@
 
 .image-container {
     position: relative;
-    width: 45vw;
-    min-width: 45vw;
-    height: 8rem;
+    width: 45%;
+    min-width: 45%;
+    aspect-ratio: 4/3;
     display: flex;
     overflow: hidden;
     border-radius: .75rem;
+}
+
+@media (min-width: 769px) {
+    .info-container h2 {
+        font-size: 1.6rem;
+    }
+    .info-container > div {
+        font-size: 1.4rem;
+    }
+    .image-container {
+        width: 25%;
+        min-width: 25%;
+    }
 }

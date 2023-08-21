@@ -55,3 +55,9 @@
     transform: rotate(-45deg) translateY(6px);
     transform-origin: bottom left;
 }
+
+@media (min-width: 769px) {
+    .main-bar {
+        display: none;
+    }
+}

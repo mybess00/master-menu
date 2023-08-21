@@ -7,15 +7,13 @@ import { CartContext } from "../context/CartContext"
 import { ACTION_CART } from "../reducers/cartReducer"
 import Image from "next/image"
 import Link from "next/link"
-import { MdDelete, MdModeEditOutline } from "react-icons/md"
+import { MdDelete } from "react-icons/md"
 import { TbEdit } from "react-icons/tb"
 
 export default function ItemCart ({ item, info, index }) {
 
   const { state, dispatch } = useContext(CartContext)
   const { menu } = useParams()
-
-  console.log(info)
 
   const infoItem = () => {
     if (info.agregos.length !== 0) {

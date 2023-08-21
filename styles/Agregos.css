@@ -89,3 +89,23 @@
 .add-agrego:focus {
     outline: none;
 }
+
+@media (min-width: 769px) {
+    .title-agregos {
+        font-size: 1.3rem;
+        padding: 0 1.3rem;
+    }
+    .add-agrego {
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    .agrego-list-grid {
+        font-size: 1.1rem;
+    }
+    .button-amount {
+        cursor: pointer;
+    }
+    .button-delete {
+        cursor: pointer;
+    }
+}

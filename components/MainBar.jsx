@@ -36,7 +36,7 @@ export default function MainBar () {
         <FaCartShopping/>
       </Link>
       <h2 className="title-main-bar">{title}</h2>
-      <label className="btn-main-bar" for="toggle-side-bar">
+      <label className="btn-main-bar" htmlFor="toggle-side-bar">
         <div className="child-btn-main-bar up-icon"></div>
         <div className="child-btn-main-bar down-icon"></div>
       </label>

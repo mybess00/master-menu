@@ -1,0 +1,16 @@
+.main-id {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-bottom: 3rem;
+    margin-top: 4rem;
+}
+
+@media (min-width: 769px) {
+    .main-id {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        padding: 0 9%;
+        margin-top: 7rem;
+    }
+}

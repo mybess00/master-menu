@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import SideBar from '../../components/SideBar'
 import BottomBar from '../../components/BottomBar'
 import MainBar from '../../components/MainBar'
+import DesktopBar from '../../components/DesktopBar'
 import { MenuProvider } from '../../context/MenuContext'
 import fileJSON from '../../data-menu.json'
 
@@ -30,6 +31,7 @@ export default function LayoutMenu ({ children, params }) {
       <SideBar />
       {isMainPage() && <MainBar />}
       <BottomBar />
+      <DesktopBar />
       {children}
     </MenuProvider>
   )

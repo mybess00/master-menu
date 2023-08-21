@@ -1,0 +1,17 @@
+.badge {
+    margin-left: .5rem;
+    padding: .3rem .45rem;
+    place-self: center;
+    border-radius: .2rem;
+    font-size: .85rem;
+}
+
+.open {
+    color: white;
+    background-color: green;
+}
+
+.close {
+    color: white;
+    background-color: gray;
+}

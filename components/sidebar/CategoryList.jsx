@@ -5,7 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { useEffect, useContext } from "react"
 import { MenuContext } from "../../context/MenuContext"
 
-export default function CategoryList ({ categories, updateInputValue }) {
+export default function CategoryList ({ updateInputValue }) {
 
   const { ConfigData } = useContext(MenuContext)
   const router = useRouter()
@@ -14,13 +14,14 @@ export default function CategoryList ({ categories, updateInputValue }) {
 
   useEffect(() => {
     if (id) {
-      let inputItem = document.querySelector(`#toggle-item-list-${id}`)
-      inputItem.checked = true
+      const inputItem = document.querySelectorAll(`#toggle-item-list-${id}`)
+      inputItem.forEach(element => element.checked = true)
     } else if (category) {
-      let inputCategory = document.querySelector(`#toggle-categories-${category}`)
-      inputCategory.checked = true
+      const inputCategory = document.querySelectorAll(`#toggle-categories-${category}`)
+      inputCategory.forEach(element => element.checked = true)
+      console.log(inputCategory)
     } else {
-      let inputs = document.querySelectorAll('input[name="toggle-categories"]')
+      const inputs = document.querySelectorAll('input[name="toggle-categories"]')
       inputs.forEach(element => element.checked = false)
     }
   }, [category, id])
@@ -38,7 +39,7 @@ export default function CategoryList ({ categories, updateInputValue }) {
     updateInputValue(false)
   }
 
-  const categoryList = categories.map((element, index) => {
+  const categoryList = ConfigData.category.map((element, index) => {
     return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${element.id}`}>
               <input type="radio" name="toggle-categories" id={`toggle-categories-${element.id}`} />
               <label htmlFor={`toggle-categories-${element.id}`}>

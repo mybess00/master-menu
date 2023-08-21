@@ -33,8 +33,7 @@
 
 .image-container-modal  {
     position: relative;
-    width: 100%;
-    height: 12rem;
+    aspect-ratio: 4/3;
     display: flex;
     overflow: hidden;
 }
@@ -144,4 +143,34 @@
     display: flex;
     font-size: 1.5rem;
     color: rgb(25, 182, 59);
+}
+
+@media (min-width: 769px) {
+    .modal {
+        width: auto;
+    }
+    .item-description-modal p {
+        font-size: 1.1rem;
+    }
+    .item-name-modal h1 {
+        font-size: 1.65rem;
+    }
+    .total-price-modal {
+        font-size: 1.5rem;
+    }
+    .amount-buttons-modal {
+        font-size: 1.5rem;
+    }
+    .discount-modal {
+        font-size: 1.2rem;
+    }
+    .btn-buy-modal {
+        font-size: 1.1rem;
+    }
+    .button-amount-modal {
+        cursor: pointer;
+    }
+    .overlay-modal {
+        z-index: 25;
+    }
 }

@@ -13,7 +13,8 @@
 .image-item {
     position: relative;
     width: 100%;
-    height: 8rem;
+    height: auto;
+    aspect-ratio: 4/3;
     display: flex;
     overflow: hidden;
 }
@@ -53,6 +54,9 @@
 }
 
 .info-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     padding: .25rem .5rem;
 }
 
@@ -97,4 +101,84 @@
 .not-available {
     color: white;
     background-color: gray;
+}
+
+.shape-offer {
+    position: absolute;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    background-color: red;
+    color: white;
+    z-index: 10;
+    margin-top: .85rem;
+    font-size: .9rem;
+    padding-left: .2rem;
+}
+
+.shape-offer::before {
+    content: "";
+    position: absolute;
+    right: -16px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 16px solid red;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+}
+.shape-not-available {
+    position: absolute;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    color: white;
+    z-index: 10;
+}
+.shape-not-available:after {
+    content: "";
+    position: absolute;
+    left: -20px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-right: 20px solid gray;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+.shape-not-available:before {
+    content: "";
+    position: absolute;
+    right: -20px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid gray;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+
+@media (min-width: 769px) {
+    .description-item {
+        font-size: 1.05rem;
+    }
+    .btn-add-car {
+        font-size: 1.2rem;
+    }
+    .offer-price {
+        font-size: 1.05rem;
+    }
+    .container-title h3 {
+        font-size: 1.6rem;
+    }
+    .info-item {
+        gap: .5rem;
+    }
+    .body-item {
+        gap: .5rem;
+    }
+    .shape-offer {
+        font-size: 1.1rem;
+    }
 }

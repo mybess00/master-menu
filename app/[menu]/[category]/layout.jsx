@@ -1,9 +1,9 @@
 'use client'
 
 import { useContext } from "react"
-import NavBar from "../../../components/NavBar"
 import { MenuContext } from "../../../context/MenuContext"
-
+import NavBar from "../../../components/NavBar"
+import TopBar from "../../../components/TopBar"
 
 export default function LayoutCategoty ({ children, params }) {
 
@@ -15,6 +15,7 @@ export default function LayoutCategoty ({ children, params }) {
   return (
     <>
       <NavBar title={categoryOptions.name}/>
+      <TopBar />
       {children}
     </>
   )

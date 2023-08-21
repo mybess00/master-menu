@@ -1,7 +1,6 @@
 'use client'
 
-import "../../../../styles/IdPage.css"
-
+import "./style.css"
 import { useContext } from "react"
 import { MenuContext } from "../../../../context/MenuContext"
 import ItemFull from "../../../../components/page-id/ItemIFull"
@@ -20,9 +19,11 @@ export default function PageId ({ params }) {
     <section className="main-id">
       <PageIdProvider>
         <ItemFull data={ConfigData} menu={ConfigData.id} category={category} id={id} />
-        {item.agregos && <Agregos agregos={item.agregos}/>}
+        <div>
+          {item.agregos && <Agregos agregos={item.agregos}/>}
+          <Suggestion />
+        </div>
       </PageIdProvider>
-      <Suggestion />
     </section>
   )
 }

@@ -1,0 +1,102 @@
+.desktop-bar-container {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .desktop-bar-container {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 2rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        justify-content: center;
+        background-color: white;
+        border-radius: .7rem;
+        z-index: 25;
+        padding: 1rem 1.5rem;
+        gap: .5rem;
+        font-size: 1.5rem;
+        transition: all 200ms;
+    }
+
+    .info-desktop-bar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: .5rem;
+    }
+
+    .menu-desktop-bar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: .5rem;
+    }
+
+    .total-price-desktop-bar {
+        display: flex;
+    }
+
+    .option-desktop-bar {
+        color: white;
+        background-color: green;
+        border-radius: .25rem;
+        font-size: 1.8rem;
+        padding: .35rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: none;
+        position: relative;
+    }
+
+    .buy-button {
+        background-color: rgb(25, 182, 59);
+        color: black;
+        border-radius: .25rem;
+        padding: 0 1.5rem;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 150ms;
+    }
+    .buy-button:hover {
+        background-color: rgb(10, 131, 36);
+    }
+    .total-price {
+        place-self: center;
+    }
+
+    .counter {
+        position: absolute;
+        top: -40%;
+        right: -30%;
+        background-color: red;
+        color: white;
+        font-size: 1.2rem;
+        padding: .25rem .5rem;
+        border-radius: 10rem;
+    }
+
+    .input-categories {
+        display: none;
+    }
+    .input-categories:checked ~ .desktop-bar-container > .menu-desktop-bar > .option-desktop-bar > .categories-container {
+        display: block;
+    }
+    .input-categories:checked ~ .label-category-pc {
+        display: block;
+    }
+    .label-category-pc {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: transparent;
+        z-index: 20;
+        top: 0;
+    }
+}

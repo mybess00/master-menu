@@ -171,3 +171,33 @@ input[name="toggle-item-list"]:checked ~ label {
     transform: rotate(-45deg) translateY(6px);
     transform-origin: bottom left;
 }
+
+@media (min-width: 769px) {
+    .nav-container {
+        display: none;
+    }
+    .categories-container {
+        display: none;
+        position: absolute;
+        bottom: 100%;
+        right: 90%;
+        background-color: white;
+        padding: 1rem 1.5rem;
+        border-radius: .6rem;
+        box-shadow: 3.5px 5px 10px 0 rgb(0, 0, 0, 0.1);
+        transition: all 150ms;
+    }
+    .categories-container h3 {
+        color: black;
+        font-size: 1.3rem;
+    }
+    .categories-list-container li label {
+        font-size: 1.1rem;
+        min-width: max-content;
+        color: black;
+        cursor: pointer;
+    }
+    .categories-list-container li label:hover {
+        background-color: rgb(146, 146, 146);
+    }
+}
