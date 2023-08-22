@@ -19,7 +19,6 @@ export default function CategoryList ({ updateInputValue }) {
     } else if (category) {
       const inputCategory = document.querySelectorAll(`#toggle-categories-${category}`)
       inputCategory.forEach(element => element.checked = true)
-      console.log(inputCategory)
     } else {
       const inputs = document.querySelectorAll('input[name="toggle-categories"]')
       inputs.forEach(element => element.checked = false)

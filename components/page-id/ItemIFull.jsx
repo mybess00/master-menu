@@ -43,7 +43,7 @@ export default function ItemFull ({ data, menu, category, id }) {
   const addToCart = () => {
     const info = {
       'quantity': order.amountItem,
-      'agregos_price': order.agregoPrice,
+      'agregosPrice': order.agregoPrice,
       'agregos': order.agregoList,
       'total': order.totalPrice,
       'price': order.itemPrice,

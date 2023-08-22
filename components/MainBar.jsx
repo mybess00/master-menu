@@ -16,10 +16,12 @@ export default function MainBar () {
     for (let index = categories.length-1; index >= 0; index--) {
       const element = categories[index]
       let categoryElement = document.getElementById(`shape-${element.id}`)
-      const rect = categoryElement.getBoundingClientRect()
-      if (rect.bottom < rect.height) {
-        setTitle(element.name)
-        return
+      if (categoryElement) {
+        const rect = categoryElement.getBoundingClientRect()
+        if (rect.bottom < rect.height) {
+          setTitle(element.name)
+          return
+        }
       }
     }
   }

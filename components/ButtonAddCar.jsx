@@ -15,7 +15,7 @@ export default function ButtonAddCar ({ id, price, category }) {
   const info = {
     'quantity': 1,
     'agregos': [],
-    'agregos_price': 0,
+    'agregosPrice': 0,
     'price': price,
     'total': item.offer ? item.offer : item.price
   }

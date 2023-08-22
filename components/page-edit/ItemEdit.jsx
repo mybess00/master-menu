@@ -38,7 +38,7 @@ export default function ItemEdit ({ index }) {
           info: {
             'quantity': order.amountItem,
             'agregos': order.agregoList,
-            'agregos_price': order.agregoPrice,
+            'agregosPrice': order.agregoPrice,
             'price': order.itemPrice,
             'total': order.totalPrice,
           }}}})

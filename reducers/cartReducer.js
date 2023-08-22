@@ -15,6 +15,18 @@ export const updateLocalStorage = (file) => {
   window.localStorage.setItem('cart', JSON.stringify(file))
 }
 
+const setAgregoPrice = (agregosList, quantity) => {
+  let price = 0
+  if (agregosList.length !== 0) {
+    agregosList.forEach(element => {
+      let priceAgrego = element.price * element.quantity
+      price += priceAgrego
+    })
+  }
+  price = price * quantity
+  return price 
+}
+
 export const cartReducer = (state, action) => {
   if (action.type === ACTION_CART.ADD_ITEM) {
     const newState = [...state, action.payload]
@@ -44,7 +56,8 @@ export const cartReducer = (state, action) => {
     const newState = state.map((element, index) => {
       if (index === action.payload.index) {
         element.info.quantity = action.payload.quantity
-        element.info.total = element.item.offer ? element.item.offer*element.info.quantity : element.item.price*element.info.quantity
+        element.info.agregosPrice = setAgregoPrice(element.info.agregos, element.info.quantity)
+        element.info.total = element.item.offer ? element.item.offer*element.info.quantity + element.info.agregosPrice : element.item.price*element.info.quantity + element.info.agregosPrice
       }
       return element
     });

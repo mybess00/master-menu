@@ -8,11 +8,13 @@ export function useScrollListener (element) {
 
   const handleScroll = () => {
     let elementHTML = document.querySelector(element)
-    const rect = elementHTML.getBoundingClientRect()
-    if (rect.bottom <= 0 && rect.top <= 0) {
-      setVisibility(false)
-    } else {
-      setVisibility(true)
+    if (elementHTML) {
+      const rect = elementHTML.getBoundingClientRect()
+      if (rect.bottom <= 0 && rect.top <= 0) {
+        setVisibility(false)
+      } else {
+        setVisibility(true)
+      }
     }
   }
   useEffect(() => {

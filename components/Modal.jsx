@@ -51,10 +51,13 @@ export default function Modal ({ item }) {
   }
 
   useEffect(() => {
-    const newPrice = parseInt(item.price)*stateModal.quantity
-    dispatchModal({ type: ACTION_MODAL.SET_TOTAL_PRICE, payload: newPrice})
     if (item.offer) {
+      const newPrice = parseInt(item.offer)*stateModal.quantity
+      dispatchModal({ type: ACTION_MODAL.SET_TOTAL_PRICE, payload: newPrice})
       setTotalDiscount(discount*stateModal.quantity)
+    } else {
+      const newPrice = parseInt(item.price)*stateModal.quantity
+      dispatchModal({ type: ACTION_MODAL.SET_TOTAL_PRICE, payload: newPrice})
     }
   }, [stateModal.quantity])
 

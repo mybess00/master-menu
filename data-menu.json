@@ -11,6 +11,10 @@
             "whatsapp": "https://wa.me/55555555",
             "instagram": "https://instagram.com",
             "facebook": "https://facebook.com"
+          },
+          "schedule": {
+            "from": [1, 14, 30],
+            "to": [6, 23, 0]
           }
         },
       

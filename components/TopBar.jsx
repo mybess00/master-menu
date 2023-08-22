@@ -2,6 +2,7 @@
 
 import "../styles/Topbar.css"
 import { useContext } from "react"
+import { useRouter } from "next/navigation"
 import { MenuContext } from "../context/MenuContext"
 import SocialMedia from "./profile/SocialMedia"
 import ScheduleTag from "./ScheduleTag"
@@ -10,11 +11,14 @@ export default function TopBar () {
 
   const { ConfigData } = useContext(MenuContext)
   const { name, social } = ConfigData.info
-
+  const router = useRouter()
+  const goHome = () => router.replace(`/${ConfigData.id}`)
   return (
     <nav className="top-bar-container">
       <div className="info-top-bar">
-        <h1>{name}</h1>
+        <h1 onClick={goHome}>
+          {name}
+        </h1>
         <ScheduleTag />
       </div>
       <SocialMedia social={social}/>

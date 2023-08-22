@@ -6,7 +6,7 @@ export const ACTION_MODAL = {
 
 export const INITIAL_MODAL_STATE = {
   agregos: [],
-  agregos_price: 0,
+  agregosPrice: 0,
   quantity: 1,
   price: 0,
   total: 0
