@@ -1,5 +1,6 @@
 'use client'
 
+import "../../styles/ItemFull.css"
 import { useContext, useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { CartContext } from "../../context/CartContext"
@@ -37,6 +38,7 @@ export default function ItemEdit ({ index }) {
           info: {
             'quantity': order.amountItem,
             'agregos': order.agregoList,
+            'agregos_price': order.agregoPrice,
             'price': order.itemPrice,
             'total': order.totalPrice,
           }}}})

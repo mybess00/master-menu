@@ -47,8 +47,8 @@ export default function ItemCart ({ item, info, index }) {
       </div>
       <div className="info-container">
         <h2>{item.title}</h2>
-        <div>{infoItem()}</div>
-        <div>{info.total.toFixed(2)} {item.coin}</div>
+        <div className="info-item-cart">{infoItem()}</div>
+        <div className="price-item-cart">{info.total.toFixed(2)} {item.coin}</div>
         <div className="option-container">
           <div className="amount-cart-container">
               <button className="button-amount-cart" onClick={decrementAmount}>

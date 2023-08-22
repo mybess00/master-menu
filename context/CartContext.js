@@ -27,6 +27,7 @@ export function CartProvider ({ children }) {
   useEffect(() => {
     const newPrice = setOrderPrice()
     setTotalPrice(newPrice)
+    console.log(state)
   }, [state])
   
   return (

@@ -25,16 +25,26 @@
     overflow: hidden;
     border-radius: .75rem;
 }
+.price-item-cart {
+    font-weight: bold;
+}
 
 @media (min-width: 769px) {
+    .info-container {
+        gap: .8rem;
+        justify-content: center;
+    }
     .info-container h2 {
         font-size: 1.6rem;
     }
-    .info-container > div {
-        font-size: 1.4rem;
+    .info-item-cart {
+        font-size: 1.2rem;
     }
     .image-container {
         width: 25%;
         min-width: 25%;
+    }
+    .price-item-cart {
+        font-size: 1.4rem;
     }
 }

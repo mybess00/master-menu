@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer, useEffect } from "react";
 import { orderReducer, INITIAL_STATE, ACTION_TYPES } from "../reducers/orderReducer";
 
 export function useOrder () {
@@ -55,6 +55,11 @@ export function useOrder () {
       return false
     }
   }
+
+  useEffect(() => {
+    setAgregoPrice()
+    setTotalPrice()
+  }, [state.amountItem, state.agregoList])
 
   return {
     order: state,

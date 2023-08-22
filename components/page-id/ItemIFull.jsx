@@ -43,8 +43,10 @@ export default function ItemFull ({ data, menu, category, id }) {
   const addToCart = () => {
     const info = {
       'quantity': order.amountItem,
+      'agregos_price': order.agregoPrice,
       'agregos': order.agregoList,
       'total': order.totalPrice,
+      'price': order.itemPrice,
     }
     if (!isSameOrder({item, info})) {
       dispatch({ type: ACTION_CART.ADD_ITEM, payload: {item, info}})

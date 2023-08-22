@@ -1,5 +1,6 @@
 import "./style.css"
 import ButtonClose from "../../../components/ButtonClose"
+import TopBar from "../../../components/TopBar"
 
 export default function LayoutCart ({ children }) {
   return (
@@ -10,6 +11,7 @@ export default function LayoutCart ({ children }) {
           Carrito
         </h2>
       </nav>
+      <TopBar />
       {children}
     </>
   )

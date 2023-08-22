@@ -1,6 +1,9 @@
 .desktop-bar-container {
     display: none;
 }
+.input-categories {
+    display: none;
+}
 
 @media (min-width: 769px) {
     .desktop-bar-container {
@@ -20,25 +23,21 @@
         font-size: 1.5rem;
         transition: all 200ms;
     }
-
     .info-desktop-bar {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         gap: .5rem;
     }
-
     .menu-desktop-bar {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         gap: .5rem;
     }
-
     .total-price-desktop-bar {
         display: flex;
     }
-
     .option-desktop-bar {
         color: white;
         background-color: green;
@@ -52,7 +51,6 @@
         border: none;
         position: relative;
     }
-
     .buy-button {
         background-color: rgb(25, 182, 59);
         color: black;
@@ -69,7 +67,6 @@
     .total-price {
         place-self: center;
     }
-
     .counter {
         position: absolute;
         top: -40%;
@@ -79,10 +76,6 @@
         font-size: 1.2rem;
         padding: .25rem .5rem;
         border-radius: 10rem;
-    }
-
-    .input-categories {
-        display: none;
     }
     .input-categories:checked ~ .desktop-bar-container > .menu-desktop-bar > .option-desktop-bar > .categories-container {
         display: block;
