@@ -5,7 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { useEffect, useContext } from "react"
 import { MenuContext } from "../../context/MenuContext"
 
-export default function CategoryList ({ updateInputValue }) {
+export default function CategoryList ({ updateInputValue, identifier }) {
 
   const { ConfigData } = useContext(MenuContext)
   const router = useRouter()
@@ -14,13 +14,13 @@ export default function CategoryList ({ updateInputValue }) {
 
   useEffect(() => {
     if (id) {
-      const inputItem = document.querySelectorAll(`#toggle-item-list-${id}`)
+      const inputItem = document.querySelectorAll(`#toggle-item-list-${identifier}-${id}`)
       inputItem.forEach(element => element.checked = true)
     } else if (category) {
-      const inputCategory = document.querySelectorAll(`#toggle-categories-${category}`)
+      const inputCategory = document.querySelectorAll(`#toggle-categories-${identifier}-${category}`)
       inputCategory.forEach(element => element.checked = true)
     } else {
-      const inputs = document.querySelectorAll('input[name="toggle-categories"]')
+      const inputs = document.querySelectorAll(`input[name="toggle-categories-${identifier}"]`)
       inputs.forEach(element => element.checked = false)
     }
   }, [category, id])
@@ -39,9 +39,9 @@ export default function CategoryList ({ updateInputValue }) {
   }
 
   const categoryList = ConfigData.category.map((element, index) => {
-    return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${element.id}`}>
-              <input type="radio" name="toggle-categories" id={`toggle-categories-${element.id}`} />
-              <label htmlFor={`toggle-categories-${element.id}`}>
+    return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${identifier}-${element.id}`}>
+              <input type="radio" className="input-category" name={`toggle-categories-${identifier}`} id={`toggle-categories-${identifier}-${element.id}`} />
+              <label htmlFor={`toggle-categories-${identifier}-${element.id}`}>
                 {element.name}
               </label>
             </li>
@@ -49,9 +49,9 @@ export default function CategoryList ({ updateInputValue }) {
 
   const items = () => {
     return ItemList.map((element, index) => {
-      return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${element.id}`}>
-                <input type="radio" name="toggle-item-list" id={`toggle-item-list-${element.id}`} />
-                <label htmlFor={`toggle-item-list-${element.id}`}>
+      return  <li onClick={() => {toLink(element.id)}} key={index} id={`li-${identifier}-${element.id}`}>
+                <input type="radio" className="input-item" name={`toggle-item-list-${identifier}`} id={`toggle-item-list-${identifier}-${element.id}`} />
+                <label htmlFor={`toggle-item-list-${identifier}-${element.id}`}>
                   {element.title}
                 </label>
               </li>

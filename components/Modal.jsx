@@ -83,7 +83,7 @@ export default function Modal ({ item }) {
           <HorizontalDivider color={"gray"} height={2}/>
           </div>
           <div className="item-options-modal">
-            <div className="amount-options-modal">
+            {!isOnCart && <div className="amount-options-modal">
               <div className="total-price-modal">
                {(stateModal.total).toFixed(2)} {item.coin}
               </div>
@@ -98,7 +98,7 @@ export default function Modal ({ item }) {
                   {'>'}
                 </button>
               </div>
-            </div>
+            </div>}
             <div className="buy-options-modal">
               {item.offer && (
                 <p className='discount-modal'>

@@ -1,9 +1,10 @@
 'use client'
 
+import "../styles/MainBar.css"
 import { useState, useEffect, useContext } from "react"
 import { MenuContext } from "../context/MenuContext"
-import "../styles/MainBar.css"
 import Link from "next/link"
+import CartButtonCounter from "./CartButtonCounter"
 import { FaCartShopping } from "react-icons/fa6"
 
 export default function MainBar () {
@@ -35,7 +36,7 @@ export default function MainBar () {
   return (
     <nav className="main-bar">
       <Link className="shoping-cart-icon" href={`/${ConfigData.id}/cart`}>
-        <FaCartShopping/>
+        <CartButtonCounter />
       </Link>
       <h2 className="title-main-bar">{title}</h2>
       <label className="btn-main-bar" htmlFor="toggle-side-bar">

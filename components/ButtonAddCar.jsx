@@ -4,6 +4,8 @@ import { useContext, useEffect, useRef } from "react"
 import { MenuContext } from "../context/MenuContext"
 import { CartContext } from "../context/CartContext"
 import { ACTION_CART } from "../reducers/cartReducer"
+import { BiCartAdd } from "react-icons/bi"
+import { BsFillCartCheckFill, BsFillCartPlusFill } from "react-icons/bs"
 
 export default function ButtonAddCar ({ id, price, category }) {
 
@@ -44,9 +46,17 @@ export default function ButtonAddCar ({ id, price, category }) {
     }
   }, [state])
 
+  if ( isOnCart) {
+    return (
+      <button className="btn-add-car" onClick={handleClick} ref={btnRef}>
+        <BsFillCartCheckFill />
+      </button>
+    )
+  }
   return (
     <button className="btn-add-car" onClick={handleClick} ref={btnRef}>
-      {isOnCart ? 'Añadido' : price}
+      <BiCartAdd />
+      AÑADIR
     </button>
   )
 }

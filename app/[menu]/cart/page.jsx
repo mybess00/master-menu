@@ -15,11 +15,20 @@ export default function PageCart () {
     dispatch({ type: ACTION_CART.CLEAN_CART })
   }
 
+  const pay = () => {
+    alert('Esto es un Demo, no tiene integrado pasarelas de pago.')
+  }
+
   return (
     <section className="main-container">
-      <button onClick={cleanCart} className="button-clean">
-        LIMPIAR CARRITO
-      </button>
+      <div className="option-buttons">
+        <button onClick={pay} className="button-pay">
+          PAGAR
+        </button>
+        <button onClick={cleanCart} className="button-clean">
+          LIMPIAR CARRITO
+        </button>
+      </div>
       <div className="container-items-cart">
         {state.length !== 0 ? state.map((element, index) => {
           return  <>

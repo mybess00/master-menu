@@ -80,16 +80,39 @@
     transition: all 150ms;
 }
 
+.button-pay {
+    width: 100%;
+    background-color: green;
+    margin: 1rem 0;
+    color: white;
+    border: none;
+    border-radius: .35rem;
+    font-size: 1.1rem;
+    padding: .6rem 0;
+    transition: all 150ms;
+}
+
+.option-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    gap: .5rem;
+}
+
 @media (min-width: 769px) {
     .main-container {
         padding: 0 20%;
         margin-top: 6.5rem;
     }
-    .button-amount-cart, .button-delete, .button-edit, .button-clean {
+    .button-amount-cart, .button-delete, .button-edit, .button-clean, .button-pay {
         cursor: pointer;
     }
     .button-clean:hover, .button-delete:hover {
         background-color: rgb(155, 13, 13);
+    }
+    .button-pay:hover {
+        background-color: rgb(8, 100, 8);
     }
     .amount-cart-container {
         gap: .5rem;

@@ -15,11 +15,14 @@ export default function Item ({ item, baseLink, category }) {
         <Link className="info-item" href={`${baseLink}${item.id}`}>
           <div className="container-title">
             <VerticalDivider color="red" width={5} />
-            <h3>{item.title}</h3>
+            <div>
+              <h3>{item.title}</h3>
+              <p className="price-item">{`${item.price.toFixed(2)} ${item.coin}`}</p>
+            </div>
           </div>
-          <p className="description-item">
+          {<p className="description-item">
             {item.description}
-          </p>
+          </p>}
         </Link>
         <div className="container-btn">
           <ButtonAddCar id={item.id} price={`${item.price.toFixed(2)} ${item.coin}`} category={category}/>

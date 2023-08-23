@@ -2,7 +2,7 @@
 
 import "../styles/DesktopBar.css"
 import { useContext, useState } from "react"
-import { useRouter, useParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { CartContext } from "../context/CartContext"
 import { MenuContext } from "../context/MenuContext"
 import VerticalDivider from "./VerticalDivider"
@@ -16,7 +16,6 @@ export default function DesktopBar () {
   const { ConfigData } = useContext(MenuContext)
   const [visibility, setVisibility] = useState(false)
   const router = useRouter()
-  const { category } = useParams()
 
   const goToCart = () => {
     router.push(`/${ConfigData.id}/cart`)
@@ -26,8 +25,6 @@ export default function DesktopBar () {
     setVisibility(!visibility)
   }
 
-  const getCategoryName = ConfigData.category.filter(element => element.id === category)
-
   return (
     <>
     <input type="checkbox" checked={visibility} className="input-categories"/>
@@ -35,11 +32,11 @@ export default function DesktopBar () {
     <nav className="desktop-bar-container">
       <div className="menu-desktop-bar">
         <button className="option-desktop-bar" onClick={handleMenu}>
-          <CategoryList updateInputValue={setVisibility}/>
+          <CategoryList updateInputValue={setVisibility} identifier="desktop"/>
           <BsMenuUp/>
         </button>
         <button className="option-desktop-bar" onClick={goToCart}>
-          <CartButtonCounter counter={state.length} />
+          <CartButtonCounter/>
         </button>
       </div>
       {state.length != 0 && <div className="info-desktop-bar">

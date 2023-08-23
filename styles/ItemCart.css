@@ -25,6 +25,9 @@
     overflow: hidden;
     border-radius: .75rem;
 }
+.image-container > img {
+    object-fit: cover;
+}
 .price-item-cart {
     font-weight: bold;
 }

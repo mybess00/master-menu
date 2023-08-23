@@ -1,5 +1,6 @@
 import "../styles/ItemSection.css"
 import VerticalDivider from "./VerticalDivider"
+import Image from "next/image"
 
 export default function ItemSpent ({ item }) {
 
@@ -8,7 +9,7 @@ export default function ItemSpent ({ item }) {
       <div className="image-item image-not-available">
         <div className="shape-not-available">AGOTADO</div>
         <div className="img-glass"></div>
-        <img src={item.image.src} alt={item.image.alt} loading="lazy" placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAEElEQVR42mNkyGaAA0ZKOQBudgKJD8nILAAAAABJRU5ErkJggg=="/>
+        <Image src={item.image.src} alt={item.image.alt} fill={true} loading="lazy" placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAEElEQVR42mNkyGaAA0ZKOQBudgKJD8nILAAAAABJRU5ErkJggg=="/>
       </div>
       <div className="body-item">
         <div className="info-item">

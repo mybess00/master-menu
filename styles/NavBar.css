@@ -12,32 +12,26 @@
     background-color: rgb(25, 182, 59);
     z-index: 20;
 }
-
 .nav-container h2 {
     color: white;
 }
-
 .close-button {
     font-size: 1.5rem;
     color: white;
     display: flex;
     z-index: 10;
 }
-
 .input-toggle-side-bar{
     display: none;
 }
-
 .input-toggle-side-bar:checked ~ .side-bar{
     transform: translate(0%);
     display: block;
 }
-
 .input-toggle-side-bar:checked ~ .background-side-bar{
     visibility: visible;
     opacity: 1;
 }
-
 .side-bar {
     background-color: white;
     width: 80%;
@@ -51,7 +45,6 @@
     padding: 1.25rem .85rem;
     display: none;
 }
-
 .background-side-bar{
     position: fixed;
     top: 55px;
@@ -64,16 +57,13 @@
     opacity: 0;
     transition: all 250ms;
 }
-
 .info-profile-bar {
     display: flex;
     flex-direction: row;
 }
-
 .info-profile-bar h1{
     font-size: 1.45rem;
 }
-
 .badge {
     margin-left: .5rem;
     padding: .3rem .45rem;
@@ -81,12 +71,10 @@
     border-radius: .2rem;
     font-size: .6rem;
 }
-
 .open {
     color: white;
     background-color: green;
 }
-
 .close {
     color: white;
     background-color: gray;
@@ -98,7 +86,6 @@
 .categories-container h3 {
     font-size: 1.1rem;
 }
-
 .categories-list-container {
     display: flex;
     flex-direction: column;
@@ -106,7 +93,6 @@
     margin-top: 1rem;
     list-style: none;
 }
-
 .categories-list-container li label {
     width: 100%;
     display: block;
@@ -116,37 +102,30 @@
     background-color: rgb(211, 204, 204);
     transition: all 200ms;
 }
-
-input[name="toggle-categories"] {
+.input-category {
     display: none;
 }
-
-input[name="toggle-item-list"] {
-    display: none;
-}
-
-input[name="toggle-categories"]:checked ~ label {
+.input-category:checked ~ label {
     background-color: green;
     color: white;
 }
-
-input[name="toggle-item-list"]:checked ~ label {
+.input-item {
+    display: none;
+}
+.input-item:checked ~ label {
     background-color: green;
     color: white;
 }
-
 .active-label {
     background-color: green;
     color: white;
 }
-
 .btn-side-bar {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     gap: .3rem;
 }
-
 .child-btn-side-bar {
     background-color: white;
     width: 1.8rem;
@@ -154,19 +133,15 @@ input[name="toggle-item-list"]:checked ~ label {
     border-radius: .2rem;
     transition: transform 200ms ease;
 }
-
 .up-icon {
     transform-origin: top left;
 }
-
 .down-icon {
     transform-origin: bottom left;
 }
-
 .input-toggle-side-bar:checked ~ .nav-container > label > .up-icon {
     transform: rotate(45deg) translateY(-6px);
 }
-
 .input-toggle-side-bar:checked ~ .nav-container > label > .down-icon {
     transform: rotate(-45deg) translateY(6px);
     transform-origin: bottom left;
@@ -199,5 +174,8 @@ input[name="toggle-item-list"]:checked ~ label {
     }
     .categories-list-container li label:hover {
         background-color: rgb(146, 146, 146);
+    }
+    .categories-list-container li label:active {
+        background-color: green;
     }
 }
