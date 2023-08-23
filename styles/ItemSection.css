@@ -116,7 +116,7 @@
     border: none;
     cursor: pointer;
     transition: all 150ms;
-    font-size: 1.02rem;
+    font-size: .95rem;
     align-items: flex-end;
     gap: .2rem;
 }
