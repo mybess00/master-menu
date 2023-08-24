@@ -71,6 +71,11 @@
     gap: .55rem;
 }
 
+.more-option-modal {
+    text-align: end;
+    color: green;
+}
+
 .amount-options-modal  {
     display: flex;
     flex-wrap: wrap;

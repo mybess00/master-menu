@@ -13,10 +13,11 @@
     z-index: 20;
 }
 .nav-container h2 {
+    font-size: 1.4rem;
     color: white;
 }
 .close-button {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: white;
     display: flex;
     z-index: 10;
@@ -129,7 +130,7 @@
 .child-btn-side-bar {
     background-color: white;
     width: 1.8rem;
-    height: .35rem;
+    height: .25rem;
     border-radius: .2rem;
     transition: transform 200ms ease;
 }
@@ -140,10 +141,10 @@
     transform-origin: bottom left;
 }
 .input-toggle-side-bar:checked ~ .nav-container > label > .up-icon {
-    transform: rotate(45deg) translateY(-6px);
+    transform: rotate(45deg) translateY(-7px);
 }
 .input-toggle-side-bar:checked ~ .nav-container > label > .down-icon {
-    transform: rotate(-45deg) translateY(6px);
+    transform: rotate(-45deg) translateY(7px);
     transform-origin: bottom left;
 }
 

@@ -48,13 +48,13 @@ export default function ButtonAddCar ({ id, price, category }) {
 
   if ( isOnCart) {
     return (
-      <button className="btn-add-car" onClick={handleClick} ref={btnRef}>
+      <button className="btn-add-cart" onClick={handleClick} ref={btnRef}>
         <BsFillCartCheckFill />
       </button>
     )
   }
   return (
-    <button className="btn-add-car" onClick={handleClick} ref={btnRef}>
+    <button className="btn-add-cart" onClick={handleClick} ref={btnRef}>
       <BiCartAdd />
       AÑADIR
     </button>

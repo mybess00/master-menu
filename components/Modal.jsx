@@ -73,9 +73,9 @@ export default function Modal ({ item }) {
             {item.offer && (
               <div className="badge-offer-modal">OFERTA</div>
             )}
-            <Link className='icon-expand-info' href={`/${menu}/${category}/${item.id}`} replace={true}>
+            {/*<Link className='icon-expand-info' href={`/${menu}/${category}/${item.id}`} replace={true}>
               <BiExpandAlt/>
-            </Link>
+            </Link>*/}
           </div>
           <div className="item-description-modal">
           <HorizontalDivider color={"gray"} height={2}/>
@@ -100,7 +100,7 @@ export default function Modal ({ item }) {
               </div>
             </div>}
             <div className="buy-options-modal">
-              {item.offer && (
+              {item.offer && !isOnCart && (
                 <p className='discount-modal'>
                   {`Ahorras ${totalDiscount} ${item.coin}`}
                 </p>
@@ -109,6 +109,9 @@ export default function Modal ({ item }) {
                 {isOnCart ? 'EN EL CARRITO' : 'AÑADIR'}
               </button>
             </div>
+            <Link href={`/${menu}/${category}/${item.id}`} replace={true} className='more-option-modal'>
+              Ver más opciones +
+            </Link>
           </div>
         </div>
       </div>

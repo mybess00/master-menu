@@ -76,6 +76,7 @@
 
 .container-title h3 {
     font-weight: normal;
+    font-size: 1.1rem;
 }
 
 .description-item {
@@ -85,7 +86,6 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
-
 .price-item {
     display: flex;
     flex-direction: row;
@@ -103,7 +103,7 @@
     padding: .5rem .5rem .75rem .5rem;
 }
 
-.btn-add-car {
+.btn-add-cart {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -121,7 +121,7 @@
     gap: .2rem;
 }
 
-.btn-add-car > svg {
+.btn-add-cart > svg {
     font-size: 1.5rem;
 }
 
@@ -195,10 +195,22 @@
 
 @media (min-width: 769px) {
     .description-item {
+        margin-top: .65rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        -webkit-line-clamp: 2;
+        -moz-line-clamp: 2;
+        box-orient: vertical;
+        -webkit-box-orient: vertical;
+        white-space: normal;
         font-size: 1.05rem;
     }
-    .btn-add-car {
+    .btn-add-cart {
         font-size: 1.2rem;
+        padding: .4rem 1rem;
     }
     .offer-price {
         font-size: 1.05rem;
@@ -214,5 +226,11 @@
     }
     .shape-offer {
         font-size: 1.1rem;
+    }
+    .price-item {
+        font-size: 1.7rem;
+    }
+    .offer-price {
+        font-size: 1.4rem;
     }
 }
