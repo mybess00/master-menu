@@ -1,12 +1,15 @@
 'use client'
 
 import "./style.css"
+import { useContext } from "react"
+import { CartContext } from "../../../../context/CartContext"
 import { EditItemProvider } from "../../../../context/EditItemContext"
 import ItemEdit from "../../../../components/page-edit/ItemEdit"
-import Agregos from "../../../../components/page-edit/Agregos"
+import AgregosList from "../../../../components/page-edit/AgregosList"
 
 export default function ItemCartEditPage ({ params }) {
 
+  const { state } = useContext(CartContext)
   const { item } = params
 
   return (
@@ -14,7 +17,7 @@ export default function ItemCartEditPage ({ params }) {
       <section className="main-item-cart">
         <ItemEdit index={item} />
         <div>
-          <Agregos agregos={item}/>
+          {state[item].item.agregos && <AgregosList index={item}/>}
         </div>
       </section>
     </EditItemProvider>

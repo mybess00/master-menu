@@ -4,14 +4,14 @@ import "./style.css"
 import { useContext } from "react"
 import { MenuContext } from "../../../../context/MenuContext"
 import ItemFull from "../../../../components/page-id/ItemIFull"
-import Agregos from "../../../../components/page-id/Agregos"
+import AgregosList from "../../../../components/page-id/AgregosList"
 import Suggestion from "../../../../components/page-id/Suggestion"
 import { PageIdProvider } from "../../../../context/PageIdContext"
 
 export default function PageId ({ params }) {
   
   const { ConfigData } = useContext(MenuContext)
-  const { menu, category, id } = params
+  const { category, id } = params
   
   const item = ConfigData[category].find((element) => element.id == id)
 
@@ -20,7 +20,7 @@ export default function PageId ({ params }) {
       <PageIdProvider>
         <ItemFull data={ConfigData} menu={ConfigData.id} category={category} id={id} />
         <div>
-          {item.agregos && <Agregos agregos={item.agregos}/>}
+          {item.agregos && <AgregosList agregos={item.agregos}/>}
           <Suggestion />
         </div>
       </PageIdProvider>

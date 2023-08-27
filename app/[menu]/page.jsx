@@ -30,7 +30,7 @@ export default function Menu () {
     for (let i = 0; i < arr.length; i++) {
       if(arr[i].available) {
         const length = newArr.push(arr[i])
-        if (length === 4) {
+        if (length === 6) {
           break
         }
       }

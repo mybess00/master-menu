@@ -6,7 +6,7 @@
     margin: 1.15rem .5rem;
     gap: .5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .horizontal-divider {
@@ -49,11 +49,11 @@
 
 @media (min-width: 769px) {
     .main-content {
-        padding: 0 9%;
+        padding: 0 4%;
     }
     .section-category {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
         margin-top: 3rem;
     }
@@ -65,6 +65,7 @@
         border-radius: 1rem;
     }
     .category-container {
+        grid-template-columns: repeat(2, 1fr);
         padding: 1rem;
         gap: 1.2rem;
     }
@@ -79,5 +80,14 @@
         border-left: 25px solid green;
         border-top: 25px solid transparent;
         border-bottom: 25px solid transparent;
+    }
+}
+
+@media (min-width: 1450px) {
+    .main-content {
+        padding: 0 9%;
+    }
+    .category-container {
+       grid-template-columns: repeat(3, 1fr);
     }
 }

@@ -5,6 +5,7 @@ import { useContext, useRef, useEffect } from "react"
 import { useArrState } from "../../hooks/useArrState"
 import { EditItemContext } from "../../context/EditItemContext"
 import { CartContext } from "../../context/CartContext"
+import VerticalDivider from "../VerticalDivider"
 import { MdDelete } from "react-icons/md"
 
 export default function AgregosList ({ index }) {
@@ -72,32 +73,39 @@ export default function AgregosList ({ index }) {
   },[])
 
   return (
-    <div className="agrego-main">
-      <div className="agrego-list" ref={agregoMainRef}>
-        {agregosActive.getLength() !== 0 && (
-          agregosActive.arr.map((element, index) => {
-            return  <div className="agrego-list-grid" key={index}>
-                      <div className="text-info-agrego">{element.name}</div>
-                      <div className="text-info-agrego" >{element.price}</div>
-                      <div className="agrego-item-options">
-                        <button className="button-amount" onClick={() => removeAmount(index)}>{"<"}</button>
-                        <div>{amount.arr[index]}</div>
-                        <button className="button-amount" onClick={() => addAmount(index)}>{">"}</button>
-                        <button className="button-delete" onClick={() => deleteAgrego(index, element.id)}>
-                          <MdDelete/>
-                        </button>
+    <div className="main-container-agregos">
+      {agregosActive.getLength() !== 0 &&
+      <div className="title-agregos">
+          <VerticalDivider color={"green"} width={4}/>
+          Agregos ➕
+      </div>}
+      <div className="agrego-main">
+        <div className="agrego-list" ref={agregoMainRef}>
+          {agregosActive.getLength() !== 0 && (
+            agregosActive.arr.map((element, index) => {
+              return  <div className="agrego-list-grid" key={index}>
+                        <div className="text-info-agrego">{element.name}</div>
+                        <div className="text-info-agrego" >{element.price}</div>
+                        <div className="agrego-item-options">
+                          <button className="button-amount" onClick={() => removeAmount(index)}>{"<"}</button>
+                          <div>{amount.arr[index]}</div>
+                          <button className="button-amount" onClick={() => addAmount(index)}>{">"}</button>
+                          <button className="button-delete" onClick={() => deleteAgrego(index, element.id)}>
+                            <MdDelete/>
+                          </button>
+                        </div>
                       </div>
-                    </div>
-            
-          })
-        )}
+              
+            })
+          )}
+        </div>
+        <select className="add-agrego" defaultValue='placeholder' disabled onChange={newAgrego} ref={selectAgregosRef} name="agrego-select" id="agrego-select">
+          <option value='placeholder' disabled ref={placeholderOption}>Toca para añadir un agrego</option>
+          {agregos.map((element, index) => {
+            return  <option key={index} value={index} id={`agrego-${element.id}`}> {element.name} ${element.price}</option>
+          })}
+        </select>
       </div>
-      <select className="add-agrego" defaultValue='placeholder' disabled onChange={newAgrego} ref={selectAgregosRef} name="agrego-select" id="agrego-select">
-        <option value='placeholder' disabled ref={placeholderOption}>Toca para añadir un agrego</option>
-        {agregos.map((element, index) => {
-          return  <option key={index} value={index} id={`agrego-${element.id}`}> {element.name} ${element.price}</option>
-        })}
-      </select>
     </div>
   )
 }

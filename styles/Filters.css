@@ -1,0 +1,22 @@
+.container-filter-category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.label-filter {
+    background-color: #b9b9b9;
+    padding: .25rem .8rem;
+    border-radius: .4rem;
+}
+
+.input-filter-category {
+    display: none;
+}
+
+.input-filter-category:checked ~ .label-filter {
+    background-color: green;
+    color: white;
+}
+
