@@ -10,7 +10,7 @@ export default function Filters () {
 
   const showCategory = () => {
     const categories = ConfigData.category.map((element, index) => {
-      return  <div className='container-category'>
+      return  <div className='container-category' key={index}>
                 <input type="checkbox" id={`input-show-category-${element.id}`} className="input-filter-category"/>
                 <label className="label-filter" htmlFor={`input-show-category-${element.id}`}>
                   {element.name}
