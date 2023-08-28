@@ -8,7 +8,6 @@ import Link from 'next/link'
 import ReactModal from "react-modal"
 import HorizontalDivider from "./HorizontalDivider"
 import { CartContext } from '../context/CartContext'
-import { BiExpandAlt } from "react-icons/bi"
 
 import { ACTION_MODAL, INITIAL_MODAL_STATE, modalReducer } from '../reducers/modalReducer'
 import { ACTION_CART } from '../reducers/cartReducer'

@@ -9,11 +9,12 @@ import VerticalDivider from "./VerticalDivider"
 import CartButtonCounter from "./CartButtonCounter"
 import CategoryList from "./sidebar/CategoryList"
 import { BsMenuUp } from "react-icons/bs"
+import { HiOutlineSearch } from "react-icons/hi"
 
 export default function DesktopBar () {
 
   const { state, totalPrice } = useContext(CartContext)
-  const { ConfigData } = useContext(MenuContext)
+  const { ConfigData, modalFilterOpen, setModalFilterOpen } = useContext(MenuContext)
   const [visibility, setVisibility] = useState(false)
   const router = useRouter()
 
@@ -25,12 +26,19 @@ export default function DesktopBar () {
     setVisibility(!visibility)
   }
 
+  const handleModalFilter = () => {
+    setModalFilterOpen(!modalFilterOpen)
+  }
+
   return (
     <>
     <input type="checkbox" checked={visibility} className="input-categories"/>
     <label className="label-category-pc" onClick={handleMenu}></label>
     <nav className="desktop-bar-container">
       <div className="menu-desktop-bar">
+        <button className="option-desktop-bar" onClick={handleModalFilter}>
+          <HiOutlineSearch />
+        </button>
         <button className="option-desktop-bar" onClick={handleMenu}>
           <CategoryList updateInputValue={setVisibility} identifier="desktop"/>
           <BsMenuUp/>

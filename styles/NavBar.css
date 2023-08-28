@@ -147,6 +147,27 @@
     transform: rotate(-45deg) translateY(7px);
     transform-origin: bottom left;
 }
+.button-filter {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem;
+    margin-top: 1rem;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: .4rem;
+    font-size: 1rem;
+}
+.search-icon {
+    font-size: 1.3rem;
+    display: flex;
+}
 
 @media (min-width: 769px) {
     .nav-container {

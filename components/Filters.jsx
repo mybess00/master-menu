@@ -1,26 +1,71 @@
 'use client'
 
 import '../styles/Filters.css'
-import { useContext, useRef } from "react"
+import { useContext, useRef, useState, useEffect } from "react"
 import { MenuContext } from "../context/MenuContext"
+import ReactModal from 'react-modal'
 import { HiOutlineSearch } from "react-icons/hi"
 
 export default function Filters () {
 
-  const { ConfigData } = useContext(MenuContext)
+  const { ConfigData, modalFilterOpen, setModalFilterOpen } = useContext(MenuContext)
+  const [isMobile, setIsMobile] = useState(true)
+  const allCategoryRef = useRef()
   const minPriceRef = useRef()
   const maxPriceRef = useRef()
-  const showAvailable = useRef()
-  const showOffer = useRef()
-  const sortHigherPrice = useRef()
-  const sortLowerPrice = useRef()
-  const sortOffer = useRef()
-  const sortUnavailable = useRef()
+  const showAvailableRef = useRef()
+  const showOfferRef = useRef()
+  const sortHigherPriceRef = useRef()
+  const sortLowerPriceRef = useRef()
+  const sortOfferRef = useRef()
+  const sortUnavailableRef = useRef()
+
+  const handleClose = () => {
+    if (isMobile) {
+      const modal = document.querySelector('.modal-mobile')
+      console.log(modal)
+      modal.style.transform = 'translateY(105%)'
+      setTimeout(() => {
+        setModalFilterOpen(false)
+      }, 210)
+      return
+    }
+    setModalFilterOpen(false)
+  }
+
+  const handleResize = () => {
+    if (window.innerWidth <= 768) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
+
+  const handleAllCategoryInput = () => {
+    const inputsCategory = document.querySelectorAll('.input-filter-category')
+    if (allCategoryRef.current.checked && Array.from(inputsCategory).some(element => element.checked === true)) {
+      inputsCategory.forEach(element => element.checked = false)
+    } else if (!allCategoryRef.current.checked && !Array.from(inputsCategory).some(element => element.checked === true)) {
+      allCategoryRef.current.checked = true
+    }
+  }
+
+  const handleCategoryInput = () => {
+    const inputsCategory = document.querySelectorAll('.input-filter-category')
+    if (allCategoryRef.current.checked && Array.from(inputsCategory).some(element => element.checked === true)) {
+      allCategoryRef.current.checked = false
+    } else if (!allCategoryRef.current.checked && !Array.from(inputsCategory).some(element => element.checked === true)) {
+      allCategoryRef.current.checked = true
+    }
+  }
 
   const getCategoryParams = () => {
     const activeCategory = []
     const inputsCategory = document.querySelectorAll('.input-filter-category')
-     inputsCategory.forEach(element => {
+    if (allCategoryRef.current.checked) {
+      activeCategory.push(allCategoryRef.current.value)
+    }
+    inputsCategory.forEach(element => {
       if (element.checked) {
         activeCategory.push(element.value)
       }
@@ -32,7 +77,7 @@ export default function Filters () {
     const priceRank = []
     const minPrice = parseInt(minPriceRef.current.value)
     const maxPrice = parseInt(maxPriceRef.current.value)
-    if (minPrice > maxPrice) {
+    if (minPrice > maxPrice && maxPrice !== 0) {
       alert('El precio mínimo no debe ser mayor que el precio máximo')
       return false
     }
@@ -50,21 +95,21 @@ export default function Filters () {
   }
 
   const getShow = () => {
-    if (showAvailable.current.checked) {
-      return showAvailable.current.value
+    if (showAvailableRef.current.checked) {
+      return showAvailableRef.current.value
     }
-    return showOffer.current.value
+    return showOfferRef.current.value
   }
 
   const getSort = () => {
-    if (sortHigherPrice.current.checked) {
-      return sortHigherPrice.current.value
-    } else if (sortLowerPrice.current.checked) {
-      return sortLowerPrice.current.value
-    } else if (sortOffer.current.checked) {
-      return sortOffer.current.value
-    } else if (sortUnavailable.current.checked) {
-      return sortUnavailable.current.value
+    if (sortHigherPriceRef.current.checked) {
+      return sortHigherPriceRef.current.value
+    } else if (sortLowerPriceRef.current.checked) {
+      return sortLowerPriceRef.current.value
+    } else if (sortOfferRef.current.checked) {
+      return sortOfferRef.current.value
+    } else if (sortUnavailableRef.current.checked) {
+      return sortUnavailableRef.current.value
     }
   }
 
@@ -80,7 +125,7 @@ export default function Filters () {
   const showCategory = () => {
     const categories = ConfigData.category.map((element, index) => {
       return  <div className='container-category' key={index}>
-                <input type="checkbox" id={`input-filter-category-${element.id}`} value={element.id} className="input-filter-category"/>
+                <input type="checkbox" id={`input-filter-category-${element.id}`} value={element.id} onChange={handleCategoryInput} className="input-filter-category"/>
                 <label className="label-filter" htmlFor={`input-filter-category-${element.id}`}>
                   {element.name}
                 </label>
@@ -89,93 +134,104 @@ export default function Filters () {
     return categories
   }
 
+  useEffect(() => {
+    if (sortHigherPriceRef.current && showAvailableRef.current) {
+      sortHigherPriceRef.current.checked = true
+      showAvailableRef.current.checked = true
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+  },[])
+
   return (
-    <section className='section-filter'>
-      <div className='main-container-filter-category'>
-        <h3>Categorías:</h3>
-        <div className="container-filter-category">
-          <div className='container-category'>
-            <input type="checkbox" id='input-filter-category-all' value='all' defaultChecked={'on'} className="input-filter-category"/>
-            <label className="label-filter" htmlFor='input-filter-category-all'>
-              Todas
-            </label>
+    <ReactModal isOpen={modalFilterOpen}  role="dialog" className={`${isMobile ? 'modal-mobile' : 'modal'}`} overlayClassName="overlay-modal" onRequestClose={handleClose}>
+      <section className='section-filter'>
+        <div className='main-container-filter-category'>
+          <h3>Categorías:</h3>
+          <div className="container-filter-category">
+            <div className='container-category'>
+              <input type="checkbox" id='input-filter-category-all' value='all' defaultChecked={'on'} ref={allCategoryRef} onChange={handleAllCategoryInput} className="input-filter-category-all"/>
+              <label className="label-filter" htmlFor='input-filter-category-all'>
+                Todas
+              </label>
+            </div>
+            {showCategory()}
           </div>
-          {showCategory()}
         </div>
-      </div>
 
-      <div className='main-container-filter-price'>
-        <h3>Precios:</h3>
-        <div className='container-filter-price'>
-          <div className='container-price'>
-            <input type="number" id='input-price-min' name='filter-price' ref={minPriceRef} className="input-filter-price"/>
-            <label className="label-price" htmlFor='input-price-min'>
-              Mínimo
-            </label>
-          </div>
-          <div className='container-price'>
-            <input type="number" id='input-price-max' name='filter-price' ref={maxPriceRef} className="input-filter-price"/>
-            <label className="label-price" htmlFor='input-price-max'>
-              Máximo
-            </label>
+        <div className='main-container-filter-price'>
+          <h3>Precios:</h3>
+          <div className='container-filter-price'>
+            <div className='container-price'>
+              <input type="number" id='input-price-min' name='filter-price' ref={minPriceRef} className="input-filter-price"/>
+              <label className="label-price" htmlFor='input-price-min'>
+                Mínimo
+              </label>
+            </div>
+            <div className='container-price'>
+              <input type="number" id='input-price-max' name='filter-price' ref={maxPriceRef} className="input-filter-price"/>
+              <label className="label-price" htmlFor='input-price-max'>
+                Máximo
+              </label>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className='main-container-filter-show'>
-        <h3>Mostrar:</h3>
-        <div className='container-filter-show'>
-          <div className='container-show'>
-            <input type="radio" id='input-show-available' checked ref={showAvailable} value='available' name='filter-show' className="input-filter-show"/>
-            <label className="label-show" htmlFor='input-show-available'>
-              Solo disponibles
-            </label>
-          </div>
-          <div className='container-show'>
-            <input type="radio" id='input-show-offer' ref={showOffer} value='offer' name='filter-show' className="input-filter-show"/>
-            <label className="label-show" htmlFor='input-show-offer'>
-              Solo ofertas
-            </label>
+        <div className='main-container-filter-show'>
+          <h3>Mostrar:</h3>
+          <div className='container-filter-show'>
+            <div className='container-show'>
+              <input type="radio" id='input-show-available' defaultChecked={'on'} ref={showAvailableRef} value='available' name='filter-show' className="input-filter-show"/>
+              <label className="label-show" htmlFor='input-show-available'>
+                Solo disponibles
+              </label>
+            </div>
+            <div className='container-show'>
+              <input type="radio" id='input-show-offer' ref={showOfferRef} value='offer' name='filter-show' className="input-filter-show"/>
+              <label className="label-show" htmlFor='input-show-offer'>
+                Solo ofertas
+              </label>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className='main-container-filter-sort'>
-        <h3>Ordenar por:</h3>
-        <div className='container-filter-sort'>
-          <div className='container-sort'>
-            <input type="radio" id='input-sort-higher-price' ref={sortHigherPrice} value='higher' checked name='filter-sort' className="input-filter-sort"/>
-            <label className="label-sort" htmlFor='input-sort-higher-price'>
-              De mayor a menor precio
-            </label>
-          </div>
-          <div className='container-sort'>
-            <input type="radio" id='input-sort-lower-price' ref={sortLowerPrice} value='lower' name='filter-sort' className="input-filter-sort"/>
-            <label className="label-sort" htmlFor='input-sort-lower-price'>
-              De menor a mayor precio
-            </label>
-          </div>
-          <div className='container-sort'>
-            <input type="radio" id='input-sort-offer' ref={sortOffer} value='offer' name='filter-sort' className="input-filter-sort"/>
-            <label className="label-sort" htmlFor='input-sort-offer'>
-              Mostrar ofertas primero
-            </label>
-          </div>
-          <div className='container-sort'>
-            <input type="radio" id='input-sort-unavailable' ref={sortUnavailable} value='unavailable' name='filter-sort' className="input-filter-sort"/>
-            <label className="label-sort" htmlFor='input-sort-unavailable'>
-              Mostrar no disponibles primero
-            </label>
+        <div className='main-container-filter-sort'>
+          <h3>Ordenar por:</h3>
+          <div className='container-filter-sort'>
+            <div className='container-sort'>
+              <input type="radio" id='input-sort-higher-price' ref={sortHigherPriceRef} value='higher' defaultChecked name='filter-sort' className="input-filter-sort"/>
+              <label className="label-sort" htmlFor='input-sort-higher-price'>
+                De mayor a menor precio
+              </label>
+            </div>
+            <div className='container-sort'>
+              <input type="radio" id='input-sort-lower-price' ref={sortLowerPriceRef} value='lower' name='filter-sort' className="input-filter-sort"/>
+              <label className="label-sort" htmlFor='input-sort-lower-price'>
+                De menor a mayor precio
+              </label>
+            </div>
+            <div className='container-sort'>
+              <input type="radio" id='input-sort-offer' ref={sortOfferRef} value='offer' name='filter-sort' className="input-filter-sort"/>
+              <label className="label-sort" htmlFor='input-sort-offer'>
+                Mostrar ofertas primero
+              </label>
+            </div>
+            <div className='container-sort'>
+              <input type="radio" id='input-sort-unavailable' ref={sortUnavailableRef} value='unavailable' name='filter-sort' className="input-filter-sort"/>
+              <label className="label-sort" htmlFor='input-sort-unavailable'>
+                Mostrar no disponibles primero
+              </label>
+            </div>
           </div>
         </div>
-      </div>
 
-      <button className='search-button' onClick={() => console.log(getFilters())}>
-        <div className='search-icon'>
-          <HiOutlineSearch/>
-        </div>
-        BUSCAR
-      </button>
-    </section>
+        <button className='search-button' onClick={() => console.log(getFilters())}>
+          <div className='search-icon'>
+            <HiOutlineSearch/>
+          </div>
+          BUSCAR
+        </button>
+      </section>
+    </ReactModal>
   )
 }
