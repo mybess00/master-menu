@@ -10,6 +10,7 @@ export default function Filters () {
 
   const { ConfigData, modalFilterOpen, setModalFilterOpen } = useContext(MenuContext)
   const [isMobile, setIsMobile] = useState(true)
+  const nameInputRef = useRef()
   const allCategoryRef = useRef()
   const minPriceRef = useRef()
   const maxPriceRef = useRef()
@@ -22,7 +23,7 @@ export default function Filters () {
 
   const handleClose = () => {
     if (isMobile) {
-      const modal = document.querySelector('.modal-mobile')
+      const modal = document.querySelector('.modal-filter-mobile')
       console.log(modal)
       modal.style.transform = 'translateY(105%)'
       setTimeout(() => {
@@ -58,6 +59,8 @@ export default function Filters () {
       allCategoryRef.current.checked = true
     }
   }
+
+  const getName = () => nameInputRef.current.value
 
   const getCategoryParams = () => {
     const activeCategory = []
@@ -115,11 +118,16 @@ export default function Filters () {
 
   const getFilters = () => {
     return {
+      'name': getName(),
       'categories': getCategoryParams(),
       'price': getPrice(),
       'show': getShow(),
       'sort': getSort(),
     }
+  }
+
+  const handleSearchName = () => {
+    
   }
 
   const showCategory = () => {
@@ -144,8 +152,18 @@ export default function Filters () {
   },[])
 
   return (
-    <ReactModal isOpen={modalFilterOpen}  role="dialog" className={`${isMobile ? 'modal-mobile' : 'modal'}`} overlayClassName="overlay-modal" onRequestClose={handleClose}>
+    <ReactModal isOpen={modalFilterOpen}  role="dialog" className={`${isMobile ? 'modal-filter-mobile' : 'modal-filter'}`} overlayClassName="overlay-modal-filter" onRequestClose={handleClose}>
       <section className='section-filter'>
+        <div className='main-container-filter-name'>
+          <h3>Buscar por nombre:</h3>
+          <div className='container-filter-name'>
+            <input type='text' id='input-filter-name' placeholder='Introduce el nombre' ref={nameInputRef} className='input-filter-name'/>
+            <button className='button-name'>
+              <HiOutlineSearch />
+            </button>
+          </div>
+        </div>
+
         <div className='main-container-filter-category'>
           <h3>Categorías:</h3>
           <div className="container-filter-category">
