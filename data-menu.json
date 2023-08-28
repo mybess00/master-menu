@@ -13,8 +13,8 @@
             "facebook": "https://facebook.com"
           },
           "schedule": {
-            "from": [1, 14, 30],
-            "to": [6, 23, 0]
+            "from": [1, 8, 30],
+            "to": [6, 16, 0]
           }
         },
       
