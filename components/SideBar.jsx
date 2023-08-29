@@ -24,6 +24,7 @@ export default function SideBar () {
   const handleButtonFilter = () => {
     setModalFilterOpen(!modalFilterOpen)
     inputSideBarRef.current.checked = false
+    setScroll(false)
   }
 
   useEffect(() => {

@@ -48,6 +48,7 @@
             },
             "price": 550.00,
             "coin": "CUP",
+            "category": "pizza",
             "agregos": [
               { "id": 0, "name": "Extra Queso", "price": 50.00 },
               { "id": 1, "name": "Extra Jamón", "price": 80.00 },
@@ -66,6 +67,7 @@
             },
             "price": 800.00,
             "coin": "CUP",
+            "category": "pizza",
             "agregos": [
               { "id": 0, "name": "Extra Queso", "price": 50.00 },
               { "id": 1, "name": "Extra Jamón", "price": 80.00 },
@@ -86,6 +88,7 @@
             },
             "price": 300.00,
             "coin": "CUP",
+            "category": "burger",
             "offer": 250.00,
             "agregos": [
               { "id": 0, "name": "Extra Queso", "price": 50.00 },
@@ -105,6 +108,7 @@
             },
             "price": 850.00,
             "coin": "CUP",
+            "category": "burger",
             "offer": 650.00,
             "agregos": [
               { "id": 0, "name": "Extra Queso", "price": 50.00 },
@@ -124,6 +128,7 @@
             },
             "price": 170.00,
             "coin": "CUP",
+            "category": "burger",
             "agregos": [
               { "id": 0, "name": "Extra Queso", "price": 50.00 },
               { "id": 1, "name": "Extra Jamón", "price": 80.00 },
@@ -142,6 +147,7 @@
             },
             "price": 1000.00,
             "coin": "CUP",
+            "category": "burger",
             "agregos": [
               { "id": 0, "name": "Extra Queso", "price": 50.00 },
               { "id": 1, "name": "Extra Jamón", "price": 80.00 },
@@ -160,6 +166,7 @@
             },
             "price": 2550.00,
             "coin": "CUP",
+            "category": "burger",
             "agregos": [
               { "id": 0, "name": "Extra Queso", "price": 50.00 },
               { "id": 1, "name": "Extra Jamón", "price": 80.00 },
@@ -180,6 +187,7 @@
             },
             "price": 500.00,
             "coin": "CUP",
+            "category": "dulces",
             "offer": 350.00,
             "agregos":[
               { "id": 0, "name": "Papel de Regalo", "price": 50.00 },
@@ -197,6 +205,7 @@
             },
             "price": 300.00,
             "coin": "CUP",
+            "category": "dulces",
             "agregos":[
               { "id": 0, "name": "Papel de Regalo", "price": 50.00 },
               { "id": 1, "name": "Tarjeta de Felicitación", "price": 20.00 }
@@ -213,6 +222,7 @@
             },
             "price": 150.00,
             "coin": "CUP",
+            "category": "dulces",
             "offer": 125.00
           } 
         ],
@@ -227,7 +237,8 @@
                 "alt": "foto de item"
             },
             "price": 200,
-            "coin": "CUP"
+            "coin": "CUP",
+            "category": "bebidas"
           },
           {
             "available": true,
@@ -239,7 +250,8 @@
                 "alt": "foto de item"
             },
             "price": 50,
-            "coin": "CUP"
+            "coin": "CUP",
+            "category": "bebidas"
           }
         ]
       }

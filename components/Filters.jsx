@@ -20,7 +20,6 @@ export default function Filters () {
   const sortHigherPriceRef = useRef()
   const sortLowerPriceRef = useRef()
   const sortOfferRef = useRef()
-  const sortUnavailableRef = useRef()
   const router = useRouter()
 
   const handleClose = () => {
@@ -68,7 +67,9 @@ export default function Filters () {
     const activeCategory = []
     const inputsCategory = document.querySelectorAll('.input-filter-category')
     if (allCategoryRef.current.checked) {
-      activeCategory.push(allCategoryRef.current.value)
+      ConfigData.category.forEach(element => {
+        activeCategory.push(element.id)
+      })
     }
     inputsCategory.forEach(element => {
       if (element.checked) {
@@ -113,8 +114,6 @@ export default function Filters () {
       return sortLowerPriceRef.current.value
     } else if (sortOfferRef.current.checked) {
       return sortOfferRef.current.value
-    } else if (sortUnavailableRef.current.checked) {
-      return sortUnavailableRef.current.value
     }
   }
 
@@ -129,7 +128,8 @@ export default function Filters () {
     params.set('price', getPrice().join(','))
     params.set('show', getShow())
     params.set('sort', getSort())
-    router.push(`${ConfigData.id}/filter?${params.toString()}`)
+    router.push(`/${ConfigData.id}/filter?${params.toString()}`)
+    handleClose()
   }
 
   const showCategory = () => {
@@ -234,12 +234,6 @@ export default function Filters () {
               <input type="radio" id='input-sort-offer' ref={sortOfferRef} value='offer' name='filter-sort' className="input-filter-sort"/>
               <label className="label-sort" htmlFor='input-sort-offer'>
                 Mostrar ofertas primero
-              </label>
-            </div>
-            <div className='container-sort'>
-              <input type="radio" id='input-sort-unavailable' ref={sortUnavailableRef} value='unavailable' name='filter-sort' className="input-filter-sort"/>
-              <label className="label-sort" htmlFor='input-sort-unavailable'>
-                Mostrar no disponibles primero
               </label>
             </div>
           </div>
