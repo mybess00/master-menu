@@ -2,6 +2,7 @@
 
 import '../styles/Filters.css'
 import { useContext, useRef, useState, useEffect } from "react"
+import { useRouter } from 'next/navigation'
 import { MenuContext } from "../context/MenuContext"
 import ReactModal from 'react-modal'
 import { HiOutlineSearch } from "react-icons/hi"
@@ -20,6 +21,7 @@ export default function Filters () {
   const sortLowerPriceRef = useRef()
   const sortOfferRef = useRef()
   const sortUnavailableRef = useRef()
+  const router = useRouter()
 
   const handleClose = () => {
     if (isMobile) {
@@ -116,18 +118,18 @@ export default function Filters () {
     }
   }
 
-  const getFilters = () => {
-    return {
-      'name': getName(),
-      'categories': getCategoryParams(),
-      'price': getPrice(),
-      'show': getShow(),
-      'sort': getSort(),
-    }
-  }
-
   const handleSearchName = () => {
     
+  }
+
+  const goToFilters = () => {
+    const params = new URLSearchParams()
+    params.set('name', getName())
+    params.set('categories', getCategoryParams().join(','))
+    params.set('price', getPrice().join(','))
+    params.set('show', getShow())
+    params.set('sort', getSort())
+    router.push(`${ConfigData.id}/filter?${params.toString()}`)
   }
 
   const showCategory = () => {
@@ -243,7 +245,7 @@ export default function Filters () {
           </div>
         </div>
 
-        <button className='search-button' onClick={() => console.log(getFilters())}>
+        <button className='search-button' onClick={goToFilters}>
           <div className='search-icon'>
             <HiOutlineSearch/>
           </div>
