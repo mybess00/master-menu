@@ -55,4 +55,7 @@
     .active-filter:hover {
         background-color: rgb(3, 88, 3);
     }
+    .container-active-filter ~ h1 {
+        font-size: 2rem;
+    }
 }

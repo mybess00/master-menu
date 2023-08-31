@@ -103,7 +103,6 @@ export default function PageFilter () {
         let categoryTitle = ''
         ConfigData.category.forEach(category => {
           if (category.id === element) {
-            console.log('here')
             categoryTitle = category.name
           }
         })

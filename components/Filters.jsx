@@ -25,7 +25,6 @@ export default function Filters () {
   const handleClose = () => {
     if (isMobile) {
       const modal = document.querySelector('.modal-filter-mobile')
-      console.log(modal)
       modal.style.transform = 'translateY(105%)'
       setTimeout(() => {
         setModalFilterOpen(false)
@@ -145,23 +144,26 @@ export default function Filters () {
   }
 
   useEffect(() => {
-    if (sortHigherPriceRef.current && showAvailableRef.current) {
-      sortHigherPriceRef.current.checked = true
-      showAvailableRef.current.checked = true
-    }
     handleResize()
     window.addEventListener('resize', handleResize)
   },[])
 
+  const afterOpenModal = () => {
+    if (nameInputRef.current) {
+      nameInputRef.current.focus()
+      nameInputRef.current.select()
+    }
+  }
+
   return (
-    <ReactModal isOpen={modalFilterOpen}  role="dialog" className={`${isMobile ? 'modal-filter-mobile' : 'modal-filter'}`} overlayClassName="overlay-modal-filter" onRequestClose={handleClose}>
+    <ReactModal isOpen={modalFilterOpen} onAfterOpen={afterOpenModal}  role="dialog" className={`${isMobile ? 'modal-filter-mobile' : 'modal-filter'}`} overlayClassName="overlay-modal-filter" onRequestClose={handleClose}>
       <div className='button-close' onClick={handleClose}>X</div>
       <section className='section-filter'>
         <div className='main-container-filter-name'>
           <h3>Buscar por nombre:</h3>
           <div className='container-filter-name'>
             <input type='text' id='input-filter-name' placeholder='Introduce el nombre' ref={nameInputRef} className='input-filter-name'/>
-            <button className='button-name'>
+            <button className='button-name' onClick={goToFilters}>
               <HiOutlineSearch />
             </button>
           </div>
