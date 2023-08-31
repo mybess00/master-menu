@@ -248,8 +248,15 @@
     border-radius: .4rem;
     font-size: 1rem;
 }
-
 .search-icon {
     font-size: 1.3rem;
     display: flex;
+}
+.button-close {
+    position: absolute;
+    top: .7rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
 }

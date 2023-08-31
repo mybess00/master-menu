@@ -155,6 +155,7 @@ export default function Filters () {
 
   return (
     <ReactModal isOpen={modalFilterOpen}  role="dialog" className={`${isMobile ? 'modal-filter-mobile' : 'modal-filter'}`} overlayClassName="overlay-modal-filter" onRequestClose={handleClose}>
+      <div className='button-close' onClick={handleClose}>X</div>
       <section className='section-filter'>
         <div className='main-container-filter-name'>
           <h3>Buscar por nombre:</h3>
