@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: .8rem .5rem;
     gap: .5rem .3rem;
 }
 .active-filter {
@@ -12,11 +13,8 @@
     border-radius: .4rem;
     transition: all 150ms;
 }
-.active-filter:hover {
-    background-color: rgb(3, 88, 3);
-}
 .section-container-filter {
-    margin: 5rem .5rem .5rem .5rem;
+    margin: 2rem .5rem .5rem .5rem;
     gap: .5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -31,8 +29,10 @@
         padding: 0 9%;
         margin-top: 7rem;
     }
-
     .section-container-filter > div {
         width: 22%;
+    }
+    .active-filter:hover {
+        background-color: rgb(3, 88, 3);
     }
 }

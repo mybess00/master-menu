@@ -1,7 +1,7 @@
 'use client'
 
 import './style.css'
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
 import { MenuContext } from "../../../context/MenuContext"
 import Item from '../../../components/Item'
@@ -14,30 +14,43 @@ export default function PageFilter () {
   searchParams.forEach((value, key) => {
     objParams[key] = value
   })
+  const [params, setParams] = useState(objParams)
   const { ConfigData } = useContext(MenuContext)
 
   const deleteFilter = (e) => {
     const div = e.target
     const dataKey = div.getAttribute('data-key')
     const dataValue = div.getAttribute('data-value')
-    //div.style.display = 'none'
+    if (dataKey !== 'categories') {
+      objParams[dataKey] = false
+      div.style.display = 'none'
+    } else {
+      objParams[dataKey] = 'all'
+    }
+    setParams(prevState => ({...objParams}))
   }
+
+  useEffect(() => {
+    console.log(params)
+  }, [params])
+
 
   const getItems = () => {
     const items = []
-    objParams.categories.split(',').forEach(element => {
+    params.categories.split(',').forEach(element => {
       items.push(ConfigData[element])
     })
-    if (objParams.name) {
+    if (params.name) {
       const oldItems = items.flat()
       items.length = 0
-      items.push(oldItems.filter(element => element.title.toLowerCase().includes(objParams.name.toLowerCase())))
+      items.push(oldItems.filter(element => element.title.toLowerCase().includes(params.name.toLowerCase())))
     }
-    if (objParams.price && items.flat().length !== 0) {
-      const price = objParams.price.split(',').map(element => parseInt(element))
+    if (params.price && items.flat().length !== 0) {
+      const price = params.price.split(',').map(element => parseInt(element))
       const oldItems = items.flat()
       items.length = 0
       oldItems.forEach(element => {
+        console.log(element)
         let itemPrice = element.offer ? element.offer : element.price
         if (itemPrice >= price[0]) {
           if (price[1] !== 0 && itemPrice <= price[1]) {
@@ -51,16 +64,16 @@ export default function PageFilter () {
     if (items.flat().length !== 0) {
       const oldItems = items.flat()
       items.length = 0
-      if (objParams.show === 'available') {
+      if (params.show === 'available') {
         items.push(oldItems.filter(element => element.available))
-      } else if (objParams.show === 'offer') {
+      } else if (params.show === 'offer') {
         items.push(oldItems.filter(element => element.offer && element.available))
       }
     }
     if (items.flat().length > 1) {
       const oldItems = items.flat()
       items.length = 0
-      if (objParams.sort === 'offer') {
+      if (params.sort === 'offer') {
         items.push(oldItems.sort((a, b) => {
           if (a.offer && b.offer) {
             return a.offer - b.offer
@@ -76,9 +89,9 @@ export default function PageFilter () {
         items.push(oldItems.sort((a, b) => {
           let aPrice = a.offer ? a.offer : a.price
           let bPrice = b.offer ? b.offer : b.price
-          if (objParams.sort === 'higher') {
+          if (params.sort === 'higher') {
             return bPrice - aPrice
-          } else if (objParams.sort === 'lower') {
+          } else if (params.sort === 'lower') {
             return aPrice - bPrice
           }
         }))
@@ -90,9 +103,9 @@ export default function PageFilter () {
   return (
     <>
     <div className='container-active-filter'>
-      {Object.keys(objParams).map(element => {
-        return  <div className="active-filter" data-key={element} data-value={objParams[element]} onClick={deleteFilter} key={element}>
-                  X {objParams[element]}
+      {Object.keys(params).map(element => {
+        return  <div className="active-filter" data-key={element} data-value={params[element]} onClick={deleteFilter} key={element}>
+                  X {params[element]}
                 </div>
       })}
     </div>
