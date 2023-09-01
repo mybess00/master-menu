@@ -8,7 +8,7 @@ import { MenuContext } from "../context/MenuContext"
 import VerticalDivider from "./VerticalDivider"
 import CartButtonCounter from "./CartButtonCounter"
 import CategoryList from "./sidebar/CategoryList"
-import { BsMenuUp } from "react-icons/bs"
+import { GrMoreVertical } from "react-icons/gr"
 import { HiOutlineSearch } from "react-icons/hi"
 
 export default function DesktopBar () {
@@ -41,7 +41,7 @@ export default function DesktopBar () {
         </button>
         <button className="option-desktop-bar" onClick={handleMenu}>
           <CategoryList updateInputValue={setVisibility} identifier="desktop"/>
-          <BsMenuUp/>
+          <GrMoreVertical/>
         </button>
         <button className="option-desktop-bar" onClick={goToCart}>
           <CartButtonCounter/>
