@@ -30,6 +30,10 @@ export default function DesktopBar () {
     setModalFilterOpen(!modalFilterOpen)
   }
 
+  const pay = () => {
+    alert('Esto es un Demo, no tiene integrado pasarelas de pago.')
+  }
+
   return (
     <>
     <input type="checkbox" checked={visibility} className="input-categories"/>
@@ -52,7 +56,7 @@ export default function DesktopBar () {
           <VerticalDivider color={'green'} width={7} />
           <div className="total-price">Total: {totalPrice.toFixed(2)} CUP</div>
         </div>
-        <button className="buy-button" onClick={goToCart}>
+        <button className="buy-button" onClick={pay}>
           PAGAR
         </button>
       </div>}

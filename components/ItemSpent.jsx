@@ -22,7 +22,7 @@ export default function ItemSpent ({ item }) {
           </p>
         </div>
         <div className="container-btn">
-          <button className="btn-add-car not-available">
+          <button className="btn-add-cart not-available">
             AGOTADO
           </button>
         </div>

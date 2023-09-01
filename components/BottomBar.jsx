@@ -24,6 +24,10 @@ export default function BottomBar () {
     router.push(`/${ConfigData.id}/cart`)
   }
 
+  const pay = () => {
+    alert('Esto es un Demo, no tiene integrado pasarelas de pago.')
+  }
+
   return (
     <>
       <input type="checkbox" ref={inputRef} className="input-bottom-bar"/>
@@ -35,7 +39,7 @@ export default function BottomBar () {
             <div className="price-bottom-bar">Total: {totalPrice} CUP</div>
           </div>
           <div>
-            <button className="button-buy-bottom-bar">
+            <button className="button-buy-bottom-bar" onClick={pay}>
               PAGAR
             </button>
           </div>

@@ -122,13 +122,16 @@ export default function Filters () {
 
   const goToFilters = () => {
     const params = new URLSearchParams()
-    params.set('name', getName())
-    params.set('categories', getCategoryParams().join(','))
-    params.set('price', getPrice().join(','))
-    params.set('show', getShow())
-    params.set('sort', getSort())
-    router.push(`/${ConfigData.id}/filter?${params.toString()}`)
-    handleClose()
+    const price = getPrice()
+    if (price) {
+      params.set('name', getName())
+      params.set('categories', getCategoryParams().join(','))
+      params.set('price', price.join(','))
+      params.set('show', getShow())
+      params.set('sort', getSort())
+      router.push(`/${ConfigData.id}/filter?${params.toString()}`)
+      handleClose()
+    }
   }
 
   const showCategory = () => {

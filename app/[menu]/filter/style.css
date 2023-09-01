@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: .8rem .5rem;
+    margin: 5rem .5rem .8rem .5rem;
     gap: .5rem .3rem;
 }
 .active-filter {
@@ -40,6 +40,10 @@
 @media (min-width: 769px) {
     .container-active-filter {
         justify-content: center;
+        margin-top: 7.5rem;
+    }
+    .container-active-filter ~ h1 {
+        font-size: 2rem;
     }
     .section-container-filter {
         display: flex;
@@ -54,8 +58,5 @@
     }
     .active-filter:hover {
         background-color: rgb(3, 88, 3);
-    }
-    .container-active-filter ~ h1 {
-        font-size: 2rem;
     }
 }

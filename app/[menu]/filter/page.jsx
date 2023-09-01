@@ -138,7 +138,7 @@ export default function PageFilter () {
     }
   }
   return (
-    <section>
+    <>
       <div className='container-active-filter'>
         {Object.keys(filters).map(element => {
           if (filters[element] == '' || filters[element] == '0,0') {
@@ -169,6 +169,6 @@ export default function PageFilter () {
           })
           }
         </div>
-    </section>
+    </>
   )
 }
