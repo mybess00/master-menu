@@ -156,13 +156,13 @@ export default function PageFilter () {
             if (element.offer) {
               return <ItemOffer 
                 item={element}
-                baseLink={`/${ConfigData.id}/${element.category}/?item=`}
+                baseLink={`/${ConfigData.id}/${element.category}/`}
                 category={element.category}
                 key={element.id} />
             } else {
               return <Item 
                 item={element}
-                baseLink={`/${ConfigData.id}/${element.category}/?item=`}
+                baseLink={`/${ConfigData.id}/${element.category}/`}
                 category={element.category}
                 key={element.id} />
             }
