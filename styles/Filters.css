@@ -41,7 +41,7 @@
     display: none;
     flex-direction: column;
     flex-wrap: nowrap;
-    gap: 1rem;
+    gap: .7rem;
 }
 .input-advanced-filter {
     display: none;
@@ -57,9 +57,12 @@
     display: flex;
 }
 .label-advanced-filter {
+    width: fit-content;
+    place-self: center;
+    font-size: .85rem;
     color: black;
     text-align: center;
-    padding: .3rem .8rem;
+    padding: .2rem 2rem;
     border-radius: .4rem;
     transition: all 150ms;
     border: 2px solid green;
@@ -72,7 +75,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    gap: 1rem;
+    gap: .8rem;
     padding: 1rem;
 }
 .main-container-filter-name {

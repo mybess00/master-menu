@@ -25,7 +25,7 @@ export default function Filters () {
   const handleClose = () => {
     if (isMobile) {
       const modal = document.querySelector('.modal-filter-mobile')
-      modal.style.transform = 'translateY(-105%)'
+      modal.style.transform = 'translateY(105%)'
       setTimeout(() => {
         setModalFilterOpen(false)
       }, 210)
