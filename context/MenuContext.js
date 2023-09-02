@@ -11,7 +11,7 @@ export function MenuProvider ({ children }) {
   const ConfigData = fileJSON[menu].menu
 
   return (
-    <MenuContext.Provider value={{ConfigData, modalFilterOpen, setModalFilterOpen}}>
+    <MenuContext.Provider value={{ ConfigData, modalFilterOpen, setModalFilterOpen }}>
       <section>
         {children}
       </section>

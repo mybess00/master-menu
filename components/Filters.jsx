@@ -25,7 +25,7 @@ export default function Filters () {
   const handleClose = () => {
     if (isMobile) {
       const modal = document.querySelector('.modal-filter-mobile')
-      modal.style.transform = 'translateY(105%)'
+      modal.style.transform = 'translateY(-105%)'
       setTimeout(() => {
         setModalFilterOpen(false)
       }, 210)
@@ -116,10 +116,6 @@ export default function Filters () {
     }
   }
 
-  const handleSearchName = () => {
-    
-  }
-
   const goToFilters = () => {
     const params = new URLSearchParams()
     const price = getPrice()
@@ -158,6 +154,12 @@ export default function Filters () {
     }
   }
 
+  const handleEnterPress = (e) => {
+    if (e.key === 'Enter') {
+      goToFilters()
+    }
+  } 
+
   return (
     <ReactModal isOpen={modalFilterOpen} onAfterOpen={afterOpenModal}  role="dialog" className={`${isMobile ? 'modal-filter-mobile' : 'modal-filter'}`} overlayClassName="overlay-modal-filter" onRequestClose={handleClose}>
       <div className='button-close' onClick={handleClose}>X</div>
@@ -165,92 +167,99 @@ export default function Filters () {
         <div className='main-container-filter-name'>
           <h3>Buscar por nombre:</h3>
           <div className='container-filter-name'>
-            <input type='text' id='input-filter-name' placeholder='Introduce el nombre' ref={nameInputRef} className='input-filter-name'/>
+            <input type='text' id='input-filter-name' onKeyPress={handleEnterPress} placeholder='Introduce el nombre' ref={nameInputRef} className='input-filter-name'/>
             <button className='button-name' onClick={goToFilters}>
               <HiOutlineSearch />
             </button>
           </div>
         </div>
 
-        <div className='main-container-filter-category'>
-          <h3>Categorías:</h3>
-          <div className="container-filter-category">
-            <div className='container-category'>
-              <input type="checkbox" id='input-filter-category-all' value='all' defaultChecked={'on'} ref={allCategoryRef} onChange={handleAllCategoryInput} className="input-filter-category-all"/>
-              <label className="label-filter" htmlFor='input-filter-category-all'>
-                Todas
-              </label>
-            </div>
-            {showCategory()}
-          </div>
-        </div>
+        <input type='checkbox' id='input-advanced-filter' className='input-advanced-filter'/>
+        <label htmlFor='input-advanced-filter' className='label-advanced-filter'>
+          
+        </label>
 
-        <div className='main-container-filter-price'>
-          <h3>Precios:</h3>
-          <div className='container-filter-price'>
-            <div className='container-price'>
-              <input type="number" id='input-price-min' name='filter-price' ref={minPriceRef} className="input-filter-price"/>
-              <label className="label-price" htmlFor='input-price-min'>
-                Mínimo
-              </label>
-            </div>
-            <div className='container-price'>
-              <input type="number" id='input-price-max' name='filter-price' ref={maxPriceRef} className="input-filter-price"/>
-              <label className="label-price" htmlFor='input-price-max'>
-                Máximo
-              </label>
+        <div className='container-advanced-filter'>
+          <div className='main-container-filter-category'>
+            <h3>Categorías:</h3>
+            <div className="container-filter-category">
+              <div className='container-category'>
+                <input type="checkbox" id='input-filter-category-all' value='all' defaultChecked={'on'} ref={allCategoryRef} onChange={handleAllCategoryInput} className="input-filter-category-all"/>
+                <label className="label-filter" htmlFor='input-filter-category-all'>
+                  Todas
+                </label>
+              </div>
+              {showCategory()}
             </div>
           </div>
-        </div>
 
-        <div className='main-container-filter-show'>
-          <h3>Mostrar:</h3>
-          <div className='container-filter-show'>
-            <div className='container-show'>
-              <input type="radio" id='input-show-available' defaultChecked={'on'} ref={showAvailableRef} value='available' name='filter-show' className="input-filter-show"/>
-              <label className="label-show" htmlFor='input-show-available'>
-                Solo disponibles
-              </label>
-            </div>
-            <div className='container-show'>
-              <input type="radio" id='input-show-offer' ref={showOfferRef} value='offer' name='filter-show' className="input-filter-show"/>
-              <label className="label-show" htmlFor='input-show-offer'>
-                Solo ofertas
-              </label>
+          <div className='main-container-filter-price'>
+            <h3>Precios:</h3>
+            <div className='container-filter-price'>
+              <div className='container-price'>
+                <input type="number" id='input-price-min' name='filter-price' ref={minPriceRef} className="input-filter-price"/>
+                <label className="label-price" htmlFor='input-price-min'>
+                  Mínimo
+                </label>
+              </div>
+              <div className='container-price'>
+                <input type="number" id='input-price-max' name='filter-price' ref={maxPriceRef} className="input-filter-price"/>
+                <label className="label-price" htmlFor='input-price-max'>
+                  Máximo
+                </label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className='main-container-filter-sort'>
-          <h3>Ordenar por:</h3>
-          <div className='container-filter-sort'>
-            <div className='container-sort'>
-              <input type="radio" id='input-sort-higher-price' ref={sortHigherPriceRef} value='higher' defaultChecked name='filter-sort' className="input-filter-sort"/>
-              <label className="label-sort" htmlFor='input-sort-higher-price'>
-                De mayor a menor precio
-              </label>
-            </div>
-            <div className='container-sort'>
-              <input type="radio" id='input-sort-lower-price' ref={sortLowerPriceRef} value='lower' name='filter-sort' className="input-filter-sort"/>
-              <label className="label-sort" htmlFor='input-sort-lower-price'>
-                De menor a mayor precio
-              </label>
-            </div>
-            <div className='container-sort'>
-              <input type="radio" id='input-sort-offer' ref={sortOfferRef} value='offer' name='filter-sort' className="input-filter-sort"/>
-              <label className="label-sort" htmlFor='input-sort-offer'>
-                Mostrar ofertas primero
-              </label>
+          <div className='main-container-filter-show'>
+            <h3>Mostrar:</h3>
+            <div className='container-filter-show'>
+              <div className='container-show'>
+                <input type="radio" id='input-show-available' defaultChecked={'on'} ref={showAvailableRef} value='available' name='filter-show' className="input-filter-show"/>
+                <label className="label-show" htmlFor='input-show-available'>
+                  Solo disponibles
+                </label>
+              </div>
+              <div className='container-show'>
+                <input type="radio" id='input-show-offer' ref={showOfferRef} value='offer' name='filter-show' className="input-filter-show"/>
+                <label className="label-show" htmlFor='input-show-offer'>
+                  Solo ofertas
+                </label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <button className='search-button' onClick={goToFilters}>
-          <div className='search-icon'>
-            <HiOutlineSearch/>
+          <div className='main-container-filter-sort'>
+            <h3>Ordenar por:</h3>
+            <div className='container-filter-sort'>
+              <div className='container-sort'>
+                <input type="radio" id='input-sort-higher-price' ref={sortHigherPriceRef} value='higher' defaultChecked name='filter-sort' className="input-filter-sort"/>
+                <label className="label-sort" htmlFor='input-sort-higher-price'>
+                  De mayor a menor precio
+                </label>
+              </div>
+              <div className='container-sort'>
+                <input type="radio" id='input-sort-lower-price' ref={sortLowerPriceRef} value='lower' name='filter-sort' className="input-filter-sort"/>
+                <label className="label-sort" htmlFor='input-sort-lower-price'>
+                  De menor a mayor precio
+                </label>
+              </div>
+              <div className='container-sort'>
+                <input type="radio" id='input-sort-offer' ref={sortOfferRef} value='offer' name='filter-sort' className="input-filter-sort"/>
+                <label className="label-sort" htmlFor='input-sort-offer'>
+                  Mostrar ofertas primero
+                </label>
+              </div>
+            </div>
           </div>
-          BUSCAR
-        </button>
+
+          <button className='search-button' onClick={goToFilters}>
+            <div className='search-icon'>
+              <HiOutlineSearch/>
+            </div>
+            BUSCAR
+          </button>
+        </div>
       </section>
     </ReactModal>
   )
