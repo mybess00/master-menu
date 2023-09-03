@@ -1,3 +1,6 @@
+label {
+    font-size: .9rem;
+}
 .modal-filter {
     position: fixed;
     top: 50%;
@@ -41,7 +44,7 @@
     display: none;
     flex-direction: column;
     flex-wrap: nowrap;
-    gap: .7rem;
+    gap: .5rem;
 }
 .input-advanced-filter {
     display: none;
@@ -78,6 +81,9 @@
     gap: .8rem;
     padding: 1rem;
 }
+.container-advanced-filter > div > h3 {
+    font-size: 1.1rem;
+}
 .main-container-filter-name {
     display: flex; 
     flex-direction: column;
@@ -106,7 +112,7 @@
     border: none;
     width: 100%;
     padding: .2rem .4rem;
-    font-size: 1rem;
+    font-size: .85rem;
     border-radius:.4rem 0 0 .4rem;
 }
 .input-filter-name:focus {
