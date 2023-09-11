@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import '../styles/AlertDialog.css'
+import { useState, useEffect } from 'react'
 import ReactModal from "react-modal"
 
 export default function AlertDialog ({ visibility, title, message, buttonPostive, action, actionNegative }) {
