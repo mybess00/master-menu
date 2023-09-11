@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 
-export function useScrollListener (element) {
+export function useScrollListener (element): boolean {
 
-  const [visibility, setVisibility] = useState(true)
+  const [visibility, setVisibility] = useState<boolean>(true)
 
   const handleScroll = () => {
     let elementHTML = document.querySelector(element)

@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-export function useFilters () {
+export function useFilters (): Object {
   const searchParams = useSearchParams()
-  const initialState = () => {
+  
+  const initialState = (): Object => {
     const objParams = {}
-    searchParams.forEach((value, key) => {
+    searchParams.forEach((value: string, key: string) => {
       objParams[key] = value
     })
     return objParams
   }
 
-  const [filters, setFilters] = useState(initialState())
+  const [filters, setFilters] = useState<Object>(initialState())
 
-  const updateFilter = (key, value) => {
+  const updateFilter = (key: string, value: string) => {
     const prevFilters = {...filters}
     prevFilters[key] = value
     setFilters({...prevFilters})

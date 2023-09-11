@@ -1,7 +1,7 @@
 'use client'
 
 import "../styles/ItemCart.css"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import { CartContext } from "../context/CartContext"
 import { ACTION_CART } from "../reducers/cartReducer"
@@ -9,10 +9,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { MdDelete } from "react-icons/md"
 import { TbEdit } from "react-icons/tb"
+import AlertDialog from "./AlertDialog"
 
 export default function ItemCart ({ item, info, index }) {
 
   const { state, dispatch } = useContext(CartContext)
+  const [alertShow, setAlertShow] = useState(false)
   const { menu } = useParams()
 
   const infoItem = () => {
@@ -39,8 +41,21 @@ export default function ItemCart ({ item, info, index }) {
   const deleteItem = () => {
     dispatch( { type: ACTION_CART.DELETE_ITEM_INDEX, payload: index })
   }
- 
+
+  const handleDelete = () => {
+    setAlertShow(true)
+  }
+
   return (
+    <>
+    <AlertDialog 
+      visibility={alertShow} 
+      title="Alerta" 
+      message="¿Está seguro que desea eliminar el producto del carrito? Esta acción es irreversible."
+      buttonPostive="Continuar"
+      action={deleteItem}
+      actionNegative={setAlertShow} />
+
     <div className="item-cart-container">
       <div className="image-container">
         <Image src={item.image.src} alt={item.image.alt} loading="lazy" fill={true} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAEElEQVR42mNkyGaAA0ZKOQBudgKJD8nILAAAAABJRU5ErkJggg=="/>
@@ -61,7 +76,7 @@ export default function ItemCart ({ item, info, index }) {
                 {'>'}
               </button>
           </div>
-          <button className="button-delete" onClick={deleteItem}>
+          <button className="button-delete" onClick={handleDelete}>
             <MdDelete/>
           </button>
           <Link href={`/${menu}/cart/${index}`}>
@@ -72,5 +87,6 @@ export default function ItemCart ({ item, info, index }) {
         </div>
       </div>
     </div>
+    </>
   )
 }
