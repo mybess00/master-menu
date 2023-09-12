@@ -6,6 +6,7 @@ import { CartContext } from "../../../context/CartContext"
 import { ACTION_CART } from "../../../reducers/cartReducer"
 import ItemCart from "../../../components/ItemCart"
 import HorizontalDivider from "../../../components/HorizontalDivider"
+import AlertDialog from "../../../components/AlertDialog"
 
 export default function PageCart () {
 
