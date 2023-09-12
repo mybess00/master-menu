@@ -9,12 +9,13 @@ export const ACTION_TYPES = {
 export const INITIAL_STATE = {
   itemPrice: 0,
   amountItem: 1,
-  agregoList: [],
+  agregoList:<Object[]> [],
   agregoPrice: 0,
   totalPrice: 0,
 }
 
-export const orderReducer = (state, action) => {
+export const orderReducer = (state: Object, action) => {
+  console.log(typeof action)
   switch (action.type) {
     case ACTION_TYPES.SET_AMOUNT: 
       return {

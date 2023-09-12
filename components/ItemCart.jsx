@@ -1,7 +1,7 @@
 'use client'
 
 import "../styles/ItemCart.css"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { useParams } from "next/navigation"
 import { CartContext } from "../context/CartContext"
 import { ACTION_CART } from "../reducers/cartReducer"

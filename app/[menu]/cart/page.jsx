@@ -1,7 +1,7 @@
 'use client'
 
 import "./style.css"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { CartContext } from "../../../context/CartContext"
 import { ACTION_CART } from "../../../reducers/cartReducer"
 import ItemCart from "../../../components/ItemCart"
@@ -10,6 +10,7 @@ import HorizontalDivider from "../../../components/HorizontalDivider"
 export default function PageCart () {
 
   const { state, dispatch } = useContext(CartContext)
+  const [alertShow, setAlertShow] = useState(false)
 
   const cleanCart = () => {
     dispatch({ type: ACTION_CART.CLEAN_CART })
@@ -19,13 +20,24 @@ export default function PageCart () {
     alert('Esto es un Demo, no tiene integrado pasarelas de pago.')
   }
 
+  const handleCleanCart = () => {
+    setAlertShow(true)
+  }
+
   return (
     <section className="main-container">
+      <AlertDialog 
+        visibility={alertShow} 
+        title="Alerta" 
+        message="¿Está seguro que desea limpiar el carrito? Esta acción es irreversible."
+        buttonPostive="Continuar"
+        action={cleanCart}
+        actionNegative={setAlertShow} />
       <div className="option-buttons">
         <button onClick={pay} className="button-pay">
           PAGAR
         </button>
-        <button onClick={cleanCart} className="button-clean">
+        <button onClick={handleCleanCart} className="button-clean">
           LIMPIAR CARRITO
         </button>
       </div>
