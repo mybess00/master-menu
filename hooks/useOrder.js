@@ -1,13 +1,13 @@
 import { useReducer, useEffect } from "react";
 import { orderReducer, INITIAL_STATE, ACTION_TYPES } from "../reducers/orderReducer";
 
-export function useOrder (): Object {
+export function useOrder ()/*: Object*/ {
   
   const [state, dispatch] = useReducer(orderReducer, INITIAL_STATE)
 
   console.log(typeof state)
 
-  const setItemPrice = (price: number) => {
+  const setItemPrice = (price/*: number*/) => {
     try {
       dispatch({ type: ACTION_TYPES.SET_ITEM_PRICE, payload: price }) 
       setAgregoPrice()
@@ -18,7 +18,7 @@ export function useOrder (): Object {
     }
   }
 
-  const setAmount = (amount: number) => {
+  const setAmount = (amount/*: number*/) => {
     try {
       dispatch({ type: ACTION_TYPES.SET_AMOUNT, payload: amount}) 
       setAgregoPrice()
@@ -29,7 +29,7 @@ export function useOrder (): Object {
     }
   }
 
-  const setAgregoList = (agregos: Object[]) => {
+  const setAgregoList = (agregos/*: Object[]*/) => {
     try {
       dispatch({ type: ACTION_TYPES.SET_AGREGO_LIST, payload: agregos})
       setAgregoPrice()
