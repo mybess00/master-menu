@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "hooks/useOrder.ts"  ],
+, "hooks/useOrder.ts", "reducers/orderReducer.js"  ],
   "exclude": [
     "node_modules"
   ]
