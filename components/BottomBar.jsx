@@ -1,7 +1,6 @@
 'use client'
 
 import "/styles/BottomBar.scss"
-import VerticalDivider from "./VerticalDivider"
 import { useContext, useRef } from "react"
 import { CartContext } from "../context/CartContext"
 import { useRouter } from "next/navigation"
@@ -35,10 +34,9 @@ export default function BottomBar () {
         <div className="container-bottom-bar">
           <div className="info-bottom-bar">
             <div className="item-amount-bottom-bar">{state.length}</div>
-            <VerticalDivider color={'#0891b2'} width={5} />
             <div className="price-bottom-bar">Total: {totalPrice} CUP</div>
           </div>
-          <div>
+          <div className="container-btn-buy">
             <button className="button-buy-bottom-bar" onClick={pay}>
               PAGAR
             </button>

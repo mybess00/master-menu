@@ -71,13 +71,17 @@
     gap: .55rem;
 }
 .button-amount-id  {
-    background-color: gray;
-    color: white;
+    background-color: $bg-gray;
+    color: $text-bg-gray;
     padding: .35rem .75rem;
     border-radius: .25rem;
     text-align: center;
     border: none;
     cursor: pointer;
+    transition: all 150ms;
+}
+.button-amount-id:hover {
+    background-color: $bg-gray-600;
 }
 .total-price-id  {
     font-size: 1.15rem;
@@ -98,6 +102,10 @@
     border-radius: .25rem;
     border: none;
     cursor: pointer;
+    transition: all 200ms;
+}
+.btn-buy-id:hover {
+    background-color: $primary-600;
 }
 .discount-id  {
     color: red;

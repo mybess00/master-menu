@@ -37,12 +37,16 @@
 }
 
 .button-amount-cart {
-    background-color: gray;
-    color: white;
+    background-color: $bg-gray;
+    color: $text-bg-gray;
     padding: .35rem .55rem;
     border-radius: .25rem;
     text-align: center;
     border: none;
+    transition: all 150ms;
+}
+.button-amount-cart:hover {
+    background-color: $bg-gray-600;
 }
 
 .button-delete {
@@ -63,7 +67,7 @@
     align-items: center;
     height: 100%;
     border: none;
-    color: gray;
+    color: $text-bg-gray;
     border-radius: .25rem;
     margin-left: .35rem;
     font-size: 1.75rem;
@@ -77,7 +81,7 @@
     color: white;
     border: none;
     border-radius: .35rem;
-    font-size: 1.1rem;
+    font-size: .9rem;
     padding: .6rem 0;
     transition: all 150ms;
 }
@@ -89,7 +93,7 @@
     color: white;
     border: none;
     border-radius: .35rem;
-    font-size: 1.1rem;
+    font-size: .9rem;
     padding: .6rem 0;
     transition: all 150ms;
 }
@@ -114,7 +118,7 @@
         background-color: rgb(155, 13, 13);
     }
     .button-pay:hover {
-        background-color: rgb(8, 100, 8);
+        background-color: $primary-700;
     }
     .amount-cart-container {
         gap: .5rem;

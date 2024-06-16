@@ -1,3 +1,5 @@
+@import '/styles/global/variables.scss';
+
 .main-container-agregos {
     display: flex;
     flex-direction: column;
@@ -31,10 +33,13 @@
     grid-template-columns: 4fr 1fr 2fr;
     row-gap: .75rem;
     margin-top: .65rem;
-    background-color: rgb(209, 209, 209);
     border-radius: .25rem;
     padding: .45rem;
     font-size: .85rem;
+}
+
+.agrego-grid {
+    border-top: solid 1px rgba(128, 128, 128, .25);
 }
 
 .text-info-agrego {
@@ -54,10 +59,14 @@
 .button-amount {
     border: none;
     padding: .35rem .55rem;
-    background-color: gray;
-    color: white;
+    background-color: $bg-gray;
+    color: $text-bg-gray;
     border-radius: .25rem;
     font-size: .95rem;
+    transition: all 150ms;
+}
+.button-amount:hover {
+    background-color: $bg-gray-600;
 }
 
 .button-delete {
@@ -70,7 +79,11 @@
     border-radius: .25rem;
     margin-left: .35rem;
     font-size: 1.45rem;
-   
+    transition: all 150ms;
+}
+
+.button-delete:hover {
+    background-color: rgb(194, 4, 4);
 }
 
 .add-agrego {
@@ -82,8 +95,12 @@
     text-align: center;
     border: none;
     border-radius: .25rem;
-    background-color: rgb(209, 209, 209);
+    background-color: $bg-gray;
     text-align-last: center;
+    transition: all 200ms;
+}
+.add-agrego:hover {
+    background-color: $bg-gray-600;
 }
 
 .add-agrego:focus {
