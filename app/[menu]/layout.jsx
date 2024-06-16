@@ -1,12 +1,12 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import SideBar from '../../components/SideBar'
-import BottomBar from '../../components/BottomBar'
-import MainBar from '../../components/MainBar'
-import DesktopBar from '../../components/DesktopBar'
-import Filters from '../../components/Filters'
-import { MenuProvider } from '../../context/MenuContext'
+import SideBar from 'components/SideBar'
+import BottomBar from 'components/BottomBar'
+import MainBar from 'components/MainBar'
+import DesktopBar from 'components/DesktopBar'
+import Filters from 'components/Filters'
+import { MenuProvider } from 'context/MenuContext'
 import fileJSON from '../../data-menu.json'
 
 export default function LayoutMenu ({ children, params }) {

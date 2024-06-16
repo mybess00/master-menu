@@ -1,6 +1,6 @@
 'use client'
 
-import "../../styles/NavBar.css"
+import "styles/sidebar/CategoryList.scss"
 import { useRouter, useParams } from "next/navigation"
 import { useEffect, useContext } from "react"
 import { MenuContext } from "../../context/MenuContext"

@@ -1,13 +1,14 @@
 'use client'
 
+import 'styles/ButtonAddCart.scss'
 import { useContext, useEffect, useRef } from "react"
 import { MenuContext } from "../context/MenuContext"
 import { CartContext } from "../context/CartContext"
 import { ACTION_CART } from "../reducers/cartReducer"
 import { BiCartAdd } from "react-icons/bi"
-import { BsFillCartCheckFill, BsFillCartPlusFill } from "react-icons/bs"
+import { BsFillCartCheckFill } from "react-icons/bs"
 
-export default function ButtonAddCar ({ id, price, category }) {
+export default function ButtonAddCart ({ id, price, category }) {
 
   const { state, dispatch } = useContext(CartContext)
   const btnRef = useRef()
@@ -39,7 +40,7 @@ export default function ButtonAddCar ({ id, price, category }) {
   useEffect(() => {
     isOnCart = checkItem(item)
     if (isOnCart) {
-      btnRef.current.style.backgroundColor = '#0b4e09'
+      btnRef.current.style.backgroundColor = '#0e7490'
       btnRef.current.style.color = 'white'
     } else {
       btnRef.current.style = 'none'

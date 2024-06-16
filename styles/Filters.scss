@@ -1,3 +1,4 @@
+@import '/styles/global/variables.scss';
 label {
     font-size: .9rem;
 }
@@ -50,7 +51,7 @@ label {
     display: none;
 }
 .input-advanced-filter:checked ~ .label-advanced-filter {
-    background-color: green;
+    background-color: $primary;
     color: white;
 }
 .input-advanced-filter:checked ~ .label-advanced-filter::after {
@@ -68,7 +69,7 @@ label {
     padding: .2rem 2rem;
     border-radius: .4rem;
     transition: all 150ms;
-    border: 2px solid green;
+    border: 2px solid $primary;
     cursor: pointer;
 }
 .label-advanced-filter::after {
@@ -94,7 +95,7 @@ label {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    border: 1px green solid;
+    border: 1px $primary solid;
     border-radius: .4rem;
     font-size: 1rem;
 }
@@ -117,16 +118,16 @@ label {
 }
 .input-filter-name:focus {
     outline: none;
-    border-top: 2px solid rgb(2, 83, 2);
-    border-left: 2px solid rgb(2, 83, 2);
+    border-top: 2px solid $primary-700;
+    border-left: 2px solid $primary-700;
     border-right: none;
-    border-bottom: 2px solid rgb(2, 83, 2);
+    border-bottom: 2px solid $primary-700;
 }
 .input-filter-name:focus + .button-name {
     outline: none;
-    border-top: 2px solid rgb(2, 83, 2);
-    border-right: 2px solid rgb(2, 83, 2);
-    border-bottom: 2px solid rgb(2, 83, 2);
+    border-top: 2px solid $primary-700;
+    border-right: 2px solid $primary-700;
+    border-bottom: 2px solid $primary-700;
     border-left: none;
 }
 .main-container-filter-category {
@@ -152,14 +153,14 @@ label {
     display: none;
 }
 .input-filter-category:checked ~ .label-filter {
-    background-color: green;
+    background-color: $primary;
     color: white;
 }
 .input-filter-category-all {
     display: none;
 }
 .input-filter-category-all:checked ~ .label-filter {
-    background-color: green;
+    background-color: $primary;
     color: white;
 }
 .main-container-filter-show {
@@ -193,7 +194,7 @@ label {
     display: none;
 }
 .input-filter-show:checked ~ .label-show {
-    background-color: green;
+    background-color: $primary;
     color: white;
 }
 .main-container-filter-sort {
@@ -221,7 +222,7 @@ label {
     display: none;
 }
 .input-filter-sort:checked ~ .label-sort {
-    background-color: green;
+    background-color: $primary;
     color: white;
 }
 .main-container-filter-price {
@@ -243,7 +244,7 @@ label {
     background-color: #b9b9b9;
     width: min-content;
     border-radius: .4rem;
-    border: green solid 1px;
+    border: $primary solid 1px;
 }
 .label-price {
     border-radius: .4rem 0  0 .4rem;
@@ -260,16 +261,16 @@ label {
 }
 .input-filter-price:focus {
     outline: none;
-    border-top: 2px solid rgb(2, 83, 2);
-    border-right: 2px solid rgb(2, 83, 2);
+    border-top: 2px solid $primary-700;
+    border-right: 2px solid $primary-700;
     border-left: none;
-    border-bottom: 2px solid rgb(2, 83, 2);
+    border-bottom: 2px solid $primary-700;
 }
 .input-filter-price:focus + .label-price {
     outline: none;
-    border-top: 2px solid rgb(2, 83, 2);
-    border-left: 2px solid rgb(2, 83, 2);
-    border-bottom: 2px solid rgb(2, 83, 2);
+    border-top: 2px solid $primary-700;
+    border-left: 2px solid $primary-700;
+    border-bottom: 2px solid $primary-700;
     border-right: none;
 }
 .search-button {
@@ -282,7 +283,7 @@ label {
     gap: .5rem;
     padding: .5rem;
     margin-top: 1rem;
-    background-color: green;
+    background-color: $primary;
     color: white;
     border: none;
     cursor: pointer;

@@ -1,3 +1,5 @@
+@import '/styles/global/variables.scss';
+
 .alert-dialog {
     position: fixed;
     bottom: 50%;
@@ -55,7 +57,7 @@
     font-size: 1rem;
 }
 .btn-positive {
-    background-color: green;
+    background-color: $primary;
     color: white;
 }
 .btn-negative {

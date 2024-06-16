@@ -1,13 +1,13 @@
 'use client'
 
-import "./style.css"
-import { useScrollListener } from '../../hooks/useSrollListener'
-import ProfileComponent from '../../components/ProfileComponent'
-import Category from '../../components/Category'
-import Item from '../../components/Item'
-import ItemOffer from '../../components/ItemOffer'
+import "./style.scss"
+import { useScrollListener } from 'hooks/useSrollListener'
+import ProfileComponent from 'components/ProfileComponent'
+import Category from 'components/Category'
+import Item from 'components/items/Item'
+import ItemOffer from 'components/items/ItemOffer'
 import { useEffect, useContext } from 'react'
-import { MenuContext } from '../../context/MenuContext'
+import { MenuContext } from 'context/MenuContext'
 
 export default function Menu () {
   const { ConfigData } = useContext(MenuContext)

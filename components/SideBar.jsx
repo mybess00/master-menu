@@ -1,10 +1,10 @@
 'use client'
 
-import "../styles/NavBar.css"
+import "styles/sidebar/SideBar.scss"
 import { useState, useEffect, useRef, useContext } from "react"
-import { MenuContext } from "../context/MenuContext"
-import ProfileBar from "./sidebar/ProfileBar"
-import CategoryList from "./sidebar/CategoryList"
+import { MenuContext } from "context/MenuContext"
+import ProfileBar from "components/sidebar/ProfileBar"
+import CategoryList from "components/sidebar/CategoryList"
 import { HiOutlineSearch } from "react-icons/hi"
 
 export default function SideBar () {

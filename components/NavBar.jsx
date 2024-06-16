@@ -1,5 +1,5 @@
-import "../styles/NavBar.css"
-import ButtonClose from "./ButtonClose"
+import "styles/NavBar.scss"
+import ButtonClose from "components/ButtonClose"
 
 export default function NavBar ({ title }) {
 

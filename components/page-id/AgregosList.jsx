@@ -1,6 +1,6 @@
 'use client'
 
-import "../../styles/Agregos.css"
+import "styles/Agregos.scss"
 import { useEffect, useRef, useContext } from "react"
 import { useArrState } from "../../hooks/useArrState"
 import { PageIdContext } from "../../context/PageIdContext"
@@ -65,7 +65,7 @@ export default function AgregosList ({ agregos }) {
     <div className="main-container-agregos">
       {agregosActive.getLength() !== 0 && 
       <div className="title-agregos">
-        <VerticalDivider color={"green"} width={4}/>
+        <VerticalDivider color={"#0891b2"} width={4}/>
         Agregos
       </div>}
       <div className="agrego-main">

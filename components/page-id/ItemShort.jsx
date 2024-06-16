@@ -1,3 +1,4 @@
+import 'styles/page-id/ItemShort.scss'
 import Image from "next/image"
 import Link from "next/link"
 

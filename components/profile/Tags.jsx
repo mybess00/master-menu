@@ -1,4 +1,4 @@
-import "../../styles/ProfileSection.css"
+import "styles/ProfileSection.scss"
 import { BsCalendar2DateFill, BsClockFill } from "react-icons/bs"
 import { FaLocationDot } from "react-icons/fa6"
 

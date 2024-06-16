@@ -1,0 +1,23 @@
+.counter {
+    position: absolute;
+    top: -40%;
+    right: -50%;
+    background-color: red;
+    color: white;
+    font-size: .9rem;
+    padding: .25rem .5rem;
+    border-radius: 10rem;
+}
+
+@media (min-width: 769px) {
+    .counter {
+        position: absolute;
+        top: -40%;
+        right: -30%;
+        background-color: red;
+        color: white;
+        font-size: 1.2rem;
+        padding: .25rem .5rem;
+        border-radius: 10rem;
+    }
+}

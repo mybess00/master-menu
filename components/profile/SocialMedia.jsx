@@ -1,4 +1,4 @@
-import "../../styles/ProfileSection.css"
+import "styles/ProfileSection.scss"
 import Link from 'next/link'
 import { BsFacebook, BsInstagram, BsWhatsapp, BsTelegram } from 'react-icons/bs'
 

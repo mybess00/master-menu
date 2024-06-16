@@ -1,0 +1,68 @@
+@import '/styles/global/variables.scss';
+
+.categories-container {
+    margin-top: 1.5rem;
+}
+
+.categories-container h3 {
+    font-size: 1.1rem;
+}
+.categories-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: .85rem;
+    margin-top: 1rem;
+    list-style: none;
+}
+.categories-list-container li label {
+    width: 100%;
+    display: block;
+    font-size: .95rem;
+    padding: .5rem .85rem;
+    border-radius: .35rem;
+    background-color: rgb(211, 204, 204);
+    transition: all 200ms;
+}
+.input-category {
+    display: none;
+}
+.input-category:checked ~ label {
+    background-color: $primary;
+    color: white;
+}
+.input-item {
+    display: none;
+}
+.input-item:checked ~ label {
+    background-color: $primary;
+    color: white;
+}
+@media (min-width: 769px) {
+    .categories-container {
+        display: none;
+        position: absolute;
+        bottom: 100%;
+        right: 90%;
+        background-color: white;
+        padding: 1rem 1.5rem;
+        border-radius: .6rem;
+        box-shadow: 3.5px 5px 10px 0 rgb(0, 0, 0, 0.1);
+        transition: all 150ms;
+    }
+    .categories-container h3 {
+        color: black;
+        font-size: 1.3rem;
+    }
+    .categories-list-container li label {
+        font-size: 1.1rem;
+        min-width: max-content;
+        color: black;
+        cursor: pointer;
+    }
+    .categories-list-container li label:hover {
+        background-color: rgb(146, 146, 146);
+    }
+    .categories-list-container li label:active {
+        background-color: $primary;
+    }
+}

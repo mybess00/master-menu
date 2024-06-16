@@ -1,6 +1,7 @@
 'use client'
 
-import { useRouter, useParams } from "next/navigation"
+import 'styles/ButtonClose.scss'
+import { useRouter } from "next/navigation"
 import { FaAngleLeft } from "react-icons/fa6"
 
 export default function ButtonClose () {

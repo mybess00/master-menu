@@ -1,8 +1,8 @@
-import "../styles/ItemSection.css"
+import "styles/Items.scss"
 import Link from "next/link"
 import Image from "next/image"
-import VerticalDivider from "./VerticalDivider"
-import ButtonAddCar from "./ButtonAddCar"
+import VerticalDivider from "../VerticalDivider"
+import ButtonAddCart from "../ButtonAddCart"
 
 export default function ItemOffer ({ item, baseLink, category }) {
 
@@ -29,7 +29,7 @@ export default function ItemOffer ({ item, baseLink, category }) {
           </p>
         </Link>
         <div className="container-btn">
-            <ButtonAddCar id={item.id} price={`${item.offer.toFixed(2)} ${item.coin}`} category={category} />
+            <ButtonAddCart id={item.id} price={`${item.offer.toFixed(2)} ${item.coin}`} category={category} />
           </div>
       </div>
     </div>

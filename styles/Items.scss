@@ -1,3 +1,5 @@
+@import '/styles/global/variables.scss';
+
 .container-item {
     display: flex;
     flex-direction: column;
@@ -103,28 +105,6 @@
     padding: .5rem .5rem .75rem .5rem;
 }
 
-.btn-add-cart {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    width: 100%;
-    padding: .2rem .75rem;
-    background-color: rgb(25, 182, 59);
-    color: black;
-    border-radius: .25rem;
-    border: none;
-    cursor: pointer;
-    transition: all 150ms;
-    font-size: .95rem;
-    align-items: flex-end;
-    gap: .2rem;
-}
-
-.btn-add-cart > svg {
-    font-size: 1.5rem;
-}
-
 .offer-price {
     margin-right: .5rem;
     font-size: .9rem;
@@ -207,10 +187,6 @@
         -webkit-box-orient: vertical;
         white-space: normal;
         font-size: 1.05rem;
-    }
-    .btn-add-cart {
-        font-size: 1.2rem;
-        padding: .4rem 1rem;
     }
     .offer-price {
         font-size: 1.05rem;

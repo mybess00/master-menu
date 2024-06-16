@@ -1,11 +1,11 @@
 'use client'
 
-import './style.css'
-import { useContext, useState } from "react"
-import { useFilters } from '../../../hooks/useFilters'
-import { MenuContext } from "../../../context/MenuContext"
-import Item from '../../../components/Item'
-import ItemOffer from '../../../components/ItemOffer'
+import './style.scss'
+import { useContext } from "react"
+import { useFilters } from 'hooks/useFilters'
+import { MenuContext } from "context/MenuContext"
+import Item from 'components/items/Item'
+import ItemOffer from 'components/items/ItemOffer'
 
 export default function PageFilter () {
 

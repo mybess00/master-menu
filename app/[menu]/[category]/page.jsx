@@ -1,13 +1,13 @@
 'use client'
 
-import "./style.css"
+import "./style.scss"
 import { useContext } from "react"
 import { useSearchParams } from "next/navigation"
-import { MenuContext } from "../../../context/MenuContext"
-import Item from "../../../components/Item"
-import ItemOffer from "../../../components/ItemOffer"
-import ItemSpent from "../../../components/ItemSpent"
-import Modal from "../../../components/Modal"
+import { MenuContext } from "context/MenuContext"
+import Item from "components/items/Item"
+import ItemOffer from "components/items/ItemOffer"
+import ItemSpent from "components/items/ItemSpent"
+import Modal from "components/Modal"
 
 export default function PageCategory ({ params }) {
 

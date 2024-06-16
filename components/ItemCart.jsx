@@ -1,15 +1,15 @@
 'use client'
 
-import "../styles/ItemCart.css"
+import "styles/ItemCart.scss"
 import { useContext, useState } from "react"
 import { useParams } from "next/navigation"
-import { CartContext } from "../context/CartContext"
-import { ACTION_CART } from "../reducers/cartReducer"
+import { CartContext } from "context/CartContext"
+import { ACTION_CART } from "reducers/cartReducer"
 import Image from "next/image"
 import Link from "next/link"
 import { MdDelete } from "react-icons/md"
 import { TbEdit } from "react-icons/tb"
-import AlertDialog from "./AlertDialog"
+import AlertDialog from "components/AlertDialog"
 
 export default function ItemCart ({ item, info, index }) {
 
