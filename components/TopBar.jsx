@@ -1,11 +1,11 @@
 'use client'
 
-import "../styles/Topbar.css"
+import "/styles/Topbar.scss"
 import { useContext } from "react"
 import { useRouter } from "next/navigation"
-import { MenuContext } from "../context/MenuContext"
-import SocialMedia from "./profile/SocialMedia"
-import ScheduleTag from "./ScheduleTag"
+import { MenuContext } from "context/MenuContext"
+import SocialMedia from "components/profile/SocialMedia"
+import ScheduleTag from "components/ScheduleTag"
 
 export default function TopBar () {
 

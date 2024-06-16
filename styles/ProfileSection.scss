@@ -1,3 +1,5 @@
+@import '/styles/global/variables.scss';
+
 .container-img {
     width: 100%;
     position: relative;
@@ -58,7 +60,7 @@
 
 .tag-container div > :first-child {
     font-size: 1.2rem;
-    color: green;
+    color: $icons-profile;
 }
 
 .social-container {

@@ -1,5 +1,5 @@
-import "../styles/ItemSection.css"
-import VerticalDivider from "./VerticalDivider"
+import "styles/Items.scss"
+import VerticalDivider from "../VerticalDivider"
 import Image from "next/image"
 
 export default function ItemSpent ({ item }) {

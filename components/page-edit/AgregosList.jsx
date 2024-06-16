@@ -1,11 +1,11 @@
 'use client'
 
-import "../../styles/Agregos.css"
+import "styles/Agregos.scss"
 import { useContext, useRef, useEffect } from "react"
-import { useArrState } from "../../hooks/useArrState"
-import { EditItemContext } from "../../context/EditItemContext"
-import { CartContext } from "../../context/CartContext"
-import VerticalDivider from "../VerticalDivider"
+import { useArrState } from "hooks/useArrState"
+import { EditItemContext } from "context/EditItemContext"
+import { CartContext } from "context/CartContext"
+import VerticalDivider from "/components/VerticalDivider"
 import { MdDelete } from "react-icons/md"
 
 export default function AgregosList ({ index }) {
@@ -76,7 +76,7 @@ export default function AgregosList ({ index }) {
     <div className="main-container-agregos">
       {agregosActive.getLength() !== 0 &&
       <div className="title-agregos">
-          <VerticalDivider color={"green"} width={4}/>
+          <VerticalDivider color={"#0891b2"} width={4}/>
           Agregos ➕
       </div>}
       <div className="agrego-main">

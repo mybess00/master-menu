@@ -1,6 +1,6 @@
 'use client'
 
-import '../styles/AlertDialog.css'
+import 'styles/AlertDialog.scss'
 import { useState, useEffect } from 'react'
 import ReactModal from "react-modal"
 

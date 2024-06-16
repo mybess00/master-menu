@@ -1,9 +1,9 @@
 'use client'
 
-import '../styles/Filters.css'
+import 'styles/Filters.scss'
 import { useContext, useRef, useState, useEffect } from "react"
 import { useRouter } from 'next/navigation'
-import { MenuContext } from "../context/MenuContext"
+import { MenuContext } from "context/MenuContext"
 import ReactModal from 'react-modal'
 import { HiOutlineSearch } from "react-icons/hi"
 

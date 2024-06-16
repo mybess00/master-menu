@@ -1,5 +1,5 @@
-import "../../styles/ProfileSection.css"
-import HorizontalDivider from "../HorizontalDivider"
+import "styles/ProfileSection.scss"
+import HorizontalDivider from "components/HorizontalDivider"
 
 export default function Description ({ description }) {
   return (

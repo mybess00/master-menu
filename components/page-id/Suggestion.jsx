@@ -1,11 +1,11 @@
 'use client'
 
-import "../../styles/Suggestion.css"
+import "styles/Suggestion.scss"
 import { useContext } from 'react'
 import { useParams } from 'next/navigation'
-import { MenuContext } from '../../context/MenuContext'
-import VerticalDivider from "../VerticalDivider"
-import ItemShort from './ItemShort'
+import { MenuContext } from 'context/MenuContext'
+import VerticalDivider from "components/VerticalDivider"
+import ItemShort from 'components/page-id/ItemShort'
 
 export default function Suggestion () {
 
@@ -48,7 +48,7 @@ export default function Suggestion () {
   return (
     <div className='main-container-suggestion'>
       <div className='title-suggestion'>
-        <VerticalDivider color={"green"} width={4}/>
+        <VerticalDivider color={"#0891b2"} width={4}/>
         Productos Relacionados
       </div>
       <div className='container-items-suggestion'>

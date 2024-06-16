@@ -1,3 +1,5 @@
+@import '/styles/global/variables.scss';
+
 .modal {
     position: fixed;
     bottom: 80px;
@@ -73,7 +75,7 @@
 
 .more-option-modal {
     text-align: end;
-    color: green;
+    color: $primary;
 }
 
 .amount-options-modal  {
@@ -117,7 +119,7 @@
 
 .btn-buy-modal  {
     padding: .55rem .75rem;
-    background-color: rgb(25, 182, 59);
+    background-color: $primary;
     color: black;
     border-radius: .25rem;
     border: none;
@@ -147,7 +149,7 @@
 .icon-expand-info {
     display: flex;
     font-size: 1.5rem;
-    color: rgb(25, 182, 59);
+    color: $primary;
 }
 
 @media (min-width: 769px) {

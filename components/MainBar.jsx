@@ -1,11 +1,10 @@
 'use client'
 
-import "../styles/MainBar.css"
+import "styles/MainBar.scss"
 import { useState, useEffect, useContext } from "react"
-import { MenuContext } from "../context/MenuContext"
+import { MenuContext } from "context/MenuContext"
 import Link from "next/link"
-import CartButtonCounter from "./CartButtonCounter"
-import { FaCartShopping } from "react-icons/fa6"
+import CartButtonCounter from "components/CartButtonCounter"
 
 export default function MainBar () {
 

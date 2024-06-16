@@ -1,12 +1,12 @@
 'use client'
 
-import "./style.css"
+import "./style.scss"
 import { useContext } from "react"
-import { MenuContext } from "../../../../context/MenuContext"
-import ItemFull from "../../../../components/page-id/ItemIFull"
-import AgregosList from "../../../../components/page-id/AgregosList"
-import Suggestion from "../../../../components/page-id/Suggestion"
-import { PageIdProvider } from "../../../../context/PageIdContext"
+import { MenuContext } from "context/MenuContext"
+import ItemFull from "components/page-id/ItemIFull"
+import AgregosList from "components/page-id/AgregosList"
+import Suggestion from "components/page-id/Suggestion"
+import { PageIdProvider } from "context/PageIdContext"
 
 export default function PageId ({ params }) {
   

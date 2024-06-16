@@ -1,4 +1,4 @@
-import '../../styles/ProfileSection.css'
+import 'styles/ProfileSection.scss'
 import Image from 'next/image'
 
 export default function ProfileImage ({ image, alt }) {

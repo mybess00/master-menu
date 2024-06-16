@@ -1,3 +1,4 @@
+import 'styles/Category.scss'
 import Link from "next/link"
 
 export default function Category ({ title, id, children, menu }) {

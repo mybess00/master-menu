@@ -1,3 +1,4 @@
+@import '/styles/global/variables.scss';
 .main-bar {
     display: flex;
     flex-direction: row;
@@ -10,7 +11,7 @@
     height: 55px;
     transform: translateY(-105%);
     transition: all 150ms;
-    background-color: rgb(25, 182, 59);
+    background-color: $primary;
     z-index: 20;
 }
 
@@ -47,16 +48,6 @@
     color: white;
     font-size: 1.6rem;
 }
-
-.input-toggle-side-bar:checked ~ .main-bar > label > .up-icon {
-    transform: rotate(45deg) translateY(-6px);
-}
-
-.input-toggle-side-bar:checked ~ .main-bar > label > .down-icon {
-    transform: rotate(-45deg) translateY(6px);
-    transform-origin: bottom left;
-}
-
 @media (min-width: 769px) {
     .main-bar {
         display: none;

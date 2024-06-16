@@ -1,4 +1,4 @@
-import "../styles/Dividers.css"
+import "styles/Dividers.scss"
 
 export default function VerticalDivider ({ color, width }) {
   return (

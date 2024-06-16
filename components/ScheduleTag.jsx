@@ -1,9 +1,9 @@
 'use client'
 
-import "../styles/ScheduleTag.css"
+import "styles/ScheduleTag.scss"
 import { useContext } from "react"
-import { useSchedule } from "../hooks/useSchedule"
-import { MenuContext } from "../context/MenuContext"
+import { useSchedule } from "hooks/useSchedule"
+import { MenuContext } from "context/MenuContext"
 
 export default function ScheduleTag () {
 

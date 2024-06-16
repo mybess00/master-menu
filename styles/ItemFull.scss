@@ -1,3 +1,5 @@
+@import '/styles/global/variables.scss';
+
 .main-container-id  {
     display: flex;
     flex-wrap: nowrap;
@@ -8,18 +10,15 @@
     background-color: white;
     overflow: hidden;
 }
-
 .image-container-id  {
     width: 100%;
     position: relative;
     aspect-ratio: 4/3;
     display: flex;
 }
-
 .image-container-id > img {
     object-fit: cover;
 }
-
 .item-body-id  {
     display: flex;
     flex-direction: column;
@@ -27,7 +26,6 @@
     margin: .5rem .75rem;
     gap: .55rem;
 }
-
 .item-name-id  {
     display: flex;
     flex-wrap: wrap;
@@ -35,29 +33,28 @@
     align-items: center;
     justify-content: flex-start;
 }
-
 .item-name-id h1 {
     font-size: 1.25rem;
     margin-right: .5rem;
 }
-
 .category-link-id {
-    color: green;
     font-weight: bold;
+    color: $primary-600;
+    transition: all 150ms;
 }
-
+.category-link-id:hover {
+    color: $primary-700;
+}
 .item-description-id p {
     padding: .15rem .45rem;
     font-size: .90rem;
 }
-
 .item-options-id  {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     gap: .55rem;
 }
-
 .amount-options-id  {
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +63,6 @@
     justify-content: flex-end;
     gap: .5rem;
 }
-
 .amount-buttons-id  {
     display: flex;
     flex-wrap: nowrap;
@@ -74,7 +70,6 @@
     align-items: center;
     gap: .55rem;
 }
-
 .button-amount-id  {
     background-color: gray;
     color: white;
@@ -84,14 +79,11 @@
     border: none;
     cursor: pointer;
 }
-
 .total-price-id  {
     font-size: 1.15rem;
-    color: green;
     font-weight: bold;
     margin-top: .05rem;
 }
-
 .buy-options-id  {
     display: flex;
     flex-wrap: wrap;
@@ -99,21 +91,18 @@
     align-items: flex-end;
     gap: .5rem;
 }
-
 .btn-buy-id  {
     padding: .55rem 1.25rem;
-    background-color: rgb(25, 182, 59);
+    background-color: $primary;
     color: black;
     border-radius: .25rem;
     border: none;
     cursor: pointer;
 }
-
 .discount-id  {
     color: red;
     font-size: .9rem;
 }
-
 .badge-offer-id  {
     padding: .3rem .45rem;
     border-radius: .2rem;
@@ -121,38 +110,6 @@
     background-color: red;
     color: white;
 }
-
-.main-container-short {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    background-color: white;
-    border-radius: .75rem;
-    color: black;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 3.5px 5px 10px 0 rgb(0, 0, 0, 0.1);
-    min-width: 10rem;
-}
-
-.container-img-short {
-    aspect-ratio: 4/3;
-    position: relative;
-}
-
-.container-img-short > img {
-    object-fit: cover;
-}
-
-.info-short {
-    font-size: .85rem;
-    padding: .55rem .3rem;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: .3rem;
-}
-
 @media (min-width: 769px) {
     .main-container-id {
         height: fit-content;
@@ -173,9 +130,6 @@
     }
     .item-description-id h4 {
         font-size: 1.2rem;
-    }
-    .info-short {
-        font-size: 1rem;
     }
     .total-price-id {
         font-size: 1.35rem;

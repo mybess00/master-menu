@@ -1,3 +1,5 @@
+@import '/styles/global/variables.scss';
+
 .badge {
     margin-left: .5rem;
     padding: .3rem .45rem;
@@ -8,7 +10,7 @@
 
 .open {
     color: white;
-    background-color: green;
+    background-color: $primary;
 }
 
 .close {

@@ -1,6 +1,6 @@
 'use client'
 
-import "../../styles/ItemFull.css"
+import "../../styles/ItemFull.scss"
 import { useContext, useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { CartContext } from "../../context/CartContext"

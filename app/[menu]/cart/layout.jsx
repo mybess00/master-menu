@@ -1,6 +1,6 @@
-import "./style.css"
-import ButtonClose from "../../../components/ButtonClose"
-import TopBar from "../../../components/TopBar"
+import "./style.scss"
+import ButtonClose from "components/ButtonClose"
+import TopBar from "components/TopBar"
 
 export default function LayoutCart ({ children }) {
   return (

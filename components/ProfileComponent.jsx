@@ -1,8 +1,8 @@
-import "../styles/ProfileSection.css"
-import ProfileImage from "./profile/ProfileImage"
-import Tags from "./profile/Tags"
-import Description from "./profile/Description"
-import SocialMedia from "./profile/SocialMedia"
+import "styles/ProfileSection.scss"
+import ProfileImage from "components/profile/ProfileImage"
+import Tags from "components/profile/Tags"
+import Description from "components/profile/Description"
+import SocialMedia from "components/profile/SocialMedia"
 import logo from "../public/images/logo.jpg"
 
 export default function ProfileComponent ({ name, description, category, social }) {

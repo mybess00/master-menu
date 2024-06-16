@@ -1,7 +1,7 @@
 'use client'
-import "../styles/DesktopBar.css"
+import "/styles/CartButtonCounter.scss"
 import { useContext } from "react"
-import { CartContext } from "../context/CartContext"
+import { CartContext } from "/context/CartContext"
 import { FaCartShopping } from "react-icons/fa6"
 
 export default function CartButtonCounter () {

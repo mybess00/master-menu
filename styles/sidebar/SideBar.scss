@@ -1,0 +1,73 @@
+@import '/styles/global/variables.scss';
+
+.side-bar {
+    background-color: white;
+    width: 80%;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 55px;
+    z-index: 15;
+    transition: all 400ms;
+    transform: translateX(102%);
+    padding: 1.25rem .85rem;
+    display: none;
+}
+.background-side-bar{
+    position: fixed;
+    top: 55px;
+    right: 0;
+    background-color: rgba(48, 48, 48, 0.582);
+    width: 100vw;
+    height: 100vh;
+    z-index: 14;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 250ms;
+}
+.input-toggle-side-bar{
+    display: none;
+}
+.input-toggle-side-bar:checked ~ .side-bar{
+    transform: translate(0%);
+    display: block;
+}
+.input-toggle-side-bar:checked ~ .background-side-bar{
+    visibility: visible;
+    opacity: 1;
+}
+.input-toggle-side-bar:checked ~ .main-bar > label > .up-icon {
+    transform: rotate(45deg) translateY(-6px);
+}
+.input-toggle-side-bar:checked ~ .main-bar > label > .down-icon {
+    transform: rotate(-45deg) translateY(6px);
+    transform-origin: bottom left;
+}
+.input-toggle-side-bar:checked ~ .nav-container > label > .up-icon {
+    transform: rotate(45deg) translateY(-7px);
+}
+.input-toggle-side-bar:checked ~ .nav-container > label > .down-icon {
+    transform: rotate(-45deg) translateY(7px);
+    transform-origin: bottom left;
+}
+.button-filter {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem;
+    margin-top: 1rem;
+    background-color: $primary;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: .4rem;
+    font-size: 1rem;
+}
+.search-icon {
+    font-size: 1.3rem;
+    display: flex;
+}

@@ -1,3 +1,4 @@
+@import '/styles/global/variables.scss';
 .main-container-bottom-bar {
     position: fixed;
     bottom: 0;
@@ -26,7 +27,7 @@
 }
 
 .item-amount-bottom-bar {
-    background-color: rgb(25, 182, 59);
+    background-color: $primary;
     padding: .2rem .6rem;
     margin-right: .5rem;
     border-radius: 999px;
@@ -40,7 +41,7 @@
 .button-buy-bottom-bar {
     height: 100%;
     padding: 0 1.3rem;
-    background-color: rgb(25, 182, 59);
+    background-color: $primary;
     color: black;
     border: none;
     font-size: 1rem;

@@ -1,15 +1,15 @@
 'use client'
 
-import '../styles/Modal.css'
+import 'styles/Modal.scss'
 import { useState, useEffect, useContext, useReducer, useRef } from "react"
 import { useRouter, useParams } from 'next/navigation'
 import Image from "next/image"
 import Link from 'next/link'
 import ReactModal from "react-modal"
-import HorizontalDivider from "./HorizontalDivider"
-import { CartContext } from '../context/CartContext'
-import { ACTION_MODAL, INITIAL_MODAL_STATE, modalReducer } from '../reducers/modalReducer'
-import { ACTION_CART } from '../reducers/cartReducer'
+import HorizontalDivider from "components/HorizontalDivider"
+import { CartContext } from 'context/CartContext'
+import { ACTION_MODAL, INITIAL_MODAL_STATE, modalReducer } from 'reducers/modalReducer'
+import { ACTION_CART } from 'reducers/cartReducer'
 
 export default function Modal ({ item }) {
 

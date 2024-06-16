@@ -1,11 +1,11 @@
 'use client'
 
-import "./style.css"
+import "./style.scss"
 import { useContext } from "react"
-import { CartContext } from "../../../../context/CartContext"
-import { EditItemProvider } from "../../../../context/EditItemContext"
-import ItemEdit from "../../../../components/page-edit/ItemEdit"
-import AgregosList from "../../../../components/page-edit/AgregosList"
+import { CartContext } from "context/CartContext"
+import { EditItemProvider } from "context/EditItemContext"
+import ItemEdit from "components/page-edit/ItemEdit"
+import AgregosList from "components/page-edit/AgregosList"
 
 export default function ItemCartEditPage ({ params }) {
 

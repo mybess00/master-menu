@@ -1,6 +1,6 @@
 'use client'
 
-import "../../styles/ItemFull.css"
+import "styles/ItemFull.scss"
 import { useState, useEffect, useContext } from "react"
 import { useRouter } from "next/navigation"
 import { PageIdContext } from "../../context/PageIdContext"

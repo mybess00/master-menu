@@ -1,0 +1,32 @@
+.main-container-short {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: white;
+    border-radius: .75rem;
+    color: black;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 3.5px 5px 10px 0 rgb(0, 0, 0, 0.1);
+    min-width: 10rem;
+}
+.container-img-short {
+    aspect-ratio: 4/3;
+    position: relative;
+}
+.container-img-short > img {
+    object-fit: cover;
+}
+.info-short {
+    font-size: .85rem;
+    padding: .55rem .3rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: .3rem;
+}
+@media (min-width: 769px) {
+    .info-short {
+        font-size: 1rem;
+    }
+}
